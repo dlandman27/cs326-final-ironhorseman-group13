@@ -1,4 +1,4 @@
-# Team name: Iron Horseman
+# Team Name: Iron Horseman
 ### Application Name: Sorting Visualizer
 
 
@@ -21,9 +21,14 @@ application, we will be able to learn about the runtime of many sorting algorith
 - Selection Sort
 
 In order to see the speed of our algorithms we will be randomizing the pixels of the images and display in real time the speed it takes for the algorithm to 
-piece back our image. Sounds too good to be true? We think not. 
+piece back our image. 
+
+Sounds too good to be true? We think not. 
 
 ## Important Components
+### Features
+- Our program aims to teach the user about how sorting algorithms work. This will allow the user to not only be able to visualize the algorithm in running but see how it could be implemented in different languages.
+
 ### Image Creation
 - This function will design add a new canvas for which we are able to display the shuffled image
 
