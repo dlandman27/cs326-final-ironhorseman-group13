@@ -1,5 +1,5 @@
 # Team name: Iron Horseman
-
+### Application Name: Sorting Visualizer
 
 
 # Team Overview
