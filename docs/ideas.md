@@ -7,8 +7,8 @@
 ## Names/Usernames
 - dlandman27 - Dylan Landman
 - JaredStarman - Jared Starman
-- Username - Brandon Halig
-- Username - Jason Milhaven
+- brandonhalig - Brandon Halig
+- jasonmilhaven - Jason Milhaven
 
 ## Innovative Idea
 
