@@ -33,6 +33,6 @@ Different compnets will be as follows
 ### Different stored values
 -player money
 -cards
--dealing algorithm
+-dealing algorithm-makes sure that each card has an equal chance of dealing
 -opponets money
--opponet decision making algorithm
+-opponet decision making algorithm - will include different aptitudes. some opponets may bluff more, while others are easily made to fold with pressure
