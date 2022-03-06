@@ -12,28 +12,27 @@
 
 ## Innovative Idea
 
-On the internet, we are able to see applications that are able to take data and sort using several sorting algorithms. While
-this is a cool idea, we wanted to take this idea and bring it up a level. To do this we are adding a new factor: Images! With our
-application, we will be able to learn about the runtime of many sorting algorithms including but not limited to:
-- Bubble Sort
-- Quick Sort
-- Merge Sort
-- Selection Sort
+# cs326-final-ironhorseman-group13
+Name: RPG Casino Game
+TEAM NAME:Iron-Horsemen
+Members: dylanlandman, JaredStarman,BrandonHalig, JasonMillhaven
 
-In order to see the speed of our algorithms we will be randomizing the pixels of the images and display in real time the speed it takes for the algorithm to 
-piece back our image. 
-
-Sounds too good to be true? We think not. 
+Innovative idea: The RPG(Role Playing Game) Is a genre of video games where the player focuses on player a character, or role, and the game is framed around this centeral experience This has never really been applied to the casino and gambling video game genre, mainly due to there being real money involved. Our idea would give players in a more simulated and arcade enviornment to play poker, while winning hands gains skill points, which can be used to unlock abilities, such as pocketing an Ace, starting with more money, or bribing the dealer to guarentee a certain river card. As the player gains cash, they can play at riskier tables, until eventually facing the casino pit boss
 
 ## Important Components
 ### Features
-- Our program aims to teach the user about how sorting algorithms work. This will allow the user to not only be able to visualize the algorithm in running but see how it could be implemented in different languages.
+Different compnets will be as follows
 
 ### Image Creation
-- This function will design add a new canvas for which we are able to display the shuffled image
+- This function will design each card, as well has the HUD for the player such as different tables. it will also allow players to interact with their active abilites and view their passives
 
-### Sorting Algorithm
-- We will be implementing several sorting algorithms that will take in the pixels with a given value of locaiton as an input and return the value of these pixels in the correct order
+### Algorithms
+- We will be implementing a few classes, each with their own skill tree and potential opptions. It will also make sure each hand is fair(unless the dealer doesn't like you!)
+- This will also save the players current money as well as other aspects of the game
 
-### Display
-- In order to display the images as we go, we create a function that will take in an array outputted from a given sorting algorithm and display the iterations of the algorithm
+### Different stored values
+-player money
+-cards
+-dealing algorithm
+-opponets money
+-opponet decision making algorithm
