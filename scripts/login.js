@@ -10,7 +10,7 @@ function dropdown_images(){
         let random_image = images[Math.floor(Math.random() * images.length)];
         let dropdown_item = document.createElement("div");
         dropdown_item.innerHTML = code[images.indexOf(random_image)];
-        dropdown_item.style.color = colors[Math.floor(Math.random() * colors.length)];
+        (random_image === "hearts" || random_image === "diamonds")? dropdown_item.style.color = colors[0] : dropdown_item.style.color = colors[1];
         dropdown_item.style.position = "absolute";
         dropdown_item.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
         dropdown_item.style.fontSize = "100px";
