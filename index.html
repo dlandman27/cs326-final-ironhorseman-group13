@@ -6,40 +6,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS Links -->
         <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="styles/card.css">
+        <link rel="stylesheet" href="styles/login.css">
         <!-- Javascript Links -->
         <script src="scripts/jquery-3.2.1.min.js"></script>
-        <script src="scripts/main.js"></script>
-        <script defer src="scripts/card.js"></script>
+        <script defer src="scripts/login.js"></script>
     </head>
     <body>
-        <div id="background-grid"></div>
-        <div class="card" id="login_card">
+        <img id="rpg_poker_logo" src="images/RPG POKER LOGO.png" alt="background">
+        <center>
             <form id="login_form">
-                <h2>Login</h2>  
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Username">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password">
-                <input type="submit" value="Login">
+                <h2><b>Sign In</b></h2>  
+                <input type="text" id="username" name="username" placeholder="&#9819;  Username">
+                <input type="password" id="password" name="password" placeholder="&#9821; Password">
+                <button type="submit" value="Login">&#9817;<b> LOGIN</b></button>
+                <h4><b>Don't Have an Account?</b></h2> 
+                <button type="submit" value="Login">&#9814;<b> SIGN UP</b></button>
             </form>
-                <button>Forgot Passord?</button>
-                <p>Need an Account?</p>
-                <button id="signup_button">Sign Up</button>
-        </div>
 
-        <div class="card" id="signup_card">
             <form id="signup_form">
-                <h2>Signup</h2>  
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Username">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password">
-                <input type="submit" value="Login">
+                <h2><b>Get Started with Us</b></h2>  
+                <input type="text" id="username" name="username" placeholder="&#9819;  Username">
+                <input type="password" id="password" name="password" placeholder="&#9821; Password">
+                <button type="submit" value="Login">&#9817;<b> Sign Up</b></button>
+                <h4><b>Already Have an Account?</b></h2> 
+                <button type="submit" value="Login">&#9814;<b> Log In</b></button>
             </form>
-            <button>Forgot Passord?</button>
-                <p>Have an Account?</p>
-                <button id="login_button">Log In</button>
-        </div>
+        </center>    
     </body>
 </html>
