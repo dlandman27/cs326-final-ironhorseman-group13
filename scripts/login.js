@@ -25,3 +25,9 @@ function dropdown_images(){
 }
 
 dropdown_images();
+
+function invertScreen(){
+    let body = document.querySelector("body");
+    body.style.backgroundColor = "black";
+    body.style.color = "white";
+}
