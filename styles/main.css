@@ -1,3 +1,8 @@
+:root {
+    --charcoal: #0F0F0F;
+    --white: #ffffff;
+}
+
 body{
     overflow: hidden;
 } 
