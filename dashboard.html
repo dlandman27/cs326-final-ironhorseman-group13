@@ -5,6 +5,7 @@
     <script defer src="scripts/dashboard.js"></script>
 </html>
 <body>
+    <div id="main_container">
         <div class="grid-container">
             <div class="player_info_container">
                 <div class="avatar_card">
@@ -40,52 +41,56 @@
                 </div>
                 <!-- <div id="minimize_player_info_container_button"><p><</p></div> -->
             </div>
-            <div class="topbar_container">
-                <div class="tab_grid">
-                    <a>How To Play</a>
-                    <a>Leaderboards</a>
-                    <a>Daily Challenges</a>
-                    <a>My Cards</a>
-                    <div onclick="signout()" class="signout_button"><p>Sign Out</p></div>
-                    <div class="rpg_poker_logo"></div>
+            <div class="dashboard-container">
+                 <div class="topbar_container">
+                    <div class="tab_grid">
+                        <a>How To Play</a>
+                        <a>Leaderboards</a>
+                        <a>Daily Challenges</a>
+                        <a>My Cards</a>
+                        <div onclick="signout()" class="signout_button"><p>Sign Out</p></div>
+                        <div class="rpg_poker_logo"></div>
+                    </div> 
+       
                 </div>
-                
+                <div class="play-game-and-learboard-container">
+                    <div class="choose_table_container">
+                        <h1>Play Game</h1>
+                        <div class="table_level_card">
+                            <a href="gameBoard1.html">Go To Table 1</a>
+                        </div>
+                        <div class="table_level_card">
+                            <p>Table 2</p>
+                        </div>
+                    </div>
+                    <div class="scoreboard_container">
+                        <center><h1>Top Players of the Week</h1></center>
+                        <!-- <div class="scoreboard_player">
+                            <h2>1</h2>
+                            <div class="scoreboard_player_avatar"></div>
+                            <h2>Username</h2>
+                            <h2>+$999999</h2>
+                        </div>
+                        <div class="scoreboard_player">
+                            <h2>2</h2>
+                            <div class="scoreboard_player_avatar"></div>
+                            <h2>Username</h2>
+                            <h2>+$999999</h2>
+                        </div><div class="scoreboard_player">
+                            <h2>3</h2>
+                            <div class="scoreboard_player_avatar"></div>
+                            <h2>Username</h2>
+                            <h2>+$999999</h2>
+                        </div><div class="scoreboard_player">
+                            <h2>4</h2>
+                            <div class="scoreboard_player_avatar"></div>
+                            <h2>Username</h2>
+                            <h2>+$999999</h2>
+                        </div> -->
+                    </div>
+                </div>
             </div>
-            <div class="choose_table_container">
-                <div class="table_level_card">
-                    <a href="gameBoard1.html">Go To Table 1</a>
-                </div>
-                <div class="table_level_card">
-                    <p>Table 2</p>
-                </div>
-            </div>
-            <div class="scoreboard_container">
-                <h1>Top Players of the Week</h1>
-                <!-- <div class="scoreboard_player">
-                    <h2>1</h2>
-                    <div class="scoreboard_player_avatar"></div>
-                    <h2>Username</h2>
-                    <h2>+$999999</h2>
-                </div>
-                <div class="scoreboard_player">
-                    <h2>2</h2>
-                    <div class="scoreboard_player_avatar"></div>
-                    <h2>Username</h2>
-                    <h2>+$999999</h2>
-                </div><div class="scoreboard_player">
-                    <h2>3</h2>
-                    <div class="scoreboard_player_avatar"></div>
-                    <h2>Username</h2>
-                    <h2>+$999999</h2>
-                </div><div class="scoreboard_player">
-                    <h2>4</h2>
-                    <div class="scoreboard_player_avatar"></div>
-                    <h2>Username</h2>
-                    <h2>+$999999</h2>
-                </div> -->
-            </div>
+            
         </div>
-    
-    
-    
+    </div>
 </body>
