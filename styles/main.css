@@ -1,6 +1,8 @@
+@import url(bootstrap/bootstrap.css);
+
+
 :root {
     --charcoal: #0F0F0F;
-    --white: #ffffff;
 }
 
 body{
