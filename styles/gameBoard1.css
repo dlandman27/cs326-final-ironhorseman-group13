@@ -96,10 +96,6 @@ body{
     bottom: 20%;
 }
 
-#player-hand-container-inner {
-    
-}
-
 .player-card {
     position: absolute;
     transform: translate(-50%, -50%);
