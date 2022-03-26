@@ -1,0 +1,169 @@
+body{
+    background: url("../images/pngkey.com-poker-table-png-1899311_cpy.png");
+    background-color: tan;
+    Background-size:1600px;
+    inset: 0;
+    background-repeat : no-repeat;
+    background-position: 50% 50%;
+
+    font-family: 'Roboto', sans-serif;
+} 
+
+.cardBot1card1{
+    background-color:red;
+    position:absolute;
+    top:375px;
+    left:100px;
+    height:200px;
+    width: 100px;
+}
+
+.cardBot1card2{
+    background-color:red;
+    position: absolute;
+    top:375px;
+    left:220px;
+    height:200px;
+    width: 100px;
+}
+
+
+
+#ability-hotbar {
+    position: absolute;
+
+    display: inline-flex;
+    justify-content: center;
+    column-gap: 12px;
+
+    bottom: 6px;
+
+    /*margin-left: 50%;
+    margin-right: auto;*/
+    width: 100%;
+}
+
+.ability-button {
+    position: relative;
+    height: 48px;
+    width: 48px;
+
+    background-color: rgb(48, 48, 48);
+
+    border: 4px solid rgb(20, 95, 156);
+    border-radius: 12.5%;
+
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+}
+
+.ability-button:hover {
+    transform: translate(0, -20%);
+    border-color: green;
+}
+
+#player-name {
+    position: absolute;
+    top: 0%;
+    left: 1em;
+
+    font-weight: bold;
+    color: white;
+}
+
+#player-money {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    
+    font-weight: bold;
+    color: white;
+}
+
+
+#player-hand-container {
+    position: absolute;
+    width: 100%;
+
+    display: inline-flex;
+    justify-content: center;
+
+    bottom: 20%;
+}
+
+#player-hand-container-inner {
+    
+}
+
+.player-card {
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    height: 140px;
+    width: 100px;
+
+
+    background-color: rgb(164, 0, 0);
+
+    border: 2px solid rgb(24, 24, 24);
+    border-radius: 6.25%;
+
+    /*transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;*/
+
+    animation: test 0.8s ease-in-out infinite;
+    animation-play-state: paused;
+}
+
+.player-card:hover {
+    animation-play-state: running;
+}
+
+.player-card:not(:hover) {
+    border-color: rgb(24, 24, 24);
+
+    animation: stop_hover 1s linear infinite;
+}
+
+@keyframes stop_hover {
+    100% {
+        border-color: rgb(24, 24, 24);
+    }
+}
+
+@keyframes test {
+    0% {
+        border-color: rgb(24, 24, 24);
+    }
+  
+    50% {
+        border-color: green;
+    }
+
+    100%
+    {
+        border-color: rgb(24, 24, 24);
+    }
+}
+
+#ability-label {
+    position: absolute;
+
+    background-color: rgb(24, 24, 24);
+    width: 144px;
+    height: 48px;
+
+    border: 1px solid rgb(162, 162, 162);
+
+    opacity: 0;
+}
+
+#ability-label > p {
+    position: absolute;
+    word-wrap: wrap;
+    top: 0%;
+    margin-top: 0.25rem;
+
+    color: rgb(162, 162, 162);
+    text-align: center;
+}
