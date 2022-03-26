@@ -269,7 +269,31 @@ row:nth-child(2){
 
 .f1{
     border: #C6282B solid 3px;
+}
+
+.f1.selected{
+    border: #C6282B solid 3px;
     background-color: #C6282B;
+}
+
+.f2.selected{
+    border: #7929B8 solid 3px;
+    background-color: #7929B8;
+}
+
+.f3.selected{
+    border: #2938B8 solid 3px;
+    background-color: #2938B8;
+}
+
+.f4.selected{
+    border: #29B873 solid 3px;
+    background-color: #29B873;
+}
+
+.f5.selected{
+    border: #B5B829 solid 3px;
+    background-color: #B5B829;
 }
 
 .f1:hover{
@@ -318,11 +342,12 @@ row:nth-child(2){
 }
 
 .table-card{
-    background-color: antiquewhite;
+    background-color: #27313B;
     width: 250px;
     aspect-ratio: 2/1;
     display: inline-block;
     border-radius: 20px;
+    box-shadow: 0px 5px 4px 2px rgb(0 0 0 / 30%)
 }
 
 .table-card-container{
@@ -333,7 +358,7 @@ row:nth-child(2){
     margin-top: 30px;
     white-space: nowrap;
 }
-
+/* 
 .table-card:nth-child(1){
     background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
@@ -353,7 +378,7 @@ row:nth-child(2){
 
 .table-card:nth-child(5){
     background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-}
+} */
 ::-webkit-scrollbar {
     width: 2px;
     height: 10px;

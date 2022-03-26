@@ -1,14 +1,35 @@
-document.getElementById("minimize_player_info_container_button").addEventListener("click",function(){
-    if(document.getElementsByClassName("player_info_container")[0].classList.contains("minimized")){
-        document.getElementsByClassName("player_info_container")[0].classList.remove("minimized");
-    }
-    else{
-        document.getElementsByClassName("player_info_container")[0].classList.add("minimized");
-    }
-})
+// document.getElementById("minimize_player_info_container_button").addEventListener("click",function(){
+//     if(document.getElementsByClassName("player_info_container")[0].classList.contains("minimized")){
+//         document.getElementsByClassName("player_info_container")[0].classList.remove("minimized");
+//     }
+//     else{
+//         document.getElementsByClassName("player_info_container")[0].classList.add("minimized");
+//     }
+// })
 
 function signout(){
-    // Goback to login page
+    console.log("lksfdj;asf")
     window.location.href = "index.html";
-    // Clear local storage for user info
 }
+
+document.getElementById("signout-button").addEventListener("click",signout);
+
+document.getElementById("account-button").addEventListener("click",function(){
+    window.location.href = "account.html";
+});
+
+function clickFactionButton(){
+    const buttons = document.getElementsByClassName("faction-button");
+    for(let i = 0;i<buttons.length;i++){
+        buttons[i].addEventListener("click",function(){
+            for(let j = 0;j<buttons.length;j++){
+                buttons[j].classList.remove("selected");
+            }
+            this.classList.add("selected");
+            button_color = buttons[i].style.backgroundColor;
+            console.log(button_color)
+        });
+    }
+}
+
+clickFactionButton();
