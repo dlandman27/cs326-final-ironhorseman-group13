@@ -133,6 +133,11 @@
     background-image: url("../images/icons/white/user-white.png");
 }
 
+.icon-challenge{
+    background-image: url("../images/icons/white/challenge-white.png");
+}
+
+
 .icon-card{
     background-image: url("../images/icons/white/card-white.png");
 }
