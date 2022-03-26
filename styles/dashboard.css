@@ -22,7 +22,6 @@
 
 #main-dashboard{
     margin-left: 18rem;
-    background-color: black;
     top: 0;
     bottom: 0;
     display: block;
@@ -199,7 +198,7 @@ hr{
 }
 
 .dashboard-container{
-    border: red solid 2px;
+    /* border: red solid 2px; */
 }
 
 .dashboard-container > *{
@@ -208,18 +207,27 @@ hr{
     border-radius: 10px;
 }
 
-.choose-table-container{
+.choose-table-container, .leaderboard-container{
     padding: 10px;
     overflow: hidden;
     background: #1F2933;
 }
 
-.choose-table-container > h3{
+/* .leaderboard-container{
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+} */
+
+.choose-table-container, .leaderboard-container > h3{
     color: white;
     font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+row:nth-child(2){
+    height: 100px;
 }
 
 .choose-faction-container{
@@ -261,7 +269,7 @@ hr{
 
 .f1{
     border: #B82929 solid 3px;
-
+    background-color: #B82929;
 }
 
 .f1:hover{
@@ -311,11 +319,10 @@ hr{
 
 .table-card{
     background-color: antiquewhite;
-    width: 200px;
+    width: 250px;
     aspect-ratio: 2/1;
     display: inline-block;
     border-radius: 20px;
-
 }
 
 .table-card-container{
@@ -323,6 +330,7 @@ hr{
     gap: 20px;
     width: 100%;
     overflow: auto;
+    margin-top: 30px;
     white-space: nowrap;
 }
 
@@ -367,9 +375,8 @@ hr{
     background: #1F2933;
     padding: 10px;
     overflow: hidden;
-    aspect-ratio: 1/1;
-    max-width: 600px;
-    min-width: 300px;
+    height: 95%;
+    overflow: hidden;
 }
 
 .daily-challenge-container > .row{
@@ -379,6 +386,7 @@ hr{
 
 .challenge-cards-container{
     display: block;
+    overflow-y: scroll;
 }
 
 .challenge-cards-container > .row{
@@ -386,13 +394,12 @@ hr{
 }
 
 .challenge-card{
-    background-color: antiquewhite;
-    width: 40%;
-    aspect-ratio: 1/1;
+    background-color: #27313B;
+    width: 100%;
+    min-width: 100px;
     display: inline-block;
     border-radius: 10px;
     margin-top: 10px;
-    margin-left: 10px;
 }
 
 .flexbox{
@@ -400,6 +407,118 @@ hr{
     align-items: center;
     height: 20px;
 }
+
+.placement-container{
+
+}
+
+.standing{
+    width: 100%;
+    height: 35px;
+    background-color: #27313B;
+    border-radius: 100px;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.standing-placement{
+    width: 35px;
+    height: 100%;
+    border-radius: 100px;
+    background-color: white;
+}
+
+.leaderboard-player-name{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.leaderboard-player-level{
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin-top: 5px;
+}
+
+.leaderboard-winnings{
+    margin-left: auto;
+    background-color: #58B82B;
+    height: 70%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100px;
+    margin-top: 8px;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.leaderboard-placement{
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
+    margin-left: auto;
+    margin-right: 10px;
+    width: 28px;
+    height: 28px;
+    right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100px;
+    margin-top: 8px;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.leaderboard-placement.first{
+    background-color: #827500;
+}
+
+.leaderboard-placement.second{
+    background-color: #8E8E8E;
+}
+
+.leaderboard-placement.third{
+    background-color: #825600;
+}
+
+.social-container{
+    padding: 10px;
+    overflow: hidden;
+    background-color: #1F2933;
+    height: 100%;
+}
+
+.social-container > h3{
+    color: white;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
