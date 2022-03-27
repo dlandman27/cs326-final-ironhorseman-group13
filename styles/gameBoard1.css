@@ -27,40 +27,29 @@ body {
 
 
 /*Card 1 bot*/
-.textBot1Name{
-    background-color:White;
-    position: absolute;
+#textBot1Name{
     top:375px;
     left:100px;
 }
-.textBot1Money{
-    background-color:White;
-    position: absolute;
+
+#textBot1Money{
     top:400px;
     left:100px;
 }
-.textBot1BetName{
-    background-color:White;
-    position: absolute;
+
+#textBot1BetName{
     top:375px;
     left:220px;
 }
-.textBot1CurrBet{
-    background-color:White;
-    position: absolute;
+
+#textBot1CurrBet{
     top:400px;
     left:220px;
 }
-.cardBot1card1{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
+
+#cardBot1card1{
     top:425px;
     left:100px;
-    height:140px;
-
-    width: 100px;
 }
 
 #ability-hotbar {
@@ -195,206 +184,132 @@ body {
     text-align: center;
 }
 
-.cardBot1card2{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
+#cardBot1card2{
     top:425px;
     left:220px;
-    height:140px;
-    width: 100px;
 }
+
+.cardText {
+    background-color:White;
+    position: absolute;
+}
+
 /*Card bot 2*/
-.textBot2Name{
-    background-color:White;
-    position: absolute;
+#textBot2Name{
     top:650px;
     left:400px;
-}
-.textBot2Money{
-    background-color:White;
-    position: absolute;
-    top:675px;
-    left:400px;
-}
-.textBot2BetName{
-    background-color:White;
-    position: absolute;
-    top:650px;
-    left:520px;
-}
-.textBot2CurrBet{
-    background-color:White;
-    position: absolute;
-    top:675px;
-    left:520px;
-}
-.cardBot2card1{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
-    top:700px;
-    left:400px;
-    height:140px;
-    width: 100px;
 }
 
-.cardBot2card2{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
+#textBot2Money{
+    top:675px;
+    left:400px;
+}
+
+#textBot2BetName{
+    top:650px;
+    left:520px;
+}
+
+#textBot2CurrBet{
+    top:675px;
+    left:520px;
+}
+
+#cardBot2card1{
+    top:700px;
+    left:400px;
+}
+
+#cardBot2card2{
     top:700px;
     left:520px;
-    height:140px;
-    width: 100px;
 }
+
 /*Card Bot 3*/
-.textBot3Name{
-    background-color:White;
-    position: absolute;
+#textBot3Name{
     top:650px;
     left:1200px;
-}
-.textBot3Money{
-    background-color:White;
-    position: absolute;
-    top:675px;
-    left:1200px;
-}
-.textBot3BetName{
-    background-color:White;
-    position: absolute;
-    top:650px;
-    left:1320px;
-}
-.textBot3CurrBet{
-    background-color:White;
-    position: absolute;
-    top:675px;
-    left:1320px;
-}
-.cardBot3card1{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
-    top:700px;
-    left:1200px;
-    height:140px;
-    width: 100px;
 }
 
-.cardBot3card2{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
+#textBot3Money{
+    top:675px;
+    left:1200px;
+}
+
+#textBot3BetName{
+    top:650px;
+    left:1320px;
+}
+
+#textBot3CurrBet{
+    top:675px;
+    left:1320px;
+}
+
+#cardBot3card1{
+    top:700px;
+    left:1200px;
+}
+
+#cardBot3card2{
     top:700px;
     left:1320px;
-    height:140px;
-    width: 100px;
 }
+
 /*Card bot 4*/
-.textBot4Name{
-    background-color:White;
-    position: absolute;
+#textBot4Name{
     top:375px;
     left:1600px;
-}
-.textBot4Money{
-    background-color:White;
-    position: absolute;
-    top:400px;
-    left:1600px;
-}
-.textBot4BetName{
-    background-color:White;
-    position: absolute;
-    top:375px;
-    left:1720px;
-}
-.textBot4CurrBet{
-    background-color:White;
-    position: absolute;
-    top:400px;
-    left:1720px;
-}
-.cardBot4card1{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
-    top:425px;
-    left:1600px;
-    height:140px;
-    width: 100px;
 }
 
-.cardBot4card2{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
+#textBot4Money{
+    top:400px;
+    left:1600px;
+}
+
+#textBot4BetName{
+    top:375px;
+    left:1720px;
+}
+
+#textBot4CurrBet{
+    top:400px;
+    left:1720px;
+}
+
+#cardBot4card1 {
+    top:425px;
+    left:1600px;
+}
+
+#cardBot4card2{
     top:425px;
     left:1720px;
-    height:140px;
-    width: 100px;
 }
 
 /*Centre Cards*/
 
-.cardFlop1{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
+#cardFlop1{
     top:425px;
     left:600px;
-    height:140px;
-    width: 100px;
 }
 
-.cardFlop2{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
+#cardFlop2{
     top:425px;
     left:750px;
-    height:140px;
-    width: 100px;
-}
-.cardFlop3{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
-    top:425px;
-    left:900px;
-    height:140px;
-    width: 100px;
 }
 
-.cardTurn{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
+#cardFlop3{
+    top:425px;
+    left:900px;
+}
+
+#cardTurn{
     top:425px;
     left:1050px;
-    height:140px;
-    width: 100px;
 }
-.cardRiver{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: 140px;
-    background-position: center;
-    position:absolute;
+
+#cardRiver{
     top:425px;
     left:1200px;
-    height:140px;
-    width: 100px;
 }
