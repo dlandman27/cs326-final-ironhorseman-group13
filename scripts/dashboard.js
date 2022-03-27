@@ -19,7 +19,7 @@ document.getElementById("account-button").addEventListener("click",function(){
 });
 
 function clickFactionButton(){
-    const buttons = document.getElementsByClassName("faction-button");
+    const buttons = document.getElementsByClassName("faction-logo");
     for(let i = 0;i<buttons.length;i++){
         buttons[i].addEventListener("click",function(){
             for(let j = 0;j<buttons.length;j++){
