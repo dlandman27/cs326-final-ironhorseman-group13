@@ -17,10 +17,10 @@
 -Jason Milhaven - Player interface, controls
 
 ## Team Member Milestone 1 Contribution(s)
--Dylan Landman - created the wireframes, and well as the HTML/CSS/JS for Dashboard, Signup, and Home pages
+-Dylan Landman - created the wireframes, and well as the entirety of the HTML/CSS/JS for Dashboard, Signup, and Home pages.
 -Jared Starman - created the initial game board page, card layout, and textures for cards
--Brandon Halig - add stuff here Brandon
--Jason Milhaven - created and animated the CSS/JS for the player's "hand" on the game board, as well as the ability hotbar
+-Brandon Halig -  setup the design for the backend
+-Jason Milhaven - created and animated the CSS/JS for the player's "hand" and the ability hotbar on the game board page
 
 ## ScreenShots
 screenshots are in the docs/screenshots folder
