@@ -245,8 +245,8 @@ row:nth-child(2){
 .faction-button-container{
     flex-direction: row;
     width: 100%;
-    overflow: auto;
     white-space: nowrap;
+    overflow-y: hidden;
 }
 
 .faction-button{
@@ -267,11 +267,14 @@ row:nth-child(2){
 }
 
 .f1{
-    border: #C6282B solid 3px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%); 
+    /* border: #C6282B solid 3px; */
 }
 
+/* 
 .f1.selected{
-    border: #C6282B solid 3px;
+    border: #C6282B solid 10px;
     background-color: #C6282B;
 }
 
@@ -293,15 +296,16 @@ row:nth-child(2){
 .f5.selected{
     border: #B5B829 solid 3px;
     background-color: #B5B829;
-}
+} */
 
-.f1:hover{
-    background-color: #B82929;
+.f1:hover {
+    background-color: #FBAB7E;
     transition: all 0.2s ease-in-out;
 }
 
 .f2{
-    border: #7929B8 solid 3px;
+    background-color: #3bb78f;
+    background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
 }
 
 .f2:hover, .f2:focus{
@@ -309,7 +313,8 @@ row:nth-child(2){
 }
 
 .f3{
-    border: #2938B8 solid 3px;
+    background-color: #045de9;
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
 }
 
 .f3:hover{
@@ -318,7 +323,7 @@ row:nth-child(2){
 }
 
 .f4{
-    border: #29B873 solid 3px;
+    background: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
 }
 
 .f4:hover{
@@ -613,4 +618,65 @@ row:nth-child(2){
     border-radius: 10px;
     text-align: left;
     padding: 5px;
+}
+
+.faction-member-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.faction-member-container > p{
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.faction-logo{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 5px 4px 2px rgb(0 0 0 / 50%)
+}
+
+.logo{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: black;
+}
+
+.logo.sneak{
+    background: url('../images/icons/white/sneak-white.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+
+.logo.multiplier{
+    background: url('../images/icons/white/multiplier-white.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+
+.logo.reverse{
+    background: url('../images/icons/white/reverse-white.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+
+.logo.mule{
+    background: url('../images/icons/white/3-times-white.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 40px;
 }
