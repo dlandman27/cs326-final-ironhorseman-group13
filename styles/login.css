@@ -28,6 +28,10 @@ body{
 
 form{
     margin: auto;
+	
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }  
 
 .form_container{
@@ -52,6 +56,9 @@ form > input,button{
     padding-left: 10px;
     max-width: 300px;
     font-family: 'Roboto', sans-serif;
+	
+	margin-left: auto;
+	margin-right: auto;
 }
 
 form > h2{
