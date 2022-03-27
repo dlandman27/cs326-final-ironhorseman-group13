@@ -16,5 +16,15 @@
 -Brandon Halig - Main game backend
 -Jason Milhaven - Player interface, controls
 
+## Team Member Milestone 1 Contribution(s)
+-Dylan Landman - created the wireframes, and well as the entirety of the HTML/CSS/JS for Dashboard, Signup, and Home pages.
+-Jared Starman - created the initial game board page, card layout, and textures for cards
+-Brandon Halig -  setup the design for the backend
+-Jason Milhaven - created and animated the CSS/JS for the player's "hand" and the ability hotbar on the game board page
+
 ## ScreenShots
--look in images Grader thanks!
+screenshots are in the docs/screenshots folder
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/dashboard.jpg)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/gameBoard1.png)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/index.jpg)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/signup.jpg)
