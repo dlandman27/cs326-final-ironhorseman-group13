@@ -59,3 +59,25 @@ document.getElementById("table4-card").addEventListener("click",function(){
 document.getElementById("table5-card").addEventListener("click",function(){
     window.location.href = "gameBoard5.html";
 });
+
+function minimize(){
+    const navbar = document.getElementsByClassName("navbar")[0];
+    const avatar_image = document.getElementsByClassName("avatar-image")[0];
+    const main_dashboard = document.getElementById("main-dashboard");
+    main_dashboard.style.height = parseInt(window.innerHeight)+"px";
+    console.log()
+    if(window.innerWidth < 900){
+        navbar.classList.add("minimized");
+        avatar_image.classList.add("minimized");
+        main_dashboard.classList.add("minimized");
+    }
+    else{
+        navbar.classList.remove("minimized");
+        avatar_image.classList.remove("minimized");
+        main_dashboard.classList.remove("minimized");
+    }
+    
+}
+
+window.onresize = minimize;
+window.onload = minimize;
