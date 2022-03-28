@@ -33,3 +33,29 @@ function clickFactionButton(){
 }
 
 clickFactionButton();
+
+// goto table 1
+document.getElementById("table1-card").addEventListener("click",function(){
+    
+    window.location.href = "gameBoard1.html";
+});
+
+// goto table 2
+document.getElementById("table2-card").addEventListener("click",function(){
+    window.location.href = "gameBoard2.html";
+});
+
+// goto table 3
+document.getElementById("table3-card").addEventListener("click",function(){
+    window.location.href = "gameBoard3.html";
+});
+
+// goto table 4
+document.getElementById("table4-card").addEventListener("click",function(){
+    window.location.href = "gameBoard4.html";
+});
+
+// goto table 3
+document.getElementById("table5-card").addEventListener("click",function(){
+    window.location.href = "gameBoard5.html";
+});
