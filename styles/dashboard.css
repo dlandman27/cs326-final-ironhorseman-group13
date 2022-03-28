@@ -43,6 +43,8 @@
     margin: auto;
     display: block;
     background-color: #8b939a;
+    background: url("../images/template-design.png");
+    background-size: cover;
 }
 
 
@@ -531,6 +533,8 @@ row:nth-child(2){
     height: 100%;
     border-radius: 100px;
     background-color: white;
+    background: url("../images/template-design.png");
+    background-size: cover;
 }
 
 .leaderboard-player-name{
@@ -654,6 +658,8 @@ row:nth-child(2){
     height: 35px;
     border-radius: 100px;
     background-color: white;
+    background: url("../images/template-design.png");
+    background-size: cover;
 }
 
 .message{
