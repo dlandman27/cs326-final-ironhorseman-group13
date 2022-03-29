@@ -1,3 +1,14 @@
+/* //////////////////////////////////////////// */
+
+/* 
+    File Name: login.css
+    File Use: This file is used to provide styling for the login page.
+    Used in: index.html (Login Page)
+*/
+
+/* //////////////////////////////////////////// */
+
+
 body{
     background: url("../images/AdobeStock_276297089.jpeg");
     background-size: 1600px;
@@ -16,6 +27,9 @@ body{
     max-width: 500px;
 }
 
+/* //////////////////////////////////////////// */
+/* Animation for Falling Elements(Used in login.js) */
+/* //////////////////////////////////////////// */
 @keyframes move_suite_to_bottom {
     0%{
         top: -10%;
@@ -25,6 +39,10 @@ body{
         top: 100%;
     }
 }
+
+/* //////////////////////////////////////////// */
+/* Elements inside of the Login Form Container */
+/* //////////////////////////////////////////// */
 
 form{
     margin: auto;
