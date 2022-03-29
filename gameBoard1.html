@@ -9,71 +9,76 @@
 		<script src="./scripts/gameBoard.js" type="module"></script>
     </head>
     <body>
-        <p id="player-name">PLAYER_NAME</p>
-        <p id="player-money">100.00</p>
-        
-        <div id="ability-hotbar">
-            <div class="ability-button">
+        <div class="board">
+            <p id="player-name">PLAYER_NAME</p>
+            <p id="player-money">100.00</p>
+            
+            <div id="ability-hotbar">
+                <div class="ability-button">
+                </div>
+                <div class="ability-button">
+                </div>
+                <div class="ability-button">
+                </div>
             </div>
-            <div class="ability-button">
+
+            <!--<div id="player-hand-container">
+                <div id="player-hand-container-inner">
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                </div>
+            </div>-->
+
+            <div class = "deck"></div>   
+
+            <div class="bot_1_and_bot_4_container">
+                <div class="bot-1-container">
+                    <!-- <div id = "textBot1Money" class="cardText">$4000</div>    -->  
+                    <div id="cardBot1card1" class="card"><div id ="textBot1Name" class="cardText">Bot 1<br>$4000</div> </div>
+                    <div id="cardBot1card2" class="card"><div id = "textBot1BetName" class="cardText">Current Bet<br>$3000</div></div> 
+                </div>
+                <div class="bot-4-container">
+                    <div id="cardBot4card1" class="card"><div id = "textBot4Name" class="cardText">Bot 4<br>$4</div></div>
+                    <div id="cardBot4card2" class="card"><div id = "textBot4BetName" class="cardText">Current Bet<br>$3</div></div>
+                </div>
             </div>
-            <div class="ability-button">
+            
+            
+
+            <div id = "textBot2Name" class="cardText">Bot 2</div>   
+            <div id = "textBot2Money" class="cardText">$400</div>
+            <div id = "textBot2BetName" class="cardText">Current Bet</div>  
+            <div id = "textBot2CurrBet" class="cardText">$300</div>
+            <div id="cardBot2card1" class="card"></div>
+            <div id="cardBot2card2" class="card"></div>
+
+            <div id = "textBot3Name" class="cardText">Bot 3</div>   
+            <div id = "textBot3Money" class="cardText">$40</div>
+            <div id = "textBot3BetName" class="cardText">Current Bet</div>  
+            <div id = "textBot3CurrBet" class="cardText">$30</div>
+
+            <div id="cardBot3card1" class="card"></div>
+            <div id="cardBot3card2" class="card"></div>
+            <!-- centre cards-->
+
+            <div class="flop-container">
+                <div id="cardFlop1" class="flop-card"></div>
+                <div id="cardFlop2" class="flop-card"></div>
+                <div id="cardFlop3" class="flop-card"></div>
+                <div id="cardTurn" class="flop-card"></div>
+                <div id="cardRiver" class="flop-card"></div>
             </div>
-        </div>
+            
 
-        <!--<div id="player-hand-container">
-            <div id="player-hand-container-inner">
-                <div class="player-card"></div>
-                <div class="player-card"></div>
-                <div class="player-card"></div>
-                <div class="player-card"></div>
-                <div class="player-card"></div>
+            <div id="player-card-1" class="card player-card"></div>
+            <div id="player-card-2" class="card player-card"></div>
+
+            <div id="ability-label">
+                <p>sample ability description</p>
             </div>
-        </div>-->
-
-        <div class = "deck"></div>   
-
-        <div id ="textBot1Name" class="cardText">Bot 1</div>   
-        <div id = "textBot1Money" class="cardText">$4000</div>   
-        <div id = "textBot1BetName" class="cardText">Current Bet</div>  
-        <div id = "textBot1CurrBet" class="cardText">$3000</div>  
-        <div id="cardBot1card1" class="card"></div>
-        <div id="cardBot1card2" class="card"></div>
-
-        <div id = "textBot2Name" class="cardText">Bot 2</div>   
-        <div id = "textBot2Money" class="cardText">$400</div>
-        <div id = "textBot2BetName" class="cardText">Current Bet</div>  
-        <div id = "textBot2CurrBet" class="cardText">$300</div>
-        <div id="cardBot2card1" class="card"></div>
-        <div id="cardBot2card2" class="card"></div>
-
-        <div id = "textBot3Name" class="cardText">Bot 3</div>   
-        <div id = "textBot3Money" class="cardText">$40</div>
-        <div id = "textBot3BetName" class="cardText">Current Bet</div>  
-        <div id = "textBot3CurrBet" class="cardText">$30</div>
-
-        <div id="cardBot3card1" class="card"></div>
-        <div id="cardBot3card2" class="card"></div>
-
-        <div id = "textBot4Name" class="cardText">Bot 4</div>   
-        <div id = "textBot4Money" class="cardText">$4</div>
-        <div id = "textBot4BetName" class="cardText">Current Bet</div>  
-        <div id = "textBot4CurrBet" class="cardText">$3</div>
-
-        <div id="cardBot4card1" class="card"></div>
-        <div id="cardBot4card2" class="card"></div>
-        <!-- centre cards-->
-        <div id="cardFlop1" class="card"></div>
-        <div id="cardFlop2" class="card"></div>
-        <div id="cardFlop3" class="card"></div>
-        <div id="cardTurn" class="card"></div>
-        <div id="cardRiver" class="card"></div>
-
-        <div id="player-card-1" class="card player-card"></div>
-        <div id="player-card-2" class="card player-card"></div>
-
-        <div id="ability-label">
-            <p>sample ability description</p>
         </div>
     </body>
 </html>

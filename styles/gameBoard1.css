@@ -1,16 +1,16 @@
 body {
-    background: url("../images/poker_board_2.png");
-    background-color: rgb(224, 224, 224);
-    
-    /*background: url("../images/pngkey.com-poker-table-png-1899311_cpy.png");
-    background-color: tan;*/
+    margin: auto;
+}
 
-    Background-size:1600px;
-    inset: 0;
+.board{
+    width: 100vw;
+    height: 100vh;
+    background-color: #27313B;
+    background: url("../images/poker_board_2.png");
+    background-size: cover;
     background-repeat : no-repeat;
     background-position: 50% 50%;
-
-    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 }
 
 /*Central deck*/
@@ -28,8 +28,9 @@ body {
 
 /*Card 1 bot*/
 #textBot1Name{
-    top:375px;
-    left:100px;
+    top: -10px;
+    /* top:375px;
+    left:100px; */
 }
 
 #textBot1Money{
@@ -38,8 +39,9 @@ body {
 }
 
 #textBot1BetName{
-    top:375px;
-    left:220px;
+    top: -10px;
+    /* top:375px;
+    left:220px; */
 }
 
 #textBot1CurrBet{
@@ -111,8 +113,15 @@ body {
     background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
     background-size: 140px;
     background-position: center;
-    
     position: absolute;
+    height: 140px;
+    width: 100px;
+}
+
+.flop-card{
+    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
+    background-size: 140px;
+    background-position: center;    
     height: 140px;
     width: 100px;
 }
@@ -258,8 +267,7 @@ body {
 
 /*Card bot 4*/
 #textBot4Name{
-    top:375px;
-    left:1600px;
+    top: -10px;
 }
 
 #textBot4Money{
@@ -268,8 +276,7 @@ body {
 }
 
 #textBot4BetName{
-    top:375px;
-    left:1720px;
+    top: -10px;
 }
 
 #textBot4CurrBet{
@@ -312,4 +319,59 @@ body {
 #cardRiver{
     top:425px;
     left:1200px;
+}
+
+.flop-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    grid-template-columns: repeat(5 , 1fr);
+    column-gap: 40px;
+}
+
+.flop-container > .card{
+}
+
+.bot_1_and_bot_4_container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 95%;
+    height: 199px;
+    display: grid;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+}
+
+.bot-1-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.bot-1-container > .card{
+    position: static;
+    top: 0;
+    left: 0;
+}
+
+.bot-4-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bot-4-container > .card{
+    position: static;
+    top: 0;
+    left: 0;
 }
