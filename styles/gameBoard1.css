@@ -19,35 +19,15 @@ body {
     background-size: cover;
     background-position: center;
     position: absolute;
-    top:200px;
-    left:700px;
+    left: 50%;
+    top: 50%;
     height: 140px;
     width:100px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    transform: translate(-150%, -145%);
 }
 
-
-/*Card 1 bot*/
-#textBot1Name{
-    top: -10px;
-    /* top:375px;
-    left:100px; */
-}
-
-#textBot1Money{
-    top:400px;
-    left:100px;
-}
-
-#textBot1BetName{
-    top: -10px;
-    /* top:375px;
-    left:220px; */
-}
-
-#textBot1CurrBet{
-    top:400px;
-    left:220px;
-}
 
 #cardBot1card1{
     top:425px;
@@ -114,7 +94,6 @@ body {
     background-size: cover;
     border-radius: 10px;
     background-position: center;
-    position: absolute;
     height: 140px;
     width: 100px;
 }
@@ -195,108 +174,10 @@ body {
     text-align: center;
 }
 
-#cardBot1card2{
-    top:425px;
-    left:220px;
-}
-
 .cardText {
     background-color:White;
     position: absolute;
 }
-
-/*Card bot 2*/
-#textBot2Name{
-    top:650px;
-    left:400px;
-}
-
-#textBot2Money{
-    top:675px;
-    left:400px;
-}
-
-#textBot2BetName{
-    top:650px;
-    left:520px;
-}
-
-#textBot2CurrBet{
-    top:675px;
-    left:520px;
-}
-
-#cardBot2card1{
-    top:700px;
-    left:400px;
-}
-
-#cardBot2card2{
-    top:700px;
-    left:520px;
-}
-
-/*Card Bot 3*/
-#textBot3Name{
-    top:650px;
-    left:1200px;
-}
-
-#textBot3Money{
-    top:675px;
-    left:1200px;
-}
-
-#textBot3BetName{
-    top:650px;
-    left:1320px;
-}
-
-#textBot3CurrBet{
-    top:675px;
-    left:1320px;
-}
-
-#cardBot3card1{
-    top:700px;
-    left:1200px;
-}
-
-#cardBot3card2{
-    top:700px;
-    left:1320px;
-}
-
-/*Card bot 4*/
-#textBot4Name{
-    top: -10px;
-}
-
-#textBot4Money{
-    top:400px;
-    left:1600px;
-}
-
-#textBot4BetName{
-    top: -10px;
-}
-
-#textBot4CurrBet{
-    top:400px;
-    left:1720px;
-}
-
-#cardBot4card1 {
-    top:425px;
-    left:1600px;
-}
-
-#cardBot4card2{
-    top:425px;
-    left:1720px;
-}
-
-/*Centre Cards*/
 
 #cardFlop1{
     top:425px;
@@ -376,4 +257,73 @@ body {
     position: static;
     top: 0;
     left: 0;
+}
+
+.flipped{
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+}
+
+.face{
+    position: absolute;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card_back{
+    background-image: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
+    background-size: cover;
+    display: block;
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.card_front{
+    background-image: url("../images/ace-hearts.png");
+    background-size: cover;
+}
+
+.bottom_decks_container{
+    position: absolute;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    column-gap: 116px;
+    width: 100%;
+    height: 100px;
+    bottom: 50px;
+}
+
+.bot-2-container{
+    width: 190px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.user-cards-container{
+    width: 190px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bot-3-container{
+    width: 190px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
 }

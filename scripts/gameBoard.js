@@ -1,17 +1,17 @@
 
 console.log("test");
 
-function refresh_localplayer_hand() {
-    const cards = document.getElementById("player-hand-container-inner");
-    for (let i = 0; i < cards.childElementCount; i++) {
-        const child = cards.children[i];
+// function refresh_localplayer_hand() {
+//     const cards = document.getElementById("player-hand-container-inner");
+//     for (let i = 0; i < cards.childElementCount; i++) {
+//         const child = cards.children[i];
 
-        const rot = i * 12.25 - 25;
-        child.style["transform"] = "translate(-50%, -50%) rotate(" + rot + "deg)";
-        child.style["margin-left"] = i * 25 - (cards.childElementCount * 10);
-        child.style["margin-top"] = i * 4;
-    }
-}
+//         const rot = i * 12.25 - 25;
+//         child.style["transform"] = "translate(-50%, -50%) rotate(" + rot + "deg)";
+//         child.style["margin-left"] = i * 25 - (cards.childElementCount * 10);
+//         child.style["margin-top"] = i * 4;
+//     }
+// }
 
 for (const abilityButton of document.getElementsByClassName("ability-button")) {
     abilityButton.addEventListener("mouseover", () => {
@@ -27,4 +27,19 @@ for (const abilityButton of document.getElementsByClassName("ability-button")) {
     });
 }
 
-refresh_localplayer_hand();
+// refresh_localplayer_hand();
+
+// function flip_card(card) {
+//     card.classList.add("flipped");
+// }
+
+// document.getElementsByClassName("deck")[0].addEventListener("click", () => {
+//     const deck = document.getElementsByClassName("deck")[0];
+//     if(deck.classList.contains("flipped")){
+//         deck.classList.remove("flipped");
+//     }
+//     else{
+//         flip_card(deck);
+//     }
+    
+// });
