@@ -1,6 +1,3 @@
-// JS USED IN THE LOGIN/SIGNUP PAGE
-
-
 // Randomly generates hearts club diamonds and spades
 function dropdown_images(){
     const dropdown = setInterval(function(){
@@ -26,19 +23,21 @@ function dropdown_images(){
 
 dropdown_images();
 
-document.getElementById("login_form").addEventListener("submit",function(e) {
+document.getElementById("signup_form").addEventListener("submit",function(e) {
     e.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-
-    let localStorage = window.localStorage;
-    if(username === "" || password === ""){
-
+    const confirm_password = document.getElementById("password_confirm").value;
+    const local_storage = window.localStorage;
+    if(password !== confirm_password){
+        alert("Passwords do not match");
     }
-    else if(localStorage.getItem(username) === password){
-        window.location.href = "dashboard.html";
+    else if(localStorage.getItem(username) !== null){
+        alert("Username already exists");
     }
     else{
-        alert("Incorrect username or password");
+        localStorage.setItem(username,password);
+        alert("Account created");
+        window.location.href = "index.html";
     }
 });
