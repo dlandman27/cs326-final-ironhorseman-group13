@@ -24,7 +24,17 @@
     transition: width 4.4s ease-out;
 }
 
-
+.rpg-poker-logo{
+    background-image: url("../images/rpg-poker-logo.png");
+    background-size: 100%;
+    margin: auto;
+    aspect-ratio: 1/1;
+    background-repeat: no-repeat;
+    display: block;
+    background-position: 50%;
+    width: 30%;
+    user-select: none;
+}
 
 .border-radius-xl{
     border-radius: 20px;
@@ -48,6 +58,7 @@
 
 .avatar-container{
     margin: auto;
+    margin-top: 20px;
     display: block;
 }
 
@@ -153,6 +164,10 @@
 
 .icon-challenge{
     background-image: url("../images/icons/white/challenge-white.png");
+}
+
+.icon-home{
+    background-image: url("../images/icons/white/home-white.png");
 }
 
 
@@ -526,8 +541,13 @@ row:nth-child(2){
     height: 20px;
 }
 
-.placement-container{
-
+.standings-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 .standing{
@@ -625,7 +645,6 @@ row:nth-child(2){
 
 .main-section-container{
     box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.4);
-    overflow-y: scroll;
 }
 
 .main-section-container:hover{
@@ -820,4 +839,24 @@ li > h5{
     margin-left: 94px;
     transition: all 1.0s ease-in-out;
     overflow-y: scroll;
+}
+
+.fullscreen{
+    position: absolute;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    margin-top: 0;
+}
+
+.hidden{
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.row.hidden{
+    display: none;
 }

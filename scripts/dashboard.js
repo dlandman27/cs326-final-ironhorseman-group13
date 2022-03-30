@@ -81,3 +81,56 @@ function minimize(){
 
 window.onresize = minimize;
 window.onload = minimize;
+
+document.getElementsByClassName("leaderboard-container")[0].addEventListener("click",function(){
+    const leaderboard_container = document.getElementsByClassName("leaderboard-container")[0];
+    const containers = document.getElementsByClassName("main-section-container");
+    if(leaderboard_container.classList.contains("fullscreen")){
+        for(let i = 0;i<containers.length;i++){
+            if(!containers[i].classList.contains("leaderboard-container")){
+                containers[i].classList.remove("hidden");
+            }
+        }
+        const top_row = document.getElementById("top-row");
+        top_row.classList.remove("hidden");
+        leaderboard_container.classList.remove("fullscreen");
+    }
+    else{
+        for(let i = 0;i<containers.length;i++){
+            if(!containers[i].classList.contains("leaderboard-container")){
+                containers[i].classList.add("hidden");
+            }
+        }
+        
+        const top_row = document.getElementById("top-row");
+        top_row.classList.add("hidden");
+        leaderboard_container.classList.add("fullscreen");
+    }
+    
+});
+
+document.getElementById("leaderboard-button").addEventListener("click",function(){
+    const leaderboard_container = document.getElementsByClassName("leaderboard-container")[0];
+    const containers = document.getElementsByClassName("main-section-container");
+    if(leaderboard_container.classList.contains("fullscreen")){
+        for(let i = 0;i<containers.length;i++){
+            if(!containers[i].classList.contains("leaderboard-container")){
+                containers[i].classList.remove("hidden");
+            }
+        }
+        const top_row = document.getElementById("top-row");
+        top_row.classList.remove("hidden");
+        leaderboard_container.classList.remove("fullscreen");
+    }
+    else{
+        for(let i = 0;i<containers.length;i++){
+            if(!containers[i].classList.contains("leaderboard-container")){
+                containers[i].classList.add("hidden");
+            }
+        }
+        
+        const top_row = document.getElementById("top-row");
+        top_row.classList.add("hidden");
+        leaderboard_container.classList.add("fullscreen");
+    }
+});
