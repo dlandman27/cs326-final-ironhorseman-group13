@@ -12,7 +12,7 @@
 
 ## Team Member Responibilities
 -Dylan Landman - HTML/CSS frontend
--Jared Starman - Poker bot and game board in html
+-Jared Starman - Blackjack and game board in html
 -Brandon Halig - Main game backend
 -Jason Milhaven - Player interface, controls
 
