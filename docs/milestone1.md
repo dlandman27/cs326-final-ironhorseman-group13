@@ -1,5 +1,5 @@
 # Team Name: Iron Horseman
-### Application Name: Sorting Visualizer
+### Application Name: Blackjack
 
 
 # Team Overview
