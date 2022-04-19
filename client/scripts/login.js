@@ -32,10 +32,14 @@ document.getElementById("login_form").addEventListener("submit",function(e) {
     const password = document.getElementById("password").value;
 
     let localStorage = window.localStorage;
+        const response = await fetch(`/getUser`, {
+            method: 'GET',
+          });
+        const data = await response.json();
     if(username === "" || password === ""){
-
+        alert("cannot be empty");
     }
-    else if(localStorage.getItem(username) === password){
+    else if(username == data.name && password == data.password){
         window.location.href = "dashboard.html";
     }
     else{

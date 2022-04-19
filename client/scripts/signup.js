@@ -23,27 +23,39 @@ function dropdown_images(){
 
 dropdown_images();
 
+
+
 document.getElementById("signup_form").addEventListener("submit",function(e) {
     e.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("password_confirm").value;
-
-    const local_storage = window.localStorage;
+    const response = await fetch(`/getUser`, {
+        method: 'GET',
+      });
+    const data = await response.json();
     if(password !== confirm_password){
         alert("Passwords do not match");
     }
-    else if(localStorage.getItem(username) !== null){
+    else if(data.name ===username){
         alert("Username already exists");
     }
     else{
-          const name = nameText.value;
-        const json = await crud.createCounter(name);
-        output.innerHTML = JSON.stringify(json);
-        await allCounters();
-        
-        localStorage.setItem(username,password);
-        alert("Account created");
-        window.location.href = "index.html";
+        const response2 = await fetch(`/addUser`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name: username, password: confirm_password, money: 1000,faction:"not Chosen" }),
+          });
+        const data2 = await response.json();
+        if(response2.ok){
+            
+            alert("Account created");
+            window.location.href = "index.html";
+        }
+        else{
+            alert("did not succeeed");
+        }
     }
 });

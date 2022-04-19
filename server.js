@@ -1,13 +1,15 @@
 import * as http from 'http';
 import * as url from 'url';
 import { readFile, writeFile } from 'fs/promises';
+import { appendFile } from 'fs';
+import { express} from './express.js';
 
 let knownUsers = [];
 
 
 let usersFile = 'UsersFile.json';
 //reloads
-
+app.use(express.static('client'));
 
 async function reloadUsers() {
   try {
@@ -17,6 +19,7 @@ async function reloadUsers() {
     knownUsers = [];
   }
 }
+
 //saves
 async function saveUsers() {
   try {
@@ -27,9 +30,8 @@ async function saveUsers() {
   }
 }
 
-
 //functions
-async function addUserFunc(response,name,cash){
+async function addUserFunc(response,name,cash,faction,password){
   if(name === undefined || word === undefined || score ===undefined){
     response.writeHead(400, { 'Content-Type': 'text/plain' });
     response.write(JSON.stringify({ message: 'invalid input' }));
@@ -37,50 +39,51 @@ async function addUserFunc(response,name,cash){
   }
   else{
     await reloadUsers();
-    knownUsers.push({name: name , word: word , score: score });
-    await saveWordScore();
+    knownUsers.push({name: name , faction: faction , cash: cash, password:password });
+    await saveUsers();
     response.writeHead(200, { 'Content-Type': 'text/plain' });
     response.end();
   }
 }
 
-async function findUserFunc(response,name,cash){
-  if(name === undefined || word === undefined || score ===undefined){
+async function findUserFunc(response,name){
+  if(name === undefined){
     response.writeHead(400, { 'Content-Type': 'text/plain' });
     response.write(JSON.stringify({ message: 'invalid input' }));
     response.end();
   }
   else{
     await reloadUsers();
-    knownUsers.push({name: name , word: word , score: score });
-    await saveWordScore();
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
+    if(knownUsers.some(user => user.name === name)){
+      response.writeHead(200, { 'Content-Type': 'text/plain' });
+      response.write(JSON.stringify({message: "user exists"}));
+    }
+    await saveUsers();
+   
     response.end();
   }
 }
 
-async function updateUserFunc(response,name,cash){
-  if(name === undefined || word === undefined || score ===undefined){
+async function updateUserFunc(response,name,cash,table,password){
+  if(name === undefined){
     response.writeHead(400, { 'Content-Type': 'text/plain' });
     response.write(JSON.stringify({ message: 'invalid input' }));
     response.end();
   }
   else{
     await reloadUsers();
-    knownUsers.push({name: name , word: word , score: score });
-    await saveWordScore();
+    knownUsers.push({name: name , cash:cash, table:table, password:password });
+    await saveUsers();
     response.writeHead(200, { 'Content-Type': 'text/plain' });
     response.end();
   }
 }
 
-async function destroyUserFunc(response){
-  await reloadGameScore();
-  gameScores.sort((a, b) => b.score - a.score);
-  let len = Math.min(10,gameScores.length);
-  let arr = gameScores.slice(0,len);
-  response.writeHead(200, { 'Content-Type': 'application/json' });
-  response.write(JSON.stringify(arr));
+async function destroyUserFunc(response,name){
+  await reloadUsers();
+  response.writeHead(200, { 'Content-Type': 'text/plain' });
+  response.write(JSON.stringify({message: "destroyed user"}));
+  await saveUsers();
   response.end();
 }
 
@@ -97,15 +100,14 @@ async function basicServer(request, response) {
     addUserFunc(response,queryVar.name,queryVar.word,queryVar.score);
   }
   else if (methodVar == 'GET' && pathVar.startsWith('/getUser')){
-    highestWordScoresFunc(response);
+    findUserFunc(response);
   }
   else if (methodVar == 'PATCH' && pathVar.startsWith('/updateUser')){
+    updateUserFunc(response,queryVar.name,queryVar.score);
+  }
+  else if (methodVar == 'DELETE' && pathVar.startsWith('/deleteUser')){
     gameScoreFunc(response,queryVar.name,queryVar.score);
   }
-  else if (methodVar == 'DELETE' && pathVar.startsWith('/updateUser')){
-    gameScoreFunc(response,queryVar.name,queryVar.score);
-  }
-
   else{
     response.writeHead(404, { 'Content-Type': 'text/plain' });
     response.write(JSON.stringify({ message: 'Failure' }));
