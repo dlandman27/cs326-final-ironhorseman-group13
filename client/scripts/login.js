@@ -42,3 +42,5 @@ document.getElementById("login_form").addEventListener("submit",function(e) {
         alert("Incorrect username or password");
     }
 });
+
+async function setUserInfo()

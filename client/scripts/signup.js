@@ -28,6 +28,7 @@ document.getElementById("signup_form").addEventListener("submit",function(e) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("password_confirm").value;
+
     const local_storage = window.localStorage;
     if(password !== confirm_password){
         alert("Passwords do not match");
@@ -36,6 +37,11 @@ document.getElementById("signup_form").addEventListener("submit",function(e) {
         alert("Username already exists");
     }
     else{
+          const name = nameText.value;
+        const json = await crud.createCounter(name);
+        output.innerHTML = JSON.stringify(json);
+        await allCounters();
+        
         localStorage.setItem(username,password);
         alert("Account created");
         window.location.href = "index.html";
