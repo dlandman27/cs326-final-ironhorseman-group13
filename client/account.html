@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Main Player Dashboard -->
+<html>
+    <head>
+		<title>Dashboard</title>
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/dashboard.css">
+        <link rel="stylesheet" href="styles/account.css">
+        <script defer src="scripts/account_crud.js"></script>
+        <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css”rel=”nofollow” integrity=”sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I” crossorigin=”anonymous”>
+    </head>
+    <body class="darkmode">
+        <aside class="sidenav navbar my-3 ms-3 right-border-box">
+            <div class="rpg-poker-logo"></div>
+            <div class="avatar-container">
+                <h3 class="navbar-username">My Account</h3>
+                <h5 class="navbar-level">Level: 00</h5>
+            </div>
+            <ul class="my-3">
+                <li class="navbar-navigation-item"><icon class="icon icon-home"></icon><h5>Account Details</h5></li>
+                <li class="navbar-navigation-item" id="account-button"><icon class="icon icon-account"></icon><h5>Total Earnings</h5></li>
+                <li class="navbar-navigation-item" id="leaderboard-button"><icon class="icon icon-leaderboard"></icon><h5>Leaderboards</h5></li>
+                <li class="navbar-navigation-item" id="leaderboard-button"><icon class="icon icon-leaderboard"></icon><h5>Account Settings</h5></li> 
+                <li class="navbar-navigation-item"><icon class="icon icon-card"></icon><h5>Back to Home</h5></li>
+                <div  id="signout-button" class="navbar-navigation-item navbar-signout-button"><icon class="icon icon-signout"></icon><h5>Sign Out</h5></div>    
+            </ul>        
+        </aside>
+
+        <!-- ADD A DELETE ACCOUNT SETTING -->
+        <div id="main-dashboard" class="border-radius-xl">
+            <p id="account_info"></p>
+            <p>change password</p>
+            <input type="text" id="change_password" name="change_password">
+            <button type="button" id="change_pwd_button">update password</button>
+
+            <div class="row" id="top-row">
+                <div class="account-container col-xl">
+                
+                </div>
+        </div>
+    </body>
+</html>
