@@ -1,0 +1,24 @@
+{
+  "name": "cs326-final-ironhorseman-group13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type" : "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlandman27/cs326-final-ironhorseman-group13.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlandman27/cs326-final-ironhorseman-group13/issues"
+  },
+  "homepage": "https://github.com/dlandman27/cs326-final-ironhorseman-group13#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

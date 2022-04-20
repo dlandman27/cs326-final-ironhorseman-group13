@@ -1,15 +1,14 @@
 import * as http from 'http';
 import * as url from 'url';
-import { readFile, writeFile } from 'fs/promises';
-import { appendFile } from 'fs';
-import { express} from './express.js';
+import express from 'express';
 
 let knownUsers = [];
 
 
 let usersFile = 'UsersFile.json';
 //reloads
-app.use(express.static('client'));
+const app = express();
+app.use(express.static('public'));
 
 async function reloadUsers() {
   try {
@@ -64,7 +63,7 @@ async function findUserFunc(response,name){
   }
 }
 
-async function updateUserFunc(response,name,cash,table,password){
+async function updateUserFunc(response,name,cash,faction,password){
   if(name === undefined){
     response.writeHead(400, { 'Content-Type': 'text/plain' });
     response.write(JSON.stringify({ message: 'invalid input' }));
@@ -72,7 +71,7 @@ async function updateUserFunc(response,name,cash,table,password){
   }
   else{
     await reloadUsers();
-    knownUsers.push({name: name , cash:cash, table:table, password:password });
+    knownUsers.push({name: name , cash:cash, faction:faction, password:password });
     await saveUsers();
     response.writeHead(200, { 'Content-Type': 'text/plain' });
     response.end();
@@ -97,13 +96,13 @@ async function basicServer(request, response) {
   
 
   if(methodVar == 'POST' && pathVar.startsWith('/addUser')){
-    addUserFunc(response,queryVar.name,queryVar.word,queryVar.score);
+    addUserFunc(response,queryVar.name,queryVar.cash,queryVar.faction,queryVar.password);
   }
   else if (methodVar == 'GET' && pathVar.startsWith('/getUser')){
     findUserFunc(response);
   }
   else if (methodVar == 'PATCH' && pathVar.startsWith('/updateUser')){
-    updateUserFunc(response,queryVar.name,queryVar.score);
+    updateUserFunc(response,response,queryVar.name,queryVar.cash,queryVar.faction,queryVar.password);
   }
   else if (methodVar == 'DELETE' && pathVar.startsWith('/deleteUser')){
     gameScoreFunc(response,queryVar.name,queryVar.score);
