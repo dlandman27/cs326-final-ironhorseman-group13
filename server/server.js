@@ -122,12 +122,10 @@ async function basicServer(request, response) {
 
 // this is used on the account info page
 app.get("/getUser", async (request, response) => {
-  console.log("get user called");
-
   // the ID of the person who requested their account info
   //const authToken = request.body.username;
-  console.log("auth token: " + JSON.stringify(request.query));
-  const authToken = request.query.username;
+  console.log("getUser request by auth token: " + JSON.stringify(request.query));
+  const authToken = request.query.authToken;
 
   // perform some sort of lookup using the ID we got
 
@@ -138,6 +136,29 @@ app.get("/getUser", async (request, response) => {
   }
 
   response.status(200).send(accData);
+});
+
+// perform some sort of validation for the password
+  // ie, no fewer than k amount of characters
+function isPasswordValid(pwd) {
+  let isValid = true;
+  if (pwd.length < 5) {
+    isValid = false;
+  }
+  return isValid;
+}
+
+app.post("/setPassword", async (request, response) => {
+  const authToken = request.query.authToken;
+  const pwd = request.query.password;
+
+  console.log("setPassword request by auth token: " + authToken + ", password requested is " + pwd);
+
+  if (isPasswordValid(pwd)) {
+    response.status(200).send({ "message": "your password has been changed" });
+  } else {
+    response.status(200).send({ "error": "invalid password" });
+  }
 });
 
 const port = 3000;
