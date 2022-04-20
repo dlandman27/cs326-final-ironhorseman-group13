@@ -2,13 +2,16 @@ import * as http from 'http';
 import * as url from 'url';
 import { readFile, writeFile } from 'fs/promises';
 import { appendFile } from 'fs';
-import { express} from './express.js';
+//import { express} from './express.js';
+import express from 'express';
 
 let knownUsers = [];
 
 
 let usersFile = 'UsersFile.json';
 //reloads
+
+const app = express();
 app.use(express.static('client'));
 
 async function reloadUsers() {
@@ -116,7 +119,12 @@ async function basicServer(request, response) {
 }
 
 
-// Start the server on port 3000.
-http.createServer(basicServer).listen(3000, () => {
-  console.log('Server started on port 3000');
+const port = 3000;
+// Start the server.
+
+app.use(express.static("client"));
+app.use(express.static('/client'));
+
+app.listen(port, () => {
+  console.log(`Server started on http://localhost:${port}`);
 });
