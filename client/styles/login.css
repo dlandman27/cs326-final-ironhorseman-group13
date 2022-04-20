@@ -1,0 +1,125 @@
+/* //////////////////////////////////////////// */
+
+/* 
+    File Name: login.css
+    File Use: This file is used to provide styling for the login page.
+    Used in: index.html (Login Page)
+*/
+
+/* //////////////////////////////////////////// */
+
+
+body{
+    background: url("../images/AdobeStock_276297089.jpeg");
+    background-size: 1600px;
+    inset: 0;
+    background-position: 50% 50%;
+} 
+
+#rpg_poker_logo{
+    display: block;
+    width: 30%;
+    z-index: -1;
+    margin: auto;
+    margin-top: 50px;
+    user-select: none;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+/* //////////////////////////////////////////// */
+/* Animation for Falling Elements(Used in login.js) */
+/* //////////////////////////////////////////// */
+@keyframes move_suite_to_bottom {
+    0%{
+        top: -10%;
+    }
+
+    100%{
+        top: 100%;
+    }
+}
+
+/* //////////////////////////////////////////// */
+/* Elements inside of the Login Form Container */
+/* //////////////////////////////////////////// */
+
+form{
+    margin: auto;
+	
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}  
+
+.form_container{
+    height: 350px;
+    width: 30%;
+    margin: auto;
+    background-color: rgba(54, 54, 54, 0.5);
+    padding: 20px;
+    box-shadow: 0px 0px 100px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    min-width: 400px;
+    max-width: 600px;
+}
+
+form > input,button{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-left: 10px;
+    max-width: 300px;
+    font-family: 'Roboto', sans-serif;
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form > h2{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+form > h4{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+form > button{
+    background-color: #6699cc;
+    transition: background-color 100ms ease-in-out;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+form > button:hover{
+    cursor: pointer;
+    background-color: #4d6b53;
+    transition: background-color 100ms ease-in-out;
+}
+
+@keyframes move_card_to_bottom {
+    0%{
+        top: -10%;
+    }
+
+    100%{
+        top: 100%;
+    }
+}
+
+#account_button{
+    margin-top: -100px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}

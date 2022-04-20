@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- Main Player Dashboard -->
+<html>
+    <head>
+		<title>Dashboard</title>
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/dashboard.css">
+        <script defer src="scripts/dashboard.js"></script>
+        <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css”rel=”nofollow” integrity=”sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I” crossorigin=”anonymous”>
+    </head>
+    <body class="darkmode">
+        <aside class="sidenav navbar my-3 ms-3 right-border-box">
+            <div class="rpg-poker-logo"></div>
+            <div class="avatar-container">
+                <div class="avatar-image circle"></div>
+                <h3 class="navbar-username">Username</h3>
+                <h5 class="navbar-level">Level: 00</h5>
+            </div>
+            <hr class="navbar-divider"><hr class="navbar-divider"><hr class="navbar-divider">
+
+            <ul class="my-3">
+                <li class="navbar-navigation-item"><icon class="icon icon-home"></icon><h5>Home</h5></li>
+                <li class="navbar-navigation-item" id="account-button"><icon class="icon icon-account"></icon><h5>Account</h5></li>
+                <li class="navbar-navigation-item"><icon class="icon icon-how-to-play"></icon><h5>How To Play</h5></li>
+                <li class="navbar-navigation-item"><icon class="icon icon-card"></icon><h5>My Cards</h5></li>
+                <div  id="signout-button" class="navbar-navigation-item navbar-signout-button"><icon class="icon icon-signout"></icon><h5>Sign Out</h5></div> 
+            </ul>        
+        </aside>
+
+        
+        <div id="main-dashboard" class="border-radius-xl">
+            <div class="row" id="top-row">
+                <div class="dashboard-container col-sm-8">
+                    <div class="main-section-container choose-table-container">
+                        <h3>Join a Table</h3>
+                        <div class="table-card-container">
+                            <div id="table1-card" class="table-card">
+                                <div class="table-card-button"><div class="table-card-button-logo"></div></div>
+                                <h4>Table 1</h4>
+                                <p>Blind: $1</p>
+                            </div>
+                            <div id="table2-card" class="table-card">
+                                <div class="table-card-button"><div class="table-card-button-logo"></div></div>
+                                <h4>Table 2</h4>
+                                <p>Blind: $5</p>
+                            </div>
+                            <div id="table3-card" class="table-card">
+                                <div class="table-card-button"><div class="table-card-button-logo"></div></div>
+                                <h4>Table 3</h4>
+                                <p>Blind: $10</p>
+                            </div>
+                            <div id="table4-card" class="table-card">
+                                <div class="table-card-button"><div class="table-card-button-logo"></div></div>
+                                <h4>Table 4</h4>
+                                <p>Blind: $50</p>
+                            </div>
+                            <div id="table5-card" class="table-card">
+                                <div class="table-card-button"><div class="table-card-button-logo"></div></div>
+                                <h4>Table 5</h4>
+                                <p>Blind: $100</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-section-container choose-faction-container">
+                        <h3>Choose a Faction</h3>
+                        <div class="faction-button-container">
+                            <div class="faction-member-container"><div class="faction-logo f1"><i class="logo sneak"></i></div><p>Sneak</p></div>
+                            <div class="faction-member-container"><div class="faction-logo f2"><i class="logo multiplier"></i></div><p>Multiplier</p></div>
+                            <div class="faction-member-container"><div class="faction-logo f3"><i class="logo reverse"></i></div><p>Reverse</p></div>
+                            <div class="faction-member-container"><div class="faction-logo f4"><i class="logo mule"></i></div><p>Mule</p></div>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="dashboard-container col-sm-4">
+                        <div class="main-section-container daily-challenge-container">
+                            <h3>Daily Challenges</h3>
+                            <div class=" challenge-cards-container">
+                                    <div class="challenge-card">
+                                        <h4>Challenge 1</h4>
+                                        <p>Challenge Description</p>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="challenge-card">
+                                        <h4>Challenge 2</h4>
+                                        <p>Challenge Description</p>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="challenge-card">
+                                        <h4>Challenge 3</h4>
+                                        <p>Challenge Description</p>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="dashboard-container col-sm-6">
+                    <div class="main-section-container leaderboard-container">
+                        <h3>Leaderboard</h3>
+                        <div class="standings-container">
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement first">1</div>
+                            </div>
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement second">2</div>
+                            </div>
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement third">3</div>
+                            </div>
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement">4</div>
+                            </div>
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement">5</div>
+                            </div>
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement">6</div>
+                            </div>
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement">7</div>
+                            </div>
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement">8</div>
+                            </div>
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement">9</div>
+                            </div>
+                            <div class="standing">
+                                <div class="standing-placement"></div>
+                                <div class="leaderboard-player-name">Username</div>
+                                <div class="leaderboard-player-level">LVL 109</div>
+                                <div class="leaderboard-winnings">+$1,000,000</div>
+                                <div class="leaderboard-placement">10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-container col-sm-6">
+                    <div class="main-section-container social-container">
+                        <h3>Social</h3>
+                        <div class="message-board">
+                            <div class="message-container">
+                                <div class="message-account-logo"></div>
+                                <div class="message">
+                                    <h4>Dylan Landman</h4>
+                                    <div class="message-user-message">Hello!</div>
+                                </div>
+                            </div>
+                            <div class="message-container">
+                                <div class="message-account-logo"></div>
+                                <div class="message">
+                                    <h4>Jared Starman</h4>
+                                    <div class="message-user-message">It’s Not Fair, I can’t win a game!</div>
+                                </div>
+                            </div>
+                            <div class="message-container">
+                                <div class="message-account-logo"></div>
+                                <div class="message">
+                                    <h4>Username42</h4>
+                                    <div class="message-user-message">I love this game!</div>
+                                </div>
+                            </div>
+                            <div class="message-container">
+                                <div class="message-account-logo"></div>
+                                <div class="message">
+                                    <h4>Username</h4>
+                                    <div class="message-user-message">Hello!</div>
+                                </div>
+                            </div>
+                            <div class="message-container">
+                                <div class="message-account-logo"></div>
+                                <div class="message">
+                                    <h4>Username</h4>
+                                    <div class="message-user-message">Hello!</div>
+                                </div>
+                            </div>
+                            <div class="message-container"></div>                            
+                        </div>
+                        <input class="user-message-input" placeholder="&#9819;  Enter Your Message Here" type="text" maxlength="100"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
