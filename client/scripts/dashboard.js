@@ -29,6 +29,8 @@ function clickFactionButton(){
             button_color = buttons[i].style.backgroundColor;
             console.log(button_color)
         });
+        //add crud operation
+        
     }
 }
 

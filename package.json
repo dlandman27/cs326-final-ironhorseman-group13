@@ -1,13 +1,25 @@
 {
-    "name": "blackjack",
-    "version": "1.0.0",
-    "description": "",
-    "type": "module",
-    "scripts": {
-        "start": "node server/server.js"
-    },
-    "dependencies": {
-        "bootstrap": "^5.1.3",
-        "express": "^4.17.3"
-    }
+  "name": "cs326-final-ironhorseman-group13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlandman27/cs326-final-ironhorseman-group13.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlandman27/cs326-final-ironhorseman-group13/issues"
+  },
+  "homepage": "https://github.com/dlandman27/cs326-final-ironhorseman-group13#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  }
 }
