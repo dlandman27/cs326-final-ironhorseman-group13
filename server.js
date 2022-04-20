@@ -87,27 +87,48 @@ async function readUsers(response, name) {
 async function updateUserFunc(response,name,cash,faction,password){
    if (nameExists(name)) {
     await reloadUsers();
-    destroyUserFunc(response,name);
-    knownUsers.push({name: name , faction: faction , cash: cash, password:password });
-    await saveCounters();
-    response.json({ name: name, value: counters[value] });
-  }
-    else{
-      response.json(404).json({ error: 'Not Implemented' });
+    let count = -1;
+    for(let i = 0; i < knownUsers.length; i++){
+      if(knownUsers[i].name === name){
+        count = i;
+        break;
+      }
     }
-}
-
-async function destroyUserFunc(response,name){
-  if(nameExists(name)){
-    await reloadUsers();
-    delete knownUsers.name; 
+    knownUsers[count].name = name;
+    knownUsers[count].cash = cash;
+    knownUsers[count].faction = faction;
+    knownUsers[count].password = password;
     await saveUsers();
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.write(JSON.stringify({ message: 'invalid input' }));
+    response.write(JSON.stringify(getUser(name)));
     response.end();
   }
   else{
-    response.json(404).json({ error: 'Not Implemented' });
+      response.json({ error: 'Not Implemented' });
+      response.end();
+  }
+}
+
+async function destroyUserFunc(response,name){
+  await reloadUsers();
+  if(name === undefined){
+    response.write(JSON.stringify({ message: nameExists(name)}));
+    response.end();
+  }
+  else if(getUser(name)){
+    let count = -1;
+    for(let i = 0; i < knownUsers.length; i++){
+      if(knownUsers[i].name === name){
+        count = i;
+        break;
+      }
+    }
+    knownUsers.splice(count,1);
+    response.write(JSON.stringify({ message: 'destroyed' }));
+    await saveUsers();
+    response.end();
+  }
+  else{
+    response.json({ message: "not found" }); 
   }
 }
 
