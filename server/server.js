@@ -119,11 +119,29 @@ async function basicServer(request, response) {
 }
 
 
+
+// this is used on the account info page
+app.get("/getUser", async (request, response) => {
+  console.log("get user called");
+
+  // the ID of the person who requested their account info
+  //const authToken = request.body.username;
+  console.log("auth token: " + JSON.stringify(request.query));
+  const authToken = request.query.username;
+
+  // perform some sort of lookup using the ID we got
+
+  const accData = {
+    username: "fake username",
+    cash: 420,
+    faction: "fake faction/ability name"
+  }
+
+  response.status(200).send(accData);
+});
+
 const port = 3000;
 // Start the server.
-
-app.use(express.static("client"));
-app.use(express.static('/client'));
 
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
