@@ -135,6 +135,12 @@ app.post('/addUser', async (request, response) => {
   addUserFunc(response,queryVar.name,queryVar.cash,queryVar.faction,queryVar.password);
 });
 
+app.get('/getUser', async (request, response) => {
+  findUserFunc(response,request.query.name);
+});
+
+//TODO ADD PATCH AND DELETE
+
 // This matches all routes that are not defined.
 app.all('*', async (request, response) => {
   response.status(404).send(`Not found: ${request.path}`);
