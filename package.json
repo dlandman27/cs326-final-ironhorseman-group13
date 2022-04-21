@@ -20,6 +20,7 @@
   "homepage": "https://github.com/dlandman27/cs326-final-ironhorseman-group13#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "heroku": "^7.60.1",
     "morgan": "^1.10.0"
   }
 }
