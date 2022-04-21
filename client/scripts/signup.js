@@ -24,35 +24,48 @@ function dropdown_images(){
 dropdown_images();
 
 
-
-document.getElementById("signup_form").addEventListener("submit",function(e) {
+async function readCounter(name) {
+    try {
+      const response = await fetch(`/getUser?name=${name}`, {
+        method: 'GET',
+      });
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+}
+export async function createCounter(name,password) {
+    const response = await fetch(`/addUser?name=${name}&password=${password}&cash=100&faction=NA`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: name }),
+    });
+    const data = await response.json();
+    return data;
+  }
+document.getElementById("signup_form").addEventListener("submit", async function(e) {
     e.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("password_confirm").value;
-    const response = await fetch(`/getUser`, {
-        method: 'GET',
-      });
-    const data = await response.json();
+
+    let obj = await readCounter(username);
+    obj = JSON.parse(JSON.stringify(obj));
+
     if(password !== confirm_password){
         alert("Passwords do not match");
     }
-    else if(data.name ===username){
+    else if(obj === {}){
         alert("Username already exists");
     }
     else{
-        const response2 = await fetch(`/addUser`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name: username, password: confirm_password, money: 1000,faction:"not Chosen" }),
-          });
-        const data2 = await response.json();
-        if(response2.ok){
-            
+        createCounter(username,password);
+        if(readCounter(name).name === username){
             alert("Account created");
-            window.location.href = "index.html";
+            window.location.href = "dashboard.html";
         }
         else{
             alert("did not succeeed");

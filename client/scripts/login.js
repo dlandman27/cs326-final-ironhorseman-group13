@@ -25,26 +25,36 @@ function dropdown_images(){
 }
 
 dropdown_images();
-
-document.getElementById("login_form").addEventListener("submit",function(e) {
+async function readCounter(name) {
+    try {
+      const response = await fetch(`/getUser?name=${name}`, {
+        method: 'GET',
+      });
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+}
+document.getElementById("login_form").addEventListener("submit", async function(e) {
     e.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    let localStorage = window.localStorage;
-        const response = await fetch(`/getUser`, {
-            method: 'GET',
-          });
-        const data = await response.json();
+    let obj = await readCounter(username);
+    obj = JSON.parse(JSON.stringify(obj));
+    console.log("test");
+    console.log(obj);
     if(username === "" || password === ""){
         alert("cannot be empty");
     }
-    else if(username == data.name && password == data.password){
+    else if(obj.name === undefined){
+        alert("fail");
+    }
+    else if(username == obj.name && password == obj.password){
         window.location.href = "dashboard.html";
     }
     else{
         alert("Incorrect username or password");
     }
 });
-
-async function setUserInfo()
