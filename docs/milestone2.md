@@ -31,7 +31,7 @@
 - Jason Milhaven - wrote the client CRUD requests on the account page, worked on alterating user accounts, wrote portions of server code
 
 ## Heroku URL
- - insert it here
+ - https://pacific-atoll-22626.herokuapp.com/
 
 ## Screenshots
 Screenshots are in the docs/screenshots folder, or you can view them here:
