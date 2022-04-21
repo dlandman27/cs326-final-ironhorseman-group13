@@ -1,18 +1,23 @@
 import * as http from 'http';
 import * as url from 'url';
-import { readFile, writeFile } from 'fs/promises';
-import { appendFile } from 'fs';
-//import { express} from './express.js';
 import express from 'express';
+import { readFile, writeFile } from 'fs/promises';
+import logger from 'morgan';
 
 let knownUsers = [];
 
 
 let usersFile = 'UsersFile.json';
 //reloads
-
 const app = express();
-app.use(express.static('client'));
+const port = 3000;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use('/client', express.static('client'));
 
 async function reloadUsers() {
   try {
@@ -33,9 +38,10 @@ async function saveUsers() {
   }
 }
 
+
 //functions
 async function addUserFunc(response,name,cash,faction,password){
-  if(name === undefined || word === undefined || score ===undefined){
+  if(name === undefined || cash === undefined || faction === undefined || password === undefined){
     response.writeHead(400, { 'Content-Type': 'text/plain' });
     response.write(JSON.stringify({ message: 'invalid input' }));
     response.end();
@@ -49,72 +55,80 @@ async function addUserFunc(response,name,cash,faction,password){
   }
 }
 
-async function findUserFunc(response,name){
-  if(name === undefined){
-    response.writeHead(400, { 'Content-Type': 'text/plain' });
-    response.write(JSON.stringify({ message: 'invalid input' }));
-    response.end();
-  }
-  else{
-    await reloadUsers();
-    if(knownUsers.some(user => user.name === name)){
-      response.writeHead(200, { 'Content-Type': 'text/plain' });
-      response.write(JSON.stringify({message: "user exists"}));
+function nameExists(name) {
+  for(let i = 0; i < knownUsers.length; i++){
+    if(knownUsers[i].name === name){
+      return true;
     }
-    await saveUsers();
-   
-    response.end();
+  }
+  return false;
+}
+
+function getUser(name){
+  for(let i = 0; i < knownUsers.length; i++){
+    if(knownUsers[i].name === name){
+      return knownUsers[i];
+    }
   }
 }
 
-async function updateUserFunc(response,name,cash,table,password){
-  if(name === undefined){
-    response.writeHead(400, { 'Content-Type': 'text/plain' });
-    response.write(JSON.stringify({ message: 'invalid input' }));
+async function readUsers(response, name) {
+  await reloadUsers();
+  if (nameExists(name)) {
+    response.writeHead(200, { 'Content-Type': 'application/json' });
+    response.write(JSON.stringify(getUser(name)));
+    response.end();
+  } else {
+    // 404 - Not Found
+    response.json({ error: `Counter '${name}' Not Found` });
+  }
+}
+
+async function updateUserFunc(response,name,cash,faction,password){
+   if (nameExists(name)) {
+    await reloadUsers();
+    let count = -1;
+    for(let i = 0; i < knownUsers.length; i++){
+      if(knownUsers[i].name === name){
+        count = i;
+        break;
+      }
+    }
+    knownUsers[count].name = name;
+    knownUsers[count].cash = cash;
+    knownUsers[count].faction = faction;
+    knownUsers[count].password = password;
+    await saveUsers();
+    response.write(JSON.stringify(getUser(name)));
     response.end();
   }
   else{
-    await reloadUsers();
-    knownUsers.push({name: name , cash:cash, table:table, password:password });
-    await saveUsers();
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.end();
+      response.json({ error: 'Not Implemented' });
+      response.end();
   }
 }
 
 async function destroyUserFunc(response,name){
   await reloadUsers();
-  response.writeHead(200, { 'Content-Type': 'text/plain' });
-  response.write(JSON.stringify({message: "destroyed user"}));
-  await saveUsers();
-  response.end();
-}
-
-
-async function basicServer(request, response) {
-  // TODO: Implement the server
-  let theUrl = url.parse(request.url,true);
-  let queryVar = theUrl.query;
-  let pathVar = theUrl.pathname;
-  let methodVar = request.method;
-  
-
-  if(methodVar == 'POST' && pathVar.startsWith('/addUser')){
-    addUserFunc(response,queryVar.name,queryVar.word,queryVar.score);
+  if(name === undefined){
+    response.write(JSON.stringify({ message: nameExists(name)}));
+    response.end();
   }
-  else if (methodVar == 'GET' && pathVar.startsWith('/getUser')){
-    findUserFunc(response);
-  }
-  else if (methodVar == 'PATCH' && pathVar.startsWith('/updateUser')){
-    updateUserFunc(response,queryVar.name,queryVar.score);
-  }
-  else if (methodVar == 'DELETE' && pathVar.startsWith('/deleteUser')){
-    gameScoreFunc(response,queryVar.name,queryVar.score);
+  else if(getUser(name)){
+    let count = -1;
+    for(let i = 0; i < knownUsers.length; i++){
+      if(knownUsers[i].name === name){
+        count = i;
+        break;
+      }
+    }
+    knownUsers.splice(count,1);
+    response.write(JSON.stringify({ message: 'destroyed' }));
+    await saveUsers();
+    response.end();
   }
   else{
-    response.writeHead(404, { 'Content-Type': 'text/plain' });
-    response.write(JSON.stringify({ message: 'Failure' }));
-    response.end();
+    response.json({ message: "not found" }); 
   }
 }
 
@@ -161,9 +175,35 @@ app.post("/setPassword", async (request, response) => {
   }
 });
 
-const port = 3000;
-// Start the server.
+app.post('/addUser', async (request, response) => {
+  console.log("sorry Dylan I had to comment this out for now - Jason");
 
+  //const queryVar = request.query;
+  //addUserFunc(response,queryVar.name,queryVar.cash,queryVar.faction,queryVar.password);
+});
+
+app.get('/getUser', async (request, response) => {
+  const queryVar = request.query;
+  readUsers(response,queryVar.name);
+});
+
+app.patch('/updateUser',  async (request, response) => {
+  const queryVar = request.query;
+  updateUserFunc(response,queryVar.name,queryVar.cash,queryVar.faction,queryVar.password);
+});
+
+app.delete('/deleteUser',  async (request, response) => {
+  const queryVar = request.query;
+  destroyUserFunc(response,queryVar.name);
+});
+//TODO ADD PATCH AND DELETE
+
+// This matches all routes that are not defined.
+app.all('*', async (request, response) => {
+  response.status(404).send(`Not found: ${request.path}`);
+});
+
+// Start the server.
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
 });
