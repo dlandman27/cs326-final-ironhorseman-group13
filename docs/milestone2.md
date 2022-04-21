@@ -34,11 +34,11 @@ POST: /setPassword - called with a userId, updates the user's password
 screenshots are in the docs/screenshots folder
 
 signup page, which creates a user account
-![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/signup_sheet.png)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/board/docs/screenshots/signup_sheet.png)
 
 sign in page, which will send a request to login and retrieve the user info if accepted
-![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/index.png)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/board/docs/screenshots/index.png)
 
 account page, which will allow a user to view their info via the /getUserInfo request
 they can also change their password here
-![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/account_page.jpg)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/board/docs/screenshots/account_page.jpg)
