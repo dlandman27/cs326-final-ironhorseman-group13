@@ -1,5 +1,5 @@
 # Team Name: Iron Horseman
-### Application Name: Sorting Visualizer
+### Application Name: Blackjack
 
 
 # Team Overview
@@ -30,7 +30,10 @@
 - Jared Starman - planned and constructed the CRUD api, wrote most of the server code
 - Jason Milhaven - wrote the client CRUD requests on the account page, worked on alterating user accounts, wrote portions of server code
 
-## ScreenShots
+## Heroku URL
+ - insert it here
+
+## Screenshots
 Screenshots are in the docs/screenshots folder, or you can view them here:
 
 signup page, which creates a user account
