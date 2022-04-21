@@ -35,7 +35,7 @@ async function readCounter(name) {
       console.log(err);
     }
 }
-export async function createCounter(name,password) {
+async function createCounter(name,password) {
     const response = await fetch(`/addUser?name=${name}&password=${password}&cash=100&faction=NA`, {
       method: 'POST',
       headers: {
