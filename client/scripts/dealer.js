@@ -105,3 +105,5 @@ class Player{
         return total;
     }
 }
+
+export {Deck, Dealer, Player}
