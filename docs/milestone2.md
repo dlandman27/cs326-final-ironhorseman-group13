@@ -42,3 +42,6 @@ sign in page, which will send a request to login and retrieve the user info if a
 account page, which will allow a user to view their info via the /getUserInfo request
 they can also change their password here
 ![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/board/docs/screenshots/account_page.jpg)
+
+account page after attempting to delete user account
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/board/docs/screenshots/account_alert.jpg)
