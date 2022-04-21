@@ -49,3 +49,14 @@ document.getElementById("change_pwd_button").addEventListener("click", async () 
 
     document.getElementById("account_info").innerHTML = "got the following:<br>" + responseText;
 });
+
+document.getElementById("del_account").addEventListener("click", async () => {
+    let responseText = "";
+
+    await fetch("/deleteUser?name=cow", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+    }).then(response => response.text()).then(r => responseText = r);
+
+    window.alert(responseText);
+});
