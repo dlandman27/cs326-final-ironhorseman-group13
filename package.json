@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dlandman27/cs326-final-ironhorseman-group13#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "morgan": "^1.10.0"
   }

@@ -10,11 +10,90 @@
 
 
 body{
+    /* background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%); */
     background: url("../images/login-background.png");
     background-size: 1600px;
     inset: 0;
     background-position: 50% 50%;
 } 
+
+.login-container{ 
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.login-wrapper{
+    background-color: white;
+    padding-left: 110px;
+    padding-right: 110px;
+    padding-bottom: 33px;
+    padding-top: 62px;
+    width: 680px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.login-form, #signup_form{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.login-form-title{
+    width: 100%;
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 39px;
+    color: #555555;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.username-container{
+    padding-bottom: 9px;
+    padding-top: 31px;
+}
+
+.username-text{
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.5;
+}
+
+input{
+    outline: none;
+    border: none;
+    font-family: Helvetica, sans-serif;
+}
+
+.login-input{
+    font-family: Poppins-Regular;
+    color: #333333;
+    line-height: 1.2;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    background: #EEEEEE;
+    border-radius: 10px;
+    height: 60px;
+    padding: 0 20px;
+}
 
 #rpg_poker_logo{
     display: block;
@@ -25,6 +104,45 @@ body{
     user-select: none;
     min-width: 300px;
     max-width: 500px;
+}
+
+#signup-button{
+    font-family: Helvetica, sans-serif;
+    margin-top: 20px;
+    color: white;
+    line-height: 1.2;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    background: #36454F;
+    border-radius: 10px;
+    height: 60px;
+    padding: 0 20px;
+    border: none;
+    /* background: #a64bf4;
+    background: -webkit-linear-gradient(45deg, #00dbde, #fc00ff);
+    background: -o-linear-gradient(45deg, #00dbde, #fc00ff);
+    background: -moz-linear-gradient(45deg, #00dbde, #fc00ff);
+    background: linear-gradient(45deg, #00dbde, #fc00ff);
+    opacity: 0;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s; */
+}
+
+.gray-text{
+    color: #999999;
+}
+
+.login-input:focus{
+    outline:solid 2px black;
+}
+
+
+#signup-button:hover {
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    transition: background-image 1s ease-in-out;
 }
 
 /* //////////////////////////////////////////// */
@@ -64,7 +182,18 @@ form{
     max-width: 600px;
 }
 
-form > input,button{
+.form-container {
+    background: rgba(0,0,0,0.8);
+  }
+  
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .form-container {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+}
+
+/* form > input,button{
     width: 100%;
     height: 40px;
     margin-bottom: 10px;
@@ -77,14 +206,14 @@ form > input,button{
 	
 	margin-left: auto;
 	margin-right: auto;
-}
+} */
 
 form > h2{
     text-align: center;
     font-size: 30px;
     margin-bottom: 20px;
     color: white;
-    font-family: 'Roboto', sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 
 form > h4{
@@ -92,7 +221,7 @@ form > h4{
     font-size: 20px;
     margin-bottom: 20px;
     color: white;
-    font-family: 'Roboto', sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 
 form > button{
@@ -122,4 +251,9 @@ form > button:hover{
     margin-top: -100px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
+}
+
+.bottom{
+    padding-top: 55px;
+    text-align: center;
 }

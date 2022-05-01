@@ -6,14 +6,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS Links -->
-        <link rel="stylesheet" href="./styles/main.css">
-        <link rel="stylesheet" href="./styles/login.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/login.css">
         <!-- Javascript Links -->
         <script defer src="scripts/login.js"></script>
     </head>
     <body>
-        <img id="rpg_poker_logo" src="images/rpg-poker-logo.png" alt="background">
-        <div>
+        <!-- <img id="rpg_poker_logo" src="images/rpg-poker-logo.png" alt="background"> -->
+        <!-- <div>
             <div class="form_container">
                 <form id="login_form">
                     <h2><b>Sign In</b></h2>  
@@ -26,6 +26,26 @@
                     <button type="submit" value="signup">&#9814;<b> SIGN UP</b></button>
                 </form>
             </div>
-        </div>    
+        </div>     -->
+        <div class = "login-container">
+            <div class="login-wrapper">
+                <form id="login_form">
+                    <h2 class="login-form-title">Sign In</h2>
+                    <div class="username-container">
+                        <span class="username-text">Username</span>
+                    </div>
+                    <input class="login-input" type="text" id="username" name="username">
+                    <div class="username-container">
+                        <span class="username-text">Password &nbsp;</span>
+                    </div>
+                    <input class="login-input" type="password" id="password" name="username">
+                    <button id="signup-button" type="submit" value="Sign Up">&#9814;<b>Sign In</b></button>
+                    <div class="bottom">
+                        <span class="gray-text">Not a Member?</span>
+                        <a class="gray-text" href="signup.html">Sign Up</a>
+                    </div>
+                </form> 
+            </div>
+        </div>  
     </body>
 </html>

@@ -12,20 +12,28 @@
         <script defer src="scripts/signup.js"></script>
     </head>
     <body>
-        <img id="rpg_poker_logo" src="images/RPG POKER LOGO.png" alt="background">
-        <div>
-            <div class="form_container">
+        <div class = "login-container">
+            <div class="login-wrapper">
                 <form id="signup_form">
-                    <h2><b>Get Started with Us</b></h2>  
-                    <input type="text" id="username" name="username" placeholder="&#9819;  Username">
-                    <input type="password" id="password" name="password" placeholder="&#9821; Password">
-                    <input type="password" id="password_confirm" name="password_confirm" placeholder="&#9816; Confirm Password">
-                    <button type="submit" value="Login">&#9817;<b> Sign Up</b></button>
-                </form>
-                <form id="login_form" action="index.html">
-                    <h4><b>Don't Have an Account?</b></h4> 
-                        <button id="gotologin" type="submit" value="Login">&#9814;<b> Log In</b></button>
-                </form>
+                    <h2 class="login-form-title">Sign Up With Us</h2>
+                    <div class="username-container">
+                        <span class="username-text">Username</span>
+                    </div>
+                    <input class="login-input" type="text" id="username" name="username">
+                    <div class="username-container">
+                        <span class="username-text">Password &nbsp;</span>
+                    </div>
+                    <input class="login-input" type="password" id="password" name="username">
+                    <div class="username-container">
+                        <span class="username-text">Confirm Password</span>
+                    </div>
+                    <input class="login-input" type="password" id="password_confirm" name="username">
+                    <button id="signup-button" type="submit" value="Sign Up">&#9814;<b> SIGN UP</b></button>
+                    <div class="bottom">
+                        <span class="gray-text">Already Have an Account?</span>
+                        <a class="gray-text" href="index.html">Login</a>
+                    </div>
+                </form> 
             </div>
         </div>    
     </body>

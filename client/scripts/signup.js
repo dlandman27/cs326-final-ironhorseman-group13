@@ -24,51 +24,34 @@ function dropdown_images(){
 dropdown_images();
 
 
-async function readCounter(name) {
-    try {
-      const response = await fetch(`/getUser?name=${name}`, {
-        method: 'GET',
-      });
-      const data = await response.json();
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
-}
-export async function createCounter(name,password) {
-    const response = await fetch(`/addUser?name=${name}&password=${password}&cash=100&faction=NA`, {
+async function createUser(username,password) {
+    const response = await fetch(`/addUser?username=${username}&password=${password}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name: name }),
+      }
     });
+
     const data = await response.json();
+
     return data;
-  }
+}
+  
 document.getElementById("signup_form").addEventListener("submit", async function(e) {
     e.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("password_confirm").value;
 
-    let obj = await readCounter(username);
-    obj = JSON.parse(JSON.stringify(obj));
-
     if(password !== confirm_password){
-        alert("Passwords do not match");
-    }
-    else if(obj === {}){
-        alert("Username already exists");
+      alert("Passwords do not match");
     }
     else{
-        createCounter(username,password);
-        if(readCounter(name).name === username){
-            alert("Account created");
-            window.location.href = "dashboard.html";
-        }
-        else{
-            alert("did not succeeed");
-        }
+      let obj = await createUser(username,password);
+      obj = JSON.parse(JSON.stringify(obj));
+      console.log(obj)
+      if(obj !== "Success"){
+        alert("Username already exists");
+      }
     }
 });
