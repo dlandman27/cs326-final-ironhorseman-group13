@@ -42,15 +42,35 @@ document.getElementById("login_form").addEventListener("submit", async function(
     e.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-
-    let obj = await signin(username,password);
-    obj = JSON.parse(JSON.stringify(obj));
-    console.log(obj)
-
-    if(obj === "Success"){
-        window.location.href = "/client/dashboard.html";
+    if(username == '' || password == ''){
+        if(username === ""){
+            document.getElementById("username").style.outline = "solid red 2px";
+            document.getElementById("username").placeholder = "No username entered";
+            document.getElementById("username").value = "";
+        }
+        else{
+            document.getElementById("username").style.outline = "";
+            document.getElementById("username").placeholder = "";
+        }
+        if(password === ""){
+            document.getElementById("password").style.outline = "solid red 2px";
+            document.getElementById("password").placeholder = "No password entered";
+        }
+        else{
+            document.getElementById("password").style.outline = "";
+            document.getElementById("password").placeholder = "";
+        }
     }
     else{
-        alert("Username and/or password is incorrect");
+        let obj = await signin(username,password);
+        obj = JSON.parse(JSON.stringify(obj));
+        console.log(obj)
+
+        if(obj === "Success"){
+            window.location.href = "/client/dashboard.html";
+        }
+        else{
+            alert("Username and/or password is incorrect");
+        }
     }
 });
