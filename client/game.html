@@ -1,0 +1,76 @@
+<!-- Board for the Game we play -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>game</title>
+		<meta charset="utf-8" /> 
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+        </style>
+
+		<link rel="stylesheet" href="./styles/gameBoard.css">
+        <link rel="stylesheet" href="./styles/card.css"><link>
+
+		<script src="./scripts/gameBoard.js" type="module"></script>
+    </head>
+    <body>
+        <div class="board">
+            <div class="card-new">
+                <div id="center-img" class="card-suit-img"></div>
+
+                <p id="label-top-left" class="label">12</p>
+                <div id="suit-img-top-left" class="card-suit-img"></div>
+
+                <p id="label-bottom-right" class="label">12</p>
+                <div id="suit-img-bottom-right" class="card-suit-img"></div>
+            </div>
+
+            <p id="player-name">PLAYER_NAME</p>
+            <p id="player-money">100.00</p>
+            
+            <div id="ability-hotbar">
+                <div class="ability-button">
+                </div>
+                <div class="ability-button">
+                </div>
+                <div class="ability-button">
+                </div>
+            </div>
+
+            <!--<div id="player-hand-container">
+                <div id="player-hand-container-inner">
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                </div>
+            </div>-->
+
+            <div class = "deck"><div class="face card_front"></div><div class="face card_back"></div></div>   
+
+            
+            <div class="bottom_decks_container">
+                <div class="user-cards-container">
+                    <div id="cardBot3card1" class="card"><div id = "textBot4Name" class="cardText">Username<br>$4</div></div>
+                    <div id="cardBot3card2" class="card"><div id = "textBot4BetName" class="cardText">Current Bet<br>$3</div></div>
+                </div>
+            </div>
+            <!-- centre cards-->
+
+            <div class="flop-container">
+                <div id="cardFlop1" class="flop-card"></div>
+                <div id="cardFlop2" class="flop-card"></div>
+            </div>
+            
+
+            
+
+            <div id="ability-label">
+                <p>sample ability description</p>
+            </div>
+        </div>
+    </body>
+</html>
