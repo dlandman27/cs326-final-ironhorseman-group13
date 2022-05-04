@@ -366,6 +366,8 @@ body {
     border-radius: 12px;
 
     font-family: 'Roboto', sans-serif;
+
+    z-index: 1;
 }
 
 #bet-label {
@@ -407,4 +409,22 @@ body {
     width: 100%;
 
     margin-top: 8px;
+}
+
+
+
+
+.hand {
+    position: absolute;
+    left: 50%;
+}
+
+#player-hand {
+    bottom: 40%;
+}
+
+#house-hand {
+    top: 20%;
+
+    transform: rotate(180deg);
 }

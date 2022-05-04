@@ -13,8 +13,8 @@
 
     border-radius: 5%;
 
-    top: 100px;
-    left: 400px;
+    top: 0px;
+    left: 0px;
 
     border: 1px solid black;
 
@@ -26,6 +26,8 @@
     height: 140px;
     width: 100px;
     */
+
+    z-index: 0;
 }
 
 .card-new > #center-img {

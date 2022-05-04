@@ -55,7 +55,7 @@ class Card {
 
 const deck = [];
 const playerCards = [];
-const dealerCards = [];
+const houseCards = [];
 
 let playerScore = 0;
 
@@ -127,14 +127,41 @@ function createCardElement(card) {
     return cardElement;
 }
 
+// params: bool isPlayer
+// deal a card to either the player or to the dealer/house
+function dealCardTo(isPlayer) {
+    let hand = isPlayer ? playerCards : houseCards;
+    let handElement = isPlayer ? document.getElementById("player-hand") : document.getElementById("house-hand");
+
+    let newCard = deck.pop();
+    hand.push(newCard);
+
+    let newCardElement = createCardElement(newCard);
+    handElement.appendChild(newCardElement);
+}
+
+function refreshHand(isPlayer) {
+    const cards = document.getElementById(isPlayer ? "player-hand" : "house-hand");
+    for (let i = 0; i < cards.childElementCount; i++) {
+        const child = cards.children[i];
+
+        const rot = i * 12.25 - 25;
+        child.style["transform"] = "translate(50%, -50%) rotate(" + rot + "deg)";
+        child.style.left = ((i * 15) - 120) + "px";
+    }
+}
 
 
-// create the inital deck
+// create the initial deck
 resetDeck();
 
 
 document.getElementById("deal-button").addEventListener("click", () => {
     console.log("deal button clicked");
 
-    let newCard = createCardElement(deck.pop());
+    dealCardTo(true);
+    dealCardTo(false);
+
+    refreshHand(true);
+    refreshHand(false);
 });
