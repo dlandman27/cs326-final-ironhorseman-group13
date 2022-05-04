@@ -64,7 +64,10 @@ let playerCards = new Map();
 let houseCards = new Map();
 
 // the running total of the player's money, NOT the current hand score
-let playerScore = 900;
+let totalPlayerMoney = 900;
+
+// the current bet
+let bet = 0;
 
 // assume that the game has two phases:
 // bet phase: when the player decides how much money they want to bet
@@ -125,7 +128,7 @@ function getCurrentBet() {
     let bet = parseInt(document.getElementById("bet-textbox").value);
 
     // return -1 for invalid amount entered
-    if (bet > playerScore || bet < 0) {
+    if (bet > totalPlayerMoney || bet < 0) {
         return -1;
     }
 
@@ -181,12 +184,6 @@ function dealCardTo(isPlayer) {
 
     refreshHand(isPlayer);
 
-    //newCardElement.animate({ opacity: [0, 1] }, { duration: 5000, iterations: 1, easing: "ease-out" });
-
-    //let to = newCardElement.style.left;
-    //newCardElement.style.left = 0;
-    //newCardElement.animate({ left: "1000px" }, { duration: 1000, iterations: 1, easing: "ease-out" });
-
     return newCard;
 }
 
@@ -209,8 +206,6 @@ async function changeGamePhase() {
     isBetPhase = !isBetPhase;
 
     if (isBetPhase) {
-        console.log("showing the bet frame");
-
         document.getElementById("bet-frame").animate(
             [
                 { bottom: "-100%" },
@@ -235,7 +230,7 @@ async function changeGamePhase() {
         );
         
     }
-    
+
     console.log("waiting...");
     await delay(250);
     document.getElementById("bet-frame").style.bottom = isBetPhase ? "10%" : "-100%";
@@ -248,6 +243,8 @@ async function changeGamePhase() {
 
     if (isBetPhase) {
         // BET PHASE
+
+        updatePlayerMoney();
 
         document.getElementById("player-hand").innerHTML = "";
         document.getElementById("house-hand").innerHTML = "";
@@ -271,6 +268,12 @@ async function changeGamePhase() {
     }
 }
 
+// refresh the player's total money counter
+function updatePlayerMoney() {
+    // the "toFixed" function displays 2 decimals, like money
+    document.getElementById("player-money").innerText = totalPlayerMoney.toFixed(2).toString();
+}
+
 
 // create the initial deck
 resetDeck();
@@ -284,7 +287,14 @@ document.getElementById("deal-button").addEventListener("click", () => {
         return;
     }
 
-    console.log("bet is: " + getCurrentBet());
+    bet = getCurrentBet();
+    console.log("bet is: " + bet);
+
+    // withhold the bet from the player's money counter
+    totalPlayerMoney -= bet
+
+    // display the player's total with the bet withheld
+    updatePlayerMoney();
 
     // switch over to the bet phase
     changeGamePhase();
