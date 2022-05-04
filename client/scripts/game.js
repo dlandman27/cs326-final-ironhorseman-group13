@@ -22,6 +22,10 @@ class Card {
         }
     }
 
+    getValue() {
+        return Math.max(this.rank, 10);
+    }
+
     getDisplayColor() {
         return (this.suit === "diamond" || this.suit === "heart") ? "red" : "black";
     }
@@ -56,11 +60,11 @@ class Card {
 let deck = [];
 
 // map of card objects to document elements which represent said card
-let playerCards = {};
-let houseCards = {};
+let playerCards = new Map();
+let houseCards = new Map();
 
-// the running total player score, NOT the current hand score
-let playerScore = 0;
+// the running total of the player's money, NOT the current hand score
+let playerScore = 900;
 
 // assume that the game has two phases:
 // bet phase: when the player decides how much money they want to bet
@@ -99,12 +103,12 @@ function drawCard() {
 
 // call this on a list of cards to return the sum of the points
 function getHandScore(hand) {
-    return hand.reduce((prev, cur) => prev + cur.rank, 0);
+    return hand.reduce((prev, cur) => prev + cur.getValue(), 0);
 }
 
 // gets and validates the current bet of the player
 function getCurrentBet() {
-    let bet = parseInt(document.getElementById("bet-textbox").innerText);
+    let bet = parseInt(document.getElementById("bet-textbox").value);
 
     // return -1 for invalid amount entered
     if (bet > playerScore || bet < 0) {
@@ -136,9 +140,6 @@ function createCardElement(card) {
 }
 
 function turnoverCard(cardElement, doTurnOver) {
-    // TODO: remove this...
-    //cardElement = document.getElementById("player-hand").childNodes[0];
-
     // show or hide all child elements
     for (const child of cardElement.children) {
         child.style.visibility = doTurnOver ? "hidden" : "visible";
@@ -147,7 +148,7 @@ function turnoverCard(cardElement, doTurnOver) {
     if (doTurnOver) {
         cardElement.style.backgroundImage = "url(images/card_back_1.png)";
     } else {
-        delete cardElement.style.backgroundImage;
+        cardElement.style.removeProperty("background-image");
     }
 }
 
@@ -162,9 +163,15 @@ function dealCardTo(isPlayer) {
     let newCardElement = createCardElement(newCard);
     handElement.appendChild(newCardElement);
 
-    hand[newCard] = newCardElement;
+    hand.set(newCard, newCardElement);
 
     refreshHand(isPlayer);
+
+    //newCardElement.animate({ opacity: [0, 1] }, { duration: 5000, iterations: 1, easing: "ease-out" });
+
+    //let to = newCardElement.style.left;
+    //newCardElement.style.left = 0;
+    //newCardElement.animate({ left: "1000px" }, { duration: 1000, iterations: 1, easing: "ease-out" });
 
     return newCard;
 }
@@ -193,16 +200,19 @@ function changeGamePhase() {
         document.getElementById("player-hand").innerHTML = "";
         document.getElementById("house-hand").innerHTML = "";
 
-        playerCards = {};
-        houseCards = {};
+        playerCards = new Map();
+        houseCards = new Map();
     } else {
         // GAME PHASE
 
         // draw the initial cards that the dealer gets
         let firstCard = dealCardTo(false);
-        turnoverCard(houseCards[firstCard], true);
+        turnoverCard(houseCards.get(firstCard), true);
+        dealCardTo(false);
 
-        let secondCard = dealCardTo(false);
+        // draw the cards for the player
+        dealCardTo(true);
+        dealCardTo(true);
     }
 }
 
@@ -215,6 +225,12 @@ changeGamePhase();
 
 
 document.getElementById("deal-button").addEventListener("click", () => {
+    if (getCurrentBet() === -1) {
+        return;
+    }
+
+    console.log("bet is: " + getCurrentBet());
+
     // switch over to the bet phase
     changeGamePhase();
 });
@@ -224,7 +240,10 @@ document.getElementById("hit-button").addEventListener("click", () => {
 });
 
 document.getElementById("stand-button").addEventListener("click", () => {
-    //turnoverCard(playerCards[playerCards.length - 1], true);
+    // turn over the house's hidden card
+    for (const [card, element] of houseCards.entries()) {
+        turnoverCard(element, false);
+    }
 });
 
 document.addEventListener("keydown", (key) => {
