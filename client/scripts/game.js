@@ -72,6 +72,9 @@ let playerScore = 900;
 let isBetPhase = false;
 
 
+// utility function to wait for x milliseconds seconds
+const delay = x => new Promise(res => setTimeout(res, x));
+
 // creates a standard deck of 52 cards
 function resetDeck() {
     deck.length = 0;
@@ -202,10 +205,44 @@ function refreshHand(isPlayer) {
     scoreCounter.innerHTML = (isPlayer ? "player score: " : "house score: ") + getHandScore(isPlayer ? playerCards : houseCards, false);
 }
 
-function changeGamePhase() {
+async function changeGamePhase() {
     isBetPhase = !isBetPhase;
 
-    document.getElementById("bet-frame").style.visibility = isBetPhase ? "visible" : "hidden";
+    if (isBetPhase) {
+        console.log("showing the bet frame");
+
+        document.getElementById("bet-frame").animate(
+            [
+                { bottom: "-100%" },
+                { bottom: "10%" }
+            ],
+            {
+                duration: 250,
+                iterations: 1,
+                callback: () => { console.log("test callback"); }
+            },
+        );
+    } else {
+        document.getElementById("bet-frame").animate(
+            [
+                { bottom: "10%" },
+                { bottom: "-100%" }
+            ],
+            {
+                duration: 250,
+                iterations: 1
+            },
+        );
+        
+    }
+    
+    console.log("waiting...");
+    await delay(250);
+    document.getElementById("bet-frame").style.bottom = isBetPhase ? "10%" : "-100%";
+    console.log("done");
+    
+
+    /*document.getElementById("bet-frame").style.visibility = isBetPhase ? "visible" : "hidden";*/
     document.getElementById("hit-button").style.visibility = isBetPhase ? "hidden" : "visible";
     document.getElementById("stand-button").style.visibility = isBetPhase ? "hidden" : "visible";
 
