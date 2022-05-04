@@ -8,7 +8,7 @@ const suits = ["diamond", "heart", "spade", "club"];
 class Card {
 
     getDisplayName() {
-        switch (this.suit) {
+        switch (this.rank) {
             case 1:
                 return "A";
             case 11:
@@ -18,7 +18,7 @@ class Card {
             case 13:
                 return "K";
             default:
-                return this.suit.toString();
+                return this.rank.toString();
         }
     }
 
@@ -52,12 +52,20 @@ class Card {
 }
 
 
+// the shuffled deck of cards, initially 52
+let deck = [];
 
-const deck = [];
-const playerCards = [];
-const houseCards = [];
+// map of card objects to document elements which represent said card
+let playerCards = {};
+let houseCards = {};
 
+// the running total player score, NOT the current hand score
 let playerScore = 0;
+
+// assume that the game has two phases:
+// bet phase: when the player decides how much money they want to bet
+// game phase: the house draws cards, the player chooses to hit or stand
+let isBetPhase = false;
 
 
 // creates a standard deck of 52 cards
@@ -116,7 +124,7 @@ function createCardElement(card) {
     document.getElementsByTagName("body")[0].appendChild(cardElement);
 
     for (const label of cardElement.getElementsByClassName("label")) {
-        label.innerText = card.rank.toString();
+        label.innerText = card.getDisplayName();
         label.style.color = card.getDisplayColor();
     }
 
@@ -127,6 +135,22 @@ function createCardElement(card) {
     return cardElement;
 }
 
+function turnoverCard(cardElement, doTurnOver) {
+    // TODO: remove this...
+    //cardElement = document.getElementById("player-hand").childNodes[0];
+
+    // show or hide all child elements
+    for (const child of cardElement.children) {
+        child.style.visibility = doTurnOver ? "hidden" : "visible";
+    }
+
+    if (doTurnOver) {
+        cardElement.style.backgroundImage = "url(images/card_back_1.png)";
+    } else {
+        delete cardElement.style.backgroundImage;
+    }
+}
+
 // params: bool isPlayer
 // deal a card to either the player or to the dealer/house
 function dealCardTo(isPlayer) {
@@ -134,10 +158,15 @@ function dealCardTo(isPlayer) {
     let handElement = isPlayer ? document.getElementById("player-hand") : document.getElementById("house-hand");
 
     let newCard = deck.pop();
-    hand.push(newCard);
 
     let newCardElement = createCardElement(newCard);
     handElement.appendChild(newCardElement);
+
+    hand[newCard] = newCardElement;
+
+    refreshHand(isPlayer);
+
+    return newCard;
 }
 
 function refreshHand(isPlayer) {
@@ -151,17 +180,57 @@ function refreshHand(isPlayer) {
     }
 }
 
+function changeGamePhase() {
+    isBetPhase = !isBetPhase;
+
+    document.getElementById("bet-frame").style.visibility = isBetPhase ? "visible" : "hidden";
+    document.getElementById("hit-button").style.visibility = isBetPhase ? "hidden" : "visible";
+    document.getElementById("stand-button").style.visibility = isBetPhase ? "hidden" : "visible";
+
+    if (isBetPhase) {
+        // BET PHASE
+
+        document.getElementById("player-hand").innerHTML = "";
+        document.getElementById("house-hand").innerHTML = "";
+
+        playerCards = {};
+        houseCards = {};
+    } else {
+        // GAME PHASE
+
+        // draw the initial cards that the dealer gets
+        let firstCard = dealCardTo(false);
+        turnoverCard(houseCards[firstCard], true);
+
+        let secondCard = dealCardTo(false);
+    }
+}
+
 
 // create the initial deck
 resetDeck();
 
+// set the phase to bet phase
+changeGamePhase();
+
 
 document.getElementById("deal-button").addEventListener("click", () => {
-    console.log("deal button clicked");
+    // switch over to the bet phase
+    changeGamePhase();
+});
 
+document.getElementById("hit-button").addEventListener("click", () => {
     dealCardTo(true);
-    dealCardTo(false);
+});
 
-    refreshHand(true);
-    refreshHand(false);
+document.getElementById("stand-button").addEventListener("click", () => {
+    //turnoverCard(playerCards[playerCards.length - 1], true);
+});
+
+document.addEventListener("keydown", (key) => {
+    if (key.key != 'p') {
+        return;
+    }
+
+    changeGamePhase();
 });

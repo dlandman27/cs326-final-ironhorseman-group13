@@ -28,6 +28,8 @@
     */
 
     z-index: 0;
+
+    background-size: 100%;
 }
 
 .card-new > #center-img {
@@ -68,6 +70,7 @@
     background-image: url("../images/suits/diamond.png");
     background-size: 100%;
     background-repeat: no-repeat;
+    background-position: 50% 50%;
 
     width: 16px;
     height: 16px;
