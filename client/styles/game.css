@@ -1,7 +1,7 @@
 /* //////////////////////////////////////////// */
 
 /* 
-    File Name: gameboard.css
+    File Name: game.css
     File Use: This file is used to provide styling for the game
     Used in: table_1.html
 */
@@ -16,7 +16,8 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #27313B;
-    background: url("../images/poker-board.jpeg");
+    /*background: url("../images/poker-board.jpeg");*/
+    background-image: url("../images/poker_board_2.png");
     background-size: cover;
     background-repeat : no-repeat;
     background-position: 50% 50%;
@@ -84,7 +85,7 @@ body {
 
     font-weight: bold;
     color: white;
-    text-shadow:  0 0 2px black;
+    text-shadow:  0 0 4px black;
     font-size: 2rem;
 }
 
@@ -95,7 +96,7 @@ body {
     
     font-weight: bold;
     color: white;
-    text-shadow:  0 0 2px black;
+    text-shadow:  0 0 4px black;
     font-size: 2rem;
 }
 
@@ -338,3 +339,72 @@ body {
     justify-content: flex-end;
 }
 
+
+
+
+
+
+
+
+#center-frame {
+    position: absolute;
+    bottom: 10%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 25%;
+    left: 37.5%;
+
+    /*height: 20%;*/
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+#bet-label {
+    color: white;
+    display: inline;
+    width: fit-content;
+
+    font-weight: 700;
+    word-spacing: 6px;
+}
+
+#bet-textbox {
+    margin-bottom: 16px;
+    width: 48px;
+}
+
+.button {
+    color: rgb(52, 117, 170);
+    background-color: rgb(48, 48, 48);
+
+    width: 92px;
+    height: 32px;
+    
+    font-weight: 700;
+    border: 2px solid rgb(52, 117, 170);
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+#deal-button {
+    
+}
+
+#deal-button > p {
+    text-align: center;
+    margin: 0 0;
+    height: 100%;
+    width: 100%;
+
+    margin-top: 8px;
+}

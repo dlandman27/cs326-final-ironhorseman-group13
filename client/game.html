@@ -1,4 +1,11 @@
-<!-- Board for the Game we play -->
+
+<!--
+
+    author: Jason Milhaven
+
+
+-->
+
 
 <!DOCTYPE html>
 <html>
@@ -10,14 +17,15 @@
             @import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
         </style>
 
-		<link rel="stylesheet" href="./styles/gameBoard.css">
+		<link rel="stylesheet" href="./styles/game.css">
         <link rel="stylesheet" href="./styles/card.css"><link>
 
 		<script src="./scripts/gameBoard.js" type="module"></script>
+        <script src="./scripts/game.js" type="module"></script>
     </head>
     <body>
         <div class="board">
-            <div class="card-new">
+            <div id="dummy-card" style="visibility: hidden;" class="card-new">
                 <div id="center-img" class="card-suit-img"></div>
 
                 <p id="label-top-left" class="label">12</p>
@@ -47,7 +55,7 @@
                     <div class="player-card"></div>
                     <div class="player-card"></div>
                 </div>
-            </div>-->
+            </div>
 
             <div class = "deck"><div class="face card_front"></div><div class="face card_back"></div></div>   
 
@@ -57,15 +65,25 @@
                     <div id="cardBot3card1" class="card"><div id = "textBot4Name" class="cardText">Username<br>$4</div></div>
                     <div id="cardBot3card2" class="card"><div id = "textBot4BetName" class="cardText">Current Bet<br>$3</div></div>
                 </div>
-            </div>
+            </div>-->
             <!-- centre cards-->
 
-            <div class="flop-container">
+            <!--<div class="flop-container">
                 <div id="cardFlop1" class="flop-card"></div>
                 <div id="cardFlop2" class="flop-card"></div>
-            </div>
+            </div>-->
             
 
+            <div id="center-frame">
+                <p id="bet-label">BET AMOUNT:</p>
+                <input id="bet-textbox" type="text"></input>
+
+                <div id="deal-button" class="button">
+                    <p>DEAL</p>
+                </div>
+            </div>
+
+            
             
 
             <div id="ability-label">
