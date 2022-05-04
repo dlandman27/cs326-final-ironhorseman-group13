@@ -447,3 +447,22 @@ body {
 
     transform: rotate(180deg);
 }
+
+
+
+
+
+.score-counter {
+    position: absolute;
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#score-player {
+    bottom: 50%;
+}
+
+#score-house {
+    top: 30%;
+}

@@ -23,7 +23,7 @@ class Card {
     }
 
     getValue() {
-        return Math.max(this.rank, 10);
+        return Math.min(this.rank, 10);
     }
 
     getDisplayColor() {
@@ -101,9 +101,20 @@ function drawCard() {
     return card;
 }
 
-// call this on a list of cards to return the sum of the points
-function getHandScore(hand) {
-    return hand.reduce((prev, cur) => prev + cur.getValue(), 0);
+// call this on a dict of cards to return the sum of the points
+// preconditions: hand is of type Map
+function getHandScore(hand, includeHiddenCards = true) {
+    let sum = 0;
+
+    for (const entry of hand.entries()) {
+        if (entry[1].style.backgroundImage === "" || includeHiddenCards) {
+            sum += entry[0].getValue();
+        } else {
+            console.log("card with a value of " + entry[0].getValue() + " is hidden");
+        }
+    }
+
+    return sum;
 }
 
 // gets and validates the current bet of the player
@@ -178,6 +189,8 @@ function dealCardTo(isPlayer) {
 
 function refreshHand(isPlayer) {
     const cards = document.getElementById(isPlayer ? "player-hand" : "house-hand");
+    const scoreCounter = document.getElementById(isPlayer ? "score-player" : "score-house");
+
     for (let i = 0; i < cards.childElementCount; i++) {
         const child = cards.children[i];
 
@@ -185,6 +198,8 @@ function refreshHand(isPlayer) {
         child.style["transform"] = "translate(50%, -50%) rotate(" + rot + "deg)";
         child.style.left = ((i * 15) - 120) + "px";
     }
+
+    scoreCounter.innerHTML = (isPlayer ? "player score: " : "house score: ") + getHandScore(isPlayer ? playerCards : houseCards, false);
 }
 
 function changeGamePhase() {
@@ -202,6 +217,9 @@ function changeGamePhase() {
 
         playerCards = new Map();
         houseCards = new Map();
+
+        document.getElementById("score-player").innerHTML = "";
+        document.getElementById("score-house").innerHTML = "";
     } else {
         // GAME PHASE
 
