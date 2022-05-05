@@ -89,14 +89,6 @@ let totalHandsWon = 0;
 let highestMoneyEarned = 0; // the largest amount
 let highestWinStreak = 0;
 
-// abilities:
-// sneak: draw 3 cards but only take 2
-// multiplier: double reward on win
-// reverse: if dealer wins, then you actually win instead
-// mule: when you lose the round, you don't lose the money you bet
-
-// each player may only select 1 ability per game
-// each active ability can only be used once every x rounds
 let playerAbility = "sneak";
 
 
@@ -354,27 +346,13 @@ function declareVictoryTo(isPlayerWinner) {
     }
 }
 
-async function onSaveHighestWinstreak() {
-    // TODO - perform the saving here...
-    
-}
-
-async function onSavehighestMoneyEarned() {
-    // TODO - perform the saving here...
-
-}
-
-async function onSaveTotalHandsWon() {
-    // TODO - perform the saving here...
-
-}
-
 async function checkWinConditions() {
     let playerScore = getHandScore(playerCards);
     let dealerScore = getHandScore(houseCards);
 
     if (playerScore == 21) {
         declareVictoryTo(true);
+        document.getElementById("info-label").innerText = "Blackjack!";
     } else if (dealerScore == 21) {
         declareVictoryTo(false);
     } else if (dealerScore > 21) {
@@ -395,6 +373,33 @@ async function checkWinConditions() {
     changeGamePhase();
 }
 
+async function onSaveHighestWinstreak() {
+    // TODO - perform the saving here...
+    
+}
+
+async function onSavehighestMoneyEarned() {
+    // TODO - perform the saving here...
+
+}
+
+async function onSaveTotalHandsWon() {
+    // TODO - perform the saving here...
+
+}
+
+// abilities:
+// sneak: draw 3 cards but only take 2
+// multiplier: double reward on win
+// reverse: if dealer wins, then you actually win instead
+// mule: when you lose the round, you don't lose the money you bet
+
+// each player may only select 1 ability per game
+// each active ability can only be used once every x rounds
+function assignPlayerAbility(ability) {
+    // TODO - call this function when loading the game
+    playerAbility = ability;
+}
 
 
 // create the initial deck
@@ -402,6 +407,9 @@ resetDeck();
 
 // set the phase to bet phase
 changeGamePhase();
+
+// TODO - call this thing given the ability the player select
+//assignPlayerAbility("sneak");
 
 
 document.getElementById("deal-button").addEventListener("click", () => {
@@ -542,7 +550,9 @@ document.getElementById("ability-button").addEventListener("click", async () => 
             dealCardTo(true);
         }
 
-        await checkWinConditions();
+        if (getHandScore(playerCards) >= 21) {
+            checkWinConditions();
+        }
     }
 
     isButtonClicked = false;
