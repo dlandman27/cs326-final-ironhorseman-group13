@@ -55,14 +55,20 @@ class Dealer{
         let total = 0;
         let numAces = 0;
         for(let i = 0; i < this.dealerCards.length; i++){
-            if (dealerCards[i][0] === "A"){
+            if (this.dealerCards[i][0] === "A"){
                 numAces += 1;
             }
-            total = parseInt(dealerCards[i].replace("J", "10").replace("Q", "10").replace("K", "10").replace(/[^0-9]+/g, ""));
+            else if(this.dealerCards[i][0] === "J" || this.dealerCards[i][0] === "Q" || this.dealerCards[i][0] === "K" || this.dealerCards[i].includes("10")){
+                total += 10;
+            }
+            else{
+                total += parseInt(this.dealerCards[i][0]);
+            }
         }
-        if(total + 11 < 21){
+        if(numAces !== 0 && total + 11 < 17){
             total += 11 + numAces-1;
-        }else{
+        }
+        else{
             total += numAces;
         }
 
@@ -90,18 +96,25 @@ class Player{
     getPlayerTotal(){
         let total = 0;
         let numAces = 0;
-        for(let i = 0; i < this.dealerCards.length; i++){
-            if (dealerCards[i][0] === "A"){
+        console.log(this.playerCards);
+        for(let i = 0; i < this.playerCards.length; i++){
+            if (this.playerCards[i][0] === "A"){
                 numAces += 1;
             }
-            total = parseInt(dealerCards[i].replace("J", "10").replace("Q", "10").replace("K", "10").replace(/[^0-9]+/g, ""));
+            else if(this.playerCards[i][0] === "J" || this.playerCards[i][0] === "Q" || this.playerCards[i][0] === "K" || this.playerCards[i].includes("10")){
+                total += 10;
+            }
+            else{
+                total += parseInt(this.playerCards[i][0]);
+            }
         }
-        if(total + 11 < 21){
+        if(numAces !== 0 && total + 11 < 21){
             total += 11 + numAces-1;
-        }else{
+        }
+        else{
             total += numAces;
         }
-
+        console.log(total)
         return total;
     }
 }
