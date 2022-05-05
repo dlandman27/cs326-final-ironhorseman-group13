@@ -74,6 +74,11 @@ let bet = 0;
 // game phase: the house draws cards, the player chooses to hit or stand
 let isBetPhase = false;
 
+// is a button currently considered clicked?
+// if true - buttons cannot be clicked on
+// if false - the player may click on buttons
+let isButtonClicked = false;
+
 
 // utility function to wait for x milliseconds seconds
 const delay = x => new Promise(res => setTimeout(res, x));
@@ -235,6 +240,8 @@ async function changeGamePhase() {
         
     }
 
+    isButtonClicked = true;
+
     console.log("waiting...");
     await delay(250);
     document.getElementById("bet-frame").style.bottom = isBetPhase ? "10%" : "-100%";
@@ -266,6 +273,9 @@ async function changeGamePhase() {
     } else {
         // GAME PHASE
 
+        // shuffle the deck here?
+        resetDeck();
+
         // draw the initial cards that the dealer gets
         let firstCard = dealCardTo(false);
         turnoverCard(houseCards.get(firstCard), true);
@@ -275,6 +285,8 @@ async function changeGamePhase() {
         dealCardTo(true);
         dealCardTo(true);
     }
+
+    isButtonClicked = false;
 }
 
 // refresh the player's total money counter
@@ -303,6 +315,11 @@ changeGamePhase();
 
 
 document.getElementById("deal-button").addEventListener("click", () => {
+    if (isButtonClicked) {
+        return;
+    }
+    isButtonClicked = true;
+
     if (getCurrentBet() === -1) {
         return;
     }
@@ -324,24 +341,35 @@ document.getElementById("deal-button").addEventListener("click", () => {
 });
 
 document.getElementById("hit-button").addEventListener("click", async () => {
+    if (isButtonClicked) {
+        return;
+    }
+    isButtonClicked = true;
+
     dealCardTo(true);
 
     let currentScore = getHandScore(playerCards);
     if (currentScore === 21) {
         declareVictoryTo(true);
         document.getElementById("info-label").innerText = "Blackjack!";
+        await delay(3000);
+        changeGamePhase();
     } else if (currentScore > 21) {
         declareVictoryTo(false);
+        await delay(3000);
+        changeGamePhase();
     }
 
-
-
-    console.log("changing the game phase...");
-    await delay(3000);
-    changeGamePhase();
+    isButtonClicked = false;
 });
 
 document.getElementById("stand-button").addEventListener("click", async () => {
+    if (isButtonClicked) {
+        return;
+    }
+    isButtonClicked = true;
+
+
     // turn over the house's hidden card
     for (const [card, element] of houseCards.entries()) {
         turnoverCard(element, false);
@@ -403,6 +431,7 @@ document.getElementById("stand-button").addEventListener("click", async () => {
 
     console.log("changing the game phase...");
     await delay(3000);
+    isButtonClicked = false;
     changeGamePhase();
 });
 
