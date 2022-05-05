@@ -125,14 +125,18 @@ function getHandScore(hand, includeHiddenCards = true) {
 
 // gets and validates the current bet of the player
 function getCurrentBet() {
-    let bet = parseInt(document.getElementById("bet-textbox").value);
+    let betInput = parseInt(document.getElementById("bet-textbox").value);
 
-    // return -1 for invalid amount entered
-    if (bet > totalPlayerMoney || bet < 0) {
+    if (isNaN(betInput)) {
         return -1;
     }
 
-    return bet;
+    // return -1 for invalid amount entered
+    if (betInput > totalPlayerMoney || betInput < 0) {
+        return -1;
+    }
+
+    return betInput;
 }
 
 // creates and returns a card in the DOM
@@ -237,9 +241,14 @@ async function changeGamePhase() {
     console.log("done");
     
 
+
+    document.getElementById("info-label").innerText = "";
+
+
     /*document.getElementById("bet-frame").style.visibility = isBetPhase ? "visible" : "hidden";*/
     document.getElementById("hit-button").style.visibility = isBetPhase ? "hidden" : "visible";
     document.getElementById("stand-button").style.visibility = isBetPhase ? "hidden" : "visible";
+    document.getElementById("info-label").style.visibility = isBetPhase ? "hidden" : "visible";
 
     if (isBetPhase) {
         // BET PHASE
@@ -275,6 +284,17 @@ function updatePlayerMoney() {
 }
 
 
+function declareVictoryTo(isPlayerWinner) {
+    document.getElementById("info-label").innerText = isPlayerWinner ? "you win" : "dealer wins";
+
+    if (isPlayerWinner) {
+        totalPlayerMoney += 2 * bet;
+    } else {
+        // do nothing - the player lost its money already
+    }
+}
+
+
 // create the initial deck
 resetDeck();
 
@@ -288,6 +308,9 @@ document.getElementById("deal-button").addEventListener("click", () => {
     }
 
     bet = getCurrentBet();
+    if (bet === -1) {
+        return;
+    }
     console.log("bet is: " + bet);
 
     // withhold the bet from the player's money counter
@@ -300,21 +323,93 @@ document.getElementById("deal-button").addEventListener("click", () => {
     changeGamePhase();
 });
 
-document.getElementById("hit-button").addEventListener("click", () => {
+document.getElementById("hit-button").addEventListener("click", async () => {
     dealCardTo(true);
+
+    let currentScore = getHandScore(playerCards);
+    if (currentScore === 21) {
+        declareVictoryTo(true);
+        document.getElementById("info-label").innerText = "Blackjack!";
+    } else if (currentScore > 21) {
+        declareVictoryTo(false);
+    }
+
+
+
+    console.log("changing the game phase...");
+    await delay(3000);
+    changeGamePhase();
 });
 
-document.getElementById("stand-button").addEventListener("click", () => {
+document.getElementById("stand-button").addEventListener("click", async () => {
     // turn over the house's hidden card
     for (const [card, element] of houseCards.entries()) {
         turnoverCard(element, false);
     }
+
+    let houseScore = getHandScore(houseCards);
+    let playerScore = getHandScore(playerCards);
+
+    // update the house's score counter
+    const scoreCounter = document.getElementById("score-house");
+    scoreCounter.innerHTML = "house score: " + houseScore;
+    
+    if (houseScore > playerScore) {
+        // first, check if the dealer's score is higher
+
+        // then the house wins, player loses
+        document.getElementById("info-label").innerText = "dealer wins";
+
+        // subtract the bet from player's money, then update the display counter
+        //totalPlayerMoney -= bet;
+        updatePlayerMoney();
+
+        declareVictoryTo(false);
+    } else {
+        // otherwise, we need to handle the dealer's turn
+        // I'm going to go by the rules outlined here:
+        // https://bicyclecards.com/how-to-play/blackjack - scroll down to "THE DEALER'S PLAY"
+
+
+
+        //let doCheckVictoryConditions = true;
+
+        // the dealer must take cards until its' score reaches 17 or more
+        while (houseScore <= 16) {
+            dealCardTo(false);
+            houseScore = getHandScore(houseCards);
+
+            if (houseScore > playerScore) {
+                //declareVictoryTo(true);
+                //return;
+                break;
+            }
+        }
+
+        // then we check for the following conditions:
+        // if the dealer's score is over 21, the dealer loses
+        // else, if the dealer's score is greater than the player's score, the dealer wins
+        if (houseScore > 21) {
+            // player wins
+            declareVictoryTo(true);
+        } else if (houseScore > playerScore) {
+            // dealer wins
+            declareVictoryTo(false);
+        } else if (houseScore <= playerScore) {
+            // player wins
+            declareVictoryTo(true);
+        }
+    }
+
+    console.log("changing the game phase...");
+    await delay(3000);
+    changeGamePhase();
 });
 
-document.addEventListener("keydown", (key) => {
+/*document.addEventListener("keydown", (key) => {
     if (key.key != 'p') {
         return;
     }
 
     changeGamePhase();
-});
+});*/

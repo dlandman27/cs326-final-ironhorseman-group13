@@ -423,12 +423,16 @@ body {
     position: absolute;
     top: 40%;
     right: 40%;
+
+    visibility: hidden;
 }
 
 #stand-button {
     position: absolute;
     top: 40%;
     left: 40%;
+
+    visibility: hidden;
 }
 
 
@@ -466,4 +470,16 @@ body {
 
 #score-house {
     top: 30%;
+}
+
+#info-label {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+
+    position: absolute;
+    bottom: 20%;
+    margin-bottom: 64px;
+
+    visibility: hidden;
 }
