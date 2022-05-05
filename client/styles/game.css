@@ -435,6 +435,13 @@ body {
     visibility: hidden;
 }
 
+#ability-button {
+    position: absolute;
+    top: 40%;
+
+    visibility: hidden;
+}
+
 
 
 

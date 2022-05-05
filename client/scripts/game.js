@@ -4,7 +4,6 @@
 
 const suits = ["diamond", "heart", "spade", "club"];
 
-
 class Card {
 
     getDisplayName() {
@@ -59,6 +58,8 @@ class Card {
 // the shuffled deck of cards, initially 52
 let deck = [];
 
+let currentRound = 0;
+
 // map of card objects to document elements which represent said card
 let playerCards = new Map();
 let houseCards = new Map();
@@ -87,6 +88,17 @@ let currentWinStreak = 0;
 let totalHandsWon = 0;
 let highestMoneyEarned = 0; // the largest amount
 let highestWinStreak = 0;
+
+// abilities:
+// sneak: draw 3 cards but only take 2
+// multiplier: double reward on win
+// reverse: if dealer wins, then you actually win instead
+// mule: when you lose the round, you don't lose the money you bet
+
+// each player may only select 1 ability per game
+// each active ability can only be used once every x rounds
+let playerAbility = "sneak";
+
 
 
 
@@ -248,6 +260,7 @@ async function changeGamePhase() {
             },
         );
         
+        currentRound++;
     }
 
     isButtonClicked = true;
@@ -264,6 +277,7 @@ async function changeGamePhase() {
     document.getElementById("hit-button").style.visibility = isBetPhase ? "hidden" : "visible";
     document.getElementById("stand-button").style.visibility = isBetPhase ? "hidden" : "visible";
     document.getElementById("info-label").style.visibility = isBetPhase ? "hidden" : "visible";
+    document.getElementById("ability-button").style.visibility = isBetPhase ? "hidden" : "visible";
 
     if (isBetPhase) {
         // BET PHASE
@@ -305,10 +319,21 @@ function updatePlayerMoney() {
 
 
 function declareVictoryTo(isPlayerWinner) {
+    // perform the reverse ability, if applicable
+    if (playerAbility === "reverse") {
+        isPlayerWinner = !isPlayerWinner;
+    }
+
     document.getElementById("info-label").innerText = isPlayerWinner ? "you win" : "dealer wins";
 
     if (isPlayerWinner) {
-        totalPlayerMoney += 2 * bet;
+        if (playerAbility != "multipler") {
+            totalPlayerMoney += 2 * bet;
+        } else {
+            totalPlayerMoney += 4 * bet;
+        }
+    } else if (playerAbility === "mule") {
+        totalPlayerMoney += bet; // if ability is mule, add back the money we would have otherwise lost
     }
 
     if (isPlayerWinner) {
@@ -341,8 +366,35 @@ async function onSavehighestMoneyEarned() {
 
 async function onSaveTotalHandsWon() {
     // TODO - perform the saving here...
-    
+
 }
+
+async function checkWinConditions() {
+    let playerScore = getHandScore(playerCards);
+    let dealerScore = getHandScore(houseCards);
+
+    if (playerScore == 21) {
+        declareVictoryTo(true);
+    } else if (dealerScore == 21) {
+        declareVictoryTo(false);
+    } else if (dealerScore > 21) {
+        // player wins
+        declareVictoryTo(true);
+    } else if (playerScore > 21) {
+        // dealer wins
+        declareVictoryTo(false);
+    } else if (dealerScore > playerScore) {
+        // dealer wins
+        declareVictoryTo(false);
+    } else if (dealerScore <= playerScore) {
+        // player wins
+        declareVictoryTo(true);
+    }
+
+    await delay(3000);
+    changeGamePhase();
+}
+
 
 
 // create the initial deck
@@ -386,16 +438,8 @@ document.getElementById("hit-button").addEventListener("click", async () => {
 
     dealCardTo(true);
 
-    let currentScore = getHandScore(playerCards);
-    if (currentScore === 21) {
-        declareVictoryTo(true);
-        document.getElementById("info-label").innerText = "Blackjack!";
-        await delay(3000);
-        changeGamePhase();
-    } else if (currentScore > 21) {
-        declareVictoryTo(false);
-        await delay(3000);
-        changeGamePhase();
+    if (getHandScore(playerCards) >= 21) {
+        checkWinConditions();
     }
 
     isButtonClicked = false;
@@ -436,18 +480,12 @@ document.getElementById("stand-button").addEventListener("click", async () => {
         // I'm going to go by the rules outlined here:
         // https://bicyclecards.com/how-to-play/blackjack - scroll down to "THE DEALER'S PLAY"
 
-
-
-        //let doCheckVictoryConditions = true;
-
         // the dealer must take cards until its' score reaches 17 or more
         while (houseScore <= 16) {
             dealCardTo(false);
             houseScore = getHandScore(houseCards);
 
             if (houseScore > playerScore) {
-                //declareVictoryTo(true);
-                //return;
                 break;
             }
         }
@@ -455,7 +493,7 @@ document.getElementById("stand-button").addEventListener("click", async () => {
         // then we check for the following conditions:
         // if the dealer's score is over 21, the dealer loses
         // else, if the dealer's score is greater than the player's score, the dealer wins
-        if (houseScore > 21) {
+        /*if (houseScore > 21) {
             // player wins
             declareVictoryTo(true);
         } else if (houseScore > playerScore) {
@@ -464,15 +502,53 @@ document.getElementById("stand-button").addEventListener("click", async () => {
         } else if (houseScore <= playerScore) {
             // player wins
             declareVictoryTo(true);
-        }
+        }*/
     }
 
-    console.log("changing the game phase...");
-    await delay(3000);
+
+    checkWinConditions();
     isButtonClicked = false;
-    changeGamePhase();
+
+    /*console.log("changing the game phase...");
+    await delay(3000);
+    
+    changeGamePhase();*/
 });
 
+document.getElementById("ability-button").addEventListener("click", async () => {
+    if (isButtonClicked) {
+        return;
+    }
+    isButtonClicked = true;
+
+    // if ability is sneak, take the two of 3 cards which bring the player closer to, but not above 21
+    if (playerAbility === "sneak") {
+        let topCards = [];
+        for (let i = 0; i < 3; i++) { topCards.push(deck.pop()); }
+
+        // sort ascending by value
+        topCards.sort(x => x.getValue());
+
+        if (topCards[1].getValue() + topCards[2].getValue() > 21) {
+            topCards.splice(2, 1);
+        } else {
+            topCards.splice(0, 1);
+        }
+
+        // take the remaining cards, add them back to the deck
+        // then deal them to the player
+        for (let i = 0; i < 2; i++) {
+            deck.push(topCards.pop());
+            dealCardTo(true);
+        }
+
+        await checkWinConditions();
+    }
+
+    isButtonClicked = false;
+});
+
+// for testing: press the 'p' key to force the game state to change
 /*document.addEventListener("keydown", (key) => {
     if (key.key != 'p') {
         return;
