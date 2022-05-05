@@ -80,6 +80,16 @@ let isBetPhase = false;
 let isButtonClicked = false;
 
 
+// values which we use to compare
+let currentWinStreak = 0;
+
+// values which are stored in the persistent database in the backend:
+let totalHandsWon = 0;
+let highestMoneyEarned = 0; // the largest amount
+let highestWinStreak = 0;
+
+
+
 // utility function to wait for x milliseconds seconds
 const delay = x => new Promise(res => setTimeout(res, x));
 
@@ -247,8 +257,6 @@ async function changeGamePhase() {
     document.getElementById("bet-frame").style.bottom = isBetPhase ? "10%" : "-100%";
     console.log("done");
     
-
-
     document.getElementById("info-label").innerText = "";
 
 
@@ -301,9 +309,39 @@ function declareVictoryTo(isPlayerWinner) {
 
     if (isPlayerWinner) {
         totalPlayerMoney += 2 * bet;
-    } else {
-        // do nothing - the player lost its money already
     }
+
+    if (isPlayerWinner) {
+        totalHandsWon++;
+        currentWinStreak++;
+
+        if (currentWinStreak > highestWinStreak) {
+            highestWinStreak = currentWinStreak;
+            onSaveHighestWinstreak();
+        }
+
+        if (totalPlayerMoney > highestMoneyEarned) {
+            highestMoneyEarned = totalPlayerMoney;
+            onSavehighestMoneyEarned();
+        }
+    } else {
+        currentWinStreak = 0;
+    }
+}
+
+async function onSaveHighestWinstreak() {
+    // TODO - perform the saving here...
+    
+}
+
+async function onSavehighestMoneyEarned() {
+    // TODO - perform the saving here...
+
+}
+
+async function onSaveTotalHandsWon() {
+    // TODO - perform the saving here...
+    
 }
 
 
