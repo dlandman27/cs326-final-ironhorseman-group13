@@ -70,7 +70,7 @@ document.getElementById("signup_form").addEventListener("submit", async function
     else{
       let obj = await createUser(username,password);
       obj = JSON.parse(JSON.stringify(obj));
-      console.log(obj)
+      alert("account created!");
       if(obj !== "Success"){
         document.getElementById("username").style.outline = "solid red 2px";
         document.getElementById("username").placeholder = "Username already exists";
