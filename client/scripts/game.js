@@ -256,14 +256,6 @@ async function changeGamePhase() {
         currentRound++;
     }
 
-    if (isBetPhase) {
-        // TODO: remove this afterwards
-        document.getElementById("hit-button").style.visibility = isBetPhase ? "hidden" : "visible";
-        document.getElementById("stand-button").style.visibility = isBetPhase ? "hidden" : "visible";
-        document.getElementById("info-label").style.visibility = isBetPhase ? "hidden" : "visible";
-        document.getElementById("ability-button").style.visibility = isBetPhase ? "hidden" : "visible";
-    }
-
     console.log("waiting...");
     await delay(250);
     document.getElementById("bet-frame").style.bottom = isBetPhase ? "10%" : "-100%";
