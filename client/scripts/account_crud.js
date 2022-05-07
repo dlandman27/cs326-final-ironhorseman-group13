@@ -35,11 +35,11 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById("account_info").innerHTML = "got the following:<br>" + responseText;
 });
 console.log(window.localStorage.getItem("username"));
-let k = document.getElementById("navbar-username");
 //k.innerHTML = `<H3>${window.localStorage.getItem("username")}</H3>`;
+
 async function updatePerson(username, password) {
     const response = await fetch(
-      `/person/update?username=${username}&password=${password}`,
+      `/update?username=${username}&password=${password}`,
       {
         method: 'PUT',
       }
@@ -50,7 +50,11 @@ async function updatePerson(username, password) {
 
 document.getElementById("change_pwd_button").addEventListener("click", async () => {
     
-    const person = await updatePerson(window.localStorage.getItem("username"), password);
-    output.innerHTML = JSON.stringify(person);
+    const person = await updatePerson(window.localStorage.getItem("username"), document.getElementById("change_password").value);
+    
     document.getElementById("account_info").innerHTML = "got the following:<br>" + responseText;
+});
+
+document.getElementById("change_pwd_button").addEventListener("click", async () => {
+    window.location.href = "dashboard.html";
 });

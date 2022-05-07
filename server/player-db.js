@@ -73,7 +73,7 @@ export class playerDatabase {
     const user = await this.getUser(username);
     
     let ability = "n/a";
-    let cash = 1000;
+    let cash = "1000";
     if(user.rows.length > 0){
         return "Username already exists";
     }
@@ -82,7 +82,7 @@ export class playerDatabase {
         `
             INSERT INTO users (username, password, ability, cash) VALUES ($1, $2, $3, $4);
         `;
-        const res = await this.client.query(queryText, [username, password]);
+        const res = await this.client.query(queryText, [username, password,ability,cash]);
         return "Success";    
     }
   }
