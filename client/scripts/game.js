@@ -375,6 +375,8 @@ function declareVictoryTo(isPlayerWinner) {
         totalHandsWon++;
         currentWinStreak++;
 
+        updateNumHands();
+
         if (currentWinStreak > highestWinStreak) {
             highestWinStreak = currentWinStreak;
             onSaveHighestWinstreak();
@@ -414,21 +416,6 @@ async function checkWinConditions() {
 
     await delay(3000);
     changeGamePhase();
-}
-
-async function onSaveHighestWinstreak() {
-    // TODO - perform the saving here...
-    
-}
-
-async function onSavehighestMoneyEarned() {
-    // TODO - perform the saving here...
-
-}
-
-async function onSaveTotalHandsWon() {
-    // TODO - perform the saving here...
-    updateNumHands();
 }
 
 // abilities:
