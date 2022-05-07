@@ -13,8 +13,7 @@ const port = process.env.PORT || 8080;
 
 // Initialize the database.
 
-const db = new playerDatabase("ec2-54-80-122-11.compute-1.amazonaws.com");
-await db.connect();
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -217,5 +216,7 @@ app.all('*', async (request, response) => {
 
 // Start the server.
 app.listen(port, () => {
+  const db = new playerDatabase("ec2-54-80-122-11.compute-1.amazonaws.com");
+  await db.connect();
   console.log(`Server started on http://localhost:${port}`);
 });
