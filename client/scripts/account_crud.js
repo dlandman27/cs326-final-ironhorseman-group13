@@ -35,28 +35,23 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById("account_info").innerHTML = "got the following:<br>" + responseText;
 });
 
+let f = document.getElementById("navbar-username");
+f.innerText = window.localStorage.getItem("username");
 
 export async function updatePerson(username, password) {
     const response = await fetch(
       `/person/update?username=${username}&password=${password}`,
       {
-        method: 'PATCH',
+        method: 'PUT',
       }
     );
     const data = await response.json();
     return data;
   }
+
 document.getElementById("change_pwd_button").addEventListener("click", async () => {
-    let localAuthToken = getLocalAuthToken();
-    const newPwd = document.getElementById("change_password").value;
-    console.log("new pass is " + newPwd);
-
-    let responseText = "";
-
-    await fetch("/setPassword?authToken=" + localAuthToken + "&password=" + newPwd, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-    }).then(response => response.text()).then(r => responseText = r);
-
+    
+    const person = await updatePerson(window.localStorage.getItem("username"), password);
+    output.innerHTML = JSON.stringify(person);
     document.getElementById("account_info").innerHTML = "got the following:<br>" + responseText;
 });
