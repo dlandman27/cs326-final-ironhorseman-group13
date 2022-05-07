@@ -100,12 +100,13 @@ const localUsername = "cow"; // pass is asdf
 
 
 
+
 async function getUser(username) {
   const response = await fetch(`/getUser?username=${username}`, {
     method: 'GET',
   });
   const data = await response.json();
-  return data;
+  return JSON.parse(data);
 }
 
 async function updateNumHands() {
@@ -117,15 +118,11 @@ async function updateNumHands() {
 }
 
 
-try {
-    let userInfo = await getUser(localUsername);
-    console.log("got: " + JSON.stringify(userInfo));
+let userInfo = await getUser(localUsername);
+console.log("got: " + userInfo);
+totalPlayerMoney = userInfo.cash;
+assignPlayerAbility(userInfo.ability);
 
-    // TODO - use userinfo here
-    assignPlayerAbility("sneak");
-} catch (err) {
-    console.log(err);
-}
 
 
 
