@@ -63,25 +63,25 @@ document.getElementById("table1-card").addEventListener("click",function(){
     window.location.href = "game.html";
 });
 
-// goto table 2
-document.getElementById("table2-card").addEventListener("click",function(){
-    window.location.href = "table_2.html";
-});
+// // goto table 2
+// document.getElementById("table2-card").addEventListener("click",function(){
+//     window.location.href = "game.html";
+// });
 
-// goto table 3
-document.getElementById("table3-card").addEventListener("click",function(){
-    window.location.href = "table_3.html";
-});
+// // goto table 3
+// document.getElementById("table3-card").addEventListener("click",function(){
+//     window.location.href = "game.html";
+// });
 
-// goto table 4
-document.getElementById("table4-card").addEventListener("click",function(){
-    window.location.href = "table_4.html";
-});
+// // goto table 4
+// document.getElementById("table4-card").addEventListener("click",function(){
+//     window.location.href = "game.html";
+// });
 
-// goto table 3
-document.getElementById("table5-card").addEventListener("click",function(){
-    window.location.href = "table_5.html";
-});
+// // goto table 3
+// document.getElementById("table5-card").addEventListener("click",function(){
+//     window.location.href = "game.html";
+// });
 
 function minimize(){
     const navbar = document.getElementsByClassName("navbar")[0];
