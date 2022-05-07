@@ -99,7 +99,7 @@ export class playerDatabase {
   async updatePerson(username, password) {
     const queryText =
       'UPDATE people SET username = $2 WHERE username = $1 RETURNING *';
-    const res = await this.client.query(queryText, [id, name, age]);
+    const res = await this.client.query(queryText, [username, password]);
     return res.rows;
   }
 
