@@ -96,6 +96,15 @@ export class playerDatabase {
     return "Success";
   }
 
+  async updatePerson(username, password) {
+    const user = await this.getUser(username);
+
+    let queryText =
+      'UPDATE users SET password= $2 WHERE username = $1 RETURNING *';
+    const res = await this.client.query(queryText, [username, password]);
+    return res.rows;
+  }
+
   async getUser(username) {
     let queryText =
     `
@@ -105,4 +114,6 @@ export class playerDatabase {
 
     return res;
   }
+
+
 }

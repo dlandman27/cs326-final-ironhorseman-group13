@@ -64,9 +64,9 @@ document.getElementById("login_form").addEventListener("submit", async function(
     else{
         let obj = await signin(username,password);
         obj = JSON.parse(JSON.stringify(obj));
-        console.log(obj)
 
         if(obj === "Success"){
+            window.localStorage.setItem("username",obj);
             window.location.href = "https://secret-springs-74228.herokuapp.com/dashboard.html";
         }
         else{

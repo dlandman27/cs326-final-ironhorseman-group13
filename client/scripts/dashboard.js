@@ -12,11 +12,17 @@ function signout(){
     window.location.href = "index.html";
 }
 
+
+
+
 document.getElementById("signout-button").addEventListener("click",signout);
 
 document.getElementById("account-button").addEventListener("click",function(){
     window.location.href = "account.html";
 });
+
+// 
+
 
 function clickFactionButton(){
     const buttons = document.getElementsByClassName("faction-logo");
@@ -39,7 +45,7 @@ clickFactionButton();
 // goto table 1
 document.getElementById("table1-card").addEventListener("click",function(){
     
-    window.location.href = "table_1.html";
+    window.location.href = "game.html";
 });
 
 // goto table 2
