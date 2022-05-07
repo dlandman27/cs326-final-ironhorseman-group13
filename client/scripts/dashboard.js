@@ -47,7 +47,6 @@ function clickFactionButton(){
             this.classList.add("selected");
             button_color = buttons[i].style.backgroundColor;
             console.log(button_color);
-
         });
 
         //add crud operation
