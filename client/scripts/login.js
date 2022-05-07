@@ -67,7 +67,7 @@ document.getElementById("login_form").addEventListener("submit", async function(
         console.log(obj)
 
         if(obj === "Success"){
-            window.location.href = "https://secret-springs-74228.herokuapp.com/client/dashboard.html";
+            window.location.href = "https://secret-springs-74228.herokuapp.com/dashboard.html";
         }
         else{
             alert("Username and/or password is incorrect");
