@@ -97,11 +97,11 @@
         </div>
     </body>
     <script>
-        let playerAbility = 'sneak';
-        let name = 'playerAbility';
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) playerAbility = parts.pop().split(';').shift();
-        document.getElementsByClassName("abilityDesc")[0].innerText = playerAbility;
+        let cookie = {};
+        document.cookie.split(';').forEach(function(el) {
+            let [key,value] = el.split('=');
+            cookie[key.trim()] = value;
+        })
+        document.getElementsByClassName("abilityDesc")[0].innerText = cookie['playerAbility'];
     </script>
 </html>
