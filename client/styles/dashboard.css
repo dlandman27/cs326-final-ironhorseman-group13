@@ -151,15 +151,15 @@
 }
 
 .icon-leaderboard{
-    background-image: url("../images/icons/white/leaderboard-white.png");
+    background-image: url("../images/R.png");
 }
 
 .icon-how-to-play{
-    background-image: url("../images/icons/white/book-white.png");
+    background-image: url("../images/icons/white/home-white.png");
 }
 
 .icon-account{
-    background-image: url("../images/icons/white/user-white.png");
+    background-image: url("../images/icons/white/home-white.png");
 }
 
 .icon-challenge{
@@ -172,11 +172,11 @@
 
 
 .icon-card{
-    background-image: url("../images/icons/white/card-white.png");
+    background-image: url("../images/icons/white/home-white.png");
 }
 
 .icon-signout{
-    background-image: url("../images/icons/white/logout-white.png");
+    background-image: url("../images/icons/white/home-white.png");
 }
 
 h1,h2,h3,h4,h5,p,a{

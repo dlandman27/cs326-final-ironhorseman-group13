@@ -63,25 +63,25 @@ document.getElementById("table1-card").addEventListener("click",function(){
     window.location.href = "game.html";
 });
 
-// // goto table 2
-// document.getElementById("table2-card").addEventListener("click",function(){
-//     window.location.href = "game.html";
-// });
+// goto table 2
+document.getElementById("table2-card").addEventListener("click",function(){
+    window.location.href = "game.html";
+});
 
-// // goto table 3
-// document.getElementById("table3-card").addEventListener("click",function(){
-//     window.location.href = "game.html";
-// });
+// goto table 3
+document.getElementById("table3-card").addEventListener("click",function(){
+    window.location.href = "game.html";
+});
 
-// // goto table 4
-// document.getElementById("table4-card").addEventListener("click",function(){
-//     window.location.href = "game.html";
-// });
+// goto table 4
+document.getElementById("table4-card").addEventListener("click",function(){
+    window.location.href = "game.html";
+});
 
-// // goto table 3
-// document.getElementById("table5-card").addEventListener("click",function(){
-//     window.location.href = "game.html";
-// });
+// goto table 3
+document.getElementById("table5-card").addEventListener("click",function(){
+    window.location.href = "game.html";
+});
 
 function minimize(){
     const navbar = document.getElementsByClassName("navbar")[0];
@@ -132,28 +132,28 @@ document.getElementsByClassName("leaderboard-container")[0].addEventListener("cl
     
 });
 
-document.getElementById("leaderboard-button").addEventListener("click",function(){
-    const leaderboard_container = document.getElementsByClassName("leaderboard-container")[0];
-    const containers = document.getElementsByClassName("main-section-container");
-    if(leaderboard_container.classList.contains("fullscreen")){
-        for(let i = 0;i<containers.length;i++){
-            if(!containers[i].classList.contains("leaderboard-container")){
-                containers[i].classList.remove("hidden");
-            }
-        }
-        const top_row = document.getElementById("top-row");
-        top_row.classList.remove("hidden");
-        leaderboard_container.classList.remove("fullscreen");
-    }
-    else{
-        for(let i = 0;i<containers.length;i++){
-            if(!containers[i].classList.contains("leaderboard-container")){
-                containers[i].classList.add("hidden");
-            }
-        }
+// document.getElementById("leaderboard-button").addEventListener("click",function(){
+//     const leaderboard_container = document.getElementsByClassName("leaderboard-container")[0];
+//     const containers = document.getElementsByClassName("main-section-container");
+//     if(leaderboard_container.classList.contains("fullscreen")){
+//         for(let i = 0;i<containers.length;i++){
+//             if(!containers[i].classList.contains("leaderboard-container")){
+//                 containers[i].classList.remove("hidden");
+//             }
+//         }
+//         const top_row = document.getElementById("top-row");
+//         top_row.classList.remove("hidden");
+//         leaderboard_container.classList.remove("fullscreen");
+//     }
+//     else{
+//         for(let i = 0;i<containers.length;i++){
+//             if(!containers[i].classList.contains("leaderboard-container")){
+//                 containers[i].classList.add("hidden");
+//             }
+//         }
         
-        const top_row = document.getElementById("top-row");
-        top_row.classList.add("hidden");
-        leaderboard_container.classList.add("fullscreen");
-    }
-});
+//         const top_row = document.getElementById("top-row");
+//         top_row.classList.add("hidden");
+//         leaderboard_container.classList.add("fullscreen");
+//     }
+// });
