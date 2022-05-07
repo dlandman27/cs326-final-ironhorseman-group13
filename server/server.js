@@ -195,7 +195,8 @@ class PeopleServer {
     });
 
     this.app.get('/signin', async (request, response) => {
-      const username = await self.db.signin(request.query.username, request.query.password);
+      const {username, password} = request.query;
+      const person= await self.db.signin(username, password);
       response.send(JSON.stringify(username));
       response.end();
     });
