@@ -116,7 +116,11 @@ async function getUser(username) {
   return data;
 }
 
-console.log("got: " + JSON.stringify(await getUser(localUsername)));
+try {
+    console.log("got: " + JSON.stringify(await getUser(localUsername)));
+} catch (err) {
+    console.log(err);
+}
 
 
 
