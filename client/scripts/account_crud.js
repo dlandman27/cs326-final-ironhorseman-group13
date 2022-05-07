@@ -51,6 +51,10 @@ async function updatePerson(username, password) {
 document.getElementById("change_pwd_button").addEventListener("click", async () => {
     
     const person = await updatePerson(window.localStorage.getItem("username"), document.getElementById("change_password").value);
-    output.innerHTML = JSON.stringify(person);
+    
     document.getElementById("account_info").innerHTML = "got the following:<br>" + responseText;
+});
+
+document.getElementById("change_pwd_button").addEventListener("click", async () => {
+    window.location.href = "dashboard.html";
 });
