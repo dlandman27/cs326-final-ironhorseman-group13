@@ -211,6 +211,16 @@ class PeopleServer {
       }
     });
 
+    this.app.put('/updateAbility', async (req, res) => {
+      try {
+        const { username, ability } = req.query;
+        const person = await self.db.updatePerson(username, ability);
+        res.send(JSON.stringify(person));
+      } catch (err) {
+        res.status(502).send(err);
+      }
+    });
+
 // app.get('/getUser', async (request, response) => {
 //   const queryVar = request.query;
 //   readUsers(response,queryVar.name);

@@ -108,6 +108,16 @@ export class playerDatabase {
     const res = await this.client.query(queryText, [username, password]);
     return res.rows;
   }
+  
+  async updateAbility(username, ability) {
+    const user = await this.getUser(username);
+
+    let queryText =
+      'UPDATE users SET ability= $2 WHERE username = $1 RETURNING *';
+    const res = await this.client.query(queryText, [username, ability]);
+    return res.rows;
+  }
+
 
   async getUser(username) {
     let queryText =

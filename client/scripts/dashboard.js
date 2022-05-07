@@ -22,7 +22,16 @@ document.getElementById("account-button").addEventListener("click",function(){
 });
 
 // 
-
+async function updateAbility(username) {
+    const response = await fetch(
+      `/updateAbility?username=${username}`,
+      {
+        method: 'PUT',
+      }
+    );
+    const data = await response.json();
+    return data;
+  }
 
 function clickFactionButton(){
     const buttons = document.getElementsByClassName("faction-logo");
@@ -33,8 +42,10 @@ function clickFactionButton(){
             }
             this.classList.add("selected");
             button_color = buttons[i].style.backgroundColor;
-            console.log(button_color)
+            console.log(button_color);
+
         });
+
         //add crud operation
         
     }
