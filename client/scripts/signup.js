@@ -25,15 +25,11 @@ dropdown_images();
 
 
 async function createUser(username,password) {
-    const response = await fetch(`/addUser?username=${username}&password=${password}`, {
+    const response = await fetch(`/addUser?username=${username}&password=${password}`, 
+    {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      }
     });
-
     const data = await response.json();
-
     return data;
 }
   
