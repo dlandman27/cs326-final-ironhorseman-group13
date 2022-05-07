@@ -333,12 +333,12 @@ async function changeGamePhase() {
 }
 
 // refresh the player's total money counter
-function updatePlayerMoney() {
+async function updatePlayerMoney() {
     const response = await fetch(`/updateCash?cash=${totalPlayerMoney.toFixed(2)}`, {
         method: 'PUT',
       });
     //const data = await response.json();
-      
+
     // the "toFixed" function displays 2 decimals, like money
     document.getElementById("player-money").innerText = totalPlayerMoney.toFixed(2).toString();
 }
