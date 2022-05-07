@@ -95,6 +95,31 @@ let playerAbility = "sneak";
 
 
 
+//const localUsername = localStorage.getItem("username");
+const localUsername = "cow"; // pass is asdf
+
+/*let responseText = "";
+  const localPlayerInfo = await fetch("/", {
+    method: "GET",
+    //username: localUsername,
+    headers: { "Content-Type": "application/json" },
+  }).then(response => response.text()).then(r => responseText = r);
+
+  console.log("got: " + localUsername);*/
+
+
+async function getUser(username) {
+  const response = await fetch(`/getUser?username=${username}`, {
+    method: 'GET',
+  });
+  const data = await response.json();
+  return data;
+}
+
+console.log("got: " + JSON.stringify(await getUser(localUsername)));
+
+
+
 // utility function to wait for x milliseconds seconds
 const delay = x => new Promise(res => setTimeout(res, x));
 
