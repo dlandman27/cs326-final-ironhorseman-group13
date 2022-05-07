@@ -2,7 +2,7 @@ import express from 'express';
 import { readFile, writeFile } from 'fs/promises';
 import logger from 'morgan';
 import {playerDatabase} from "./player-db.js";
-let knownUsers = [];
+
 
 
 // let usersFile = 'UsersFile.json';
@@ -20,7 +20,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/client', express.static('client'));
 
 
 async function reloadUsers() {
@@ -218,5 +217,6 @@ app.all('*', async (request, response) => {
 app.listen(port, () => {
   const db = new playerDatabase("ec2-54-80-122-11.compute-1.amazonaws.com");
   await db.connect();
+  this.app.use('/', express.static('client'));
   console.log(`Server started on http://localhost:${port}`);
 });
