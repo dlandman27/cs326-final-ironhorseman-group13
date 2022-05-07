@@ -220,6 +220,15 @@ class PeopleServer {
         res.status(502).send(err);
       }
     });
+    this.app.put('/updateCash', async (req, res) => {
+      try {
+        const { username, cash } = req.query;
+        const person = await self.db.updateCash(username, cash);
+        res.send(JSON.stringify(person));
+      } catch (err) {
+        res.status(502).send(err);
+      }
+    });
       this.app.put('/getUser', async (req, res) => {
         try {
           const username = req.query;
