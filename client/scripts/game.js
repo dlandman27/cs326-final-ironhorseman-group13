@@ -109,7 +109,7 @@ async function getUser(username) {
 }
 
 async function updateNumHands() {
-    const response = await fetch(`/updateNumHands?username=${localUsername}`, {
+    const response = await fetch(`/updateNumHands?username=${localUsername}&numHands=${totalHandsWon}`, {
       method: 'PUT',
     });
     const data = await response.json();
@@ -338,13 +338,14 @@ async function changeGamePhase() {
 
 // refresh the player's total money counter
 async function updatePlayerMoney() {
-    const response = await fetch(`/updateCash?cash=${totalPlayerMoney.toFixed(2)}`, {
+    const prettyMoney = totalPlayerMoney.toFixed(2);
+    const response = await fetch(`/updateCash?username=${localUsername}&cash=${prettyMoney}`, {
         method: 'PUT',
       });
     //const data = await response.json();
 
     // the "toFixed" function displays 2 decimals, like money
-    document.getElementById("player-money").innerText = totalPlayerMoney.toFixed(2).toString();
+    document.getElementById("player-money").innerText = prettyMoney.toString();
 }
 
 
