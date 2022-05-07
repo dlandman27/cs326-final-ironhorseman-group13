@@ -73,7 +73,7 @@ export class playerDatabase {
     const user = await this.getUser(username);
     
     let ability = "n/a";
-    let cash = 1000;
+    let cash = "1000";
     if(user.rows.length > 0){
         return "Username already exists";
     }
