@@ -30,7 +30,8 @@ class Card {
     }
 
     getDisplayImg() {
-        return "/client/images/suits/" + this.suit + ".png";
+        //return "/client/images/suits/" + this.suit + ".png";
+        return "/images/suits/" + this.suit + ".png";
     }
 
     constructor(suit, rank) {
