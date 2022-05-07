@@ -1,0 +1,89 @@
+
+.card-new {
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+
+    font-family: 'Crete Round', Georgia;
+    font-weight: 500;
+    font-size: 24px;
+
+    height: 112px;
+    width: 80px;
+
+    border-radius: 5%;
+
+    top: 0px;
+    left: 0px;
+
+    border: 1px solid black;
+
+    /*
+    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
+    background-size: cover;
+    border-radius: 10px;
+    background-position: center;
+    height: 140px;
+    width: 100px;
+    */
+
+    z-index: 0;
+
+    background-size: 100%;
+}
+
+.card-new > #center-img {
+    top: 30%;
+    left: 30%;
+
+    width: 40%;
+    height: 40%;
+
+    background-image: url("../images/suits/diamond.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.card-new > .label {
+    position: absolute;
+    display: block;
+
+    margin: 0 0;
+    color: red;
+}
+
+.card-new > #label-top-left {
+    top: -4px;
+    left: 2px;
+}
+
+.card-new > #label-bottom-right {
+    right: 2px;
+    bottom: -4px;
+
+    transform: scale(-1, -1);
+}
+
+.card-new > .card-suit-img {
+    position: absolute;
+
+    background-image: url("../images/suits/diamond.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    width: 16px;
+    height: 16px;
+}
+
+.card-new > #suit-img-top-left {
+    top: 24px;
+    left: 4px;
+}
+
+.card-new > #suit-img-bottom-right {
+    bottom: 24px;
+    right: 4px;
+
+    transform: scale(-1, -1);
+}

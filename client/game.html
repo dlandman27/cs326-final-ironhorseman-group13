@@ -1,0 +1,99 @@
+
+<!--
+
+    author: Jason Milhaven
+
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>game</title>
+		<meta charset="utf-8" /> 
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+        </style>
+
+		<link rel="stylesheet" href="./styles/game.css">
+        <link rel="stylesheet" href="./styles/card.css"><link>
+
+		<script src="./scripts/gameBoard.js" type="module"></script>
+        <script src="./scripts/game.js" type="module"></script>
+    </head>
+    <body>
+        <div class="board">
+            <div id="dummy-card" style="visibility: hidden;" class="card-new">
+                <div id="center-img" class="card-suit-img"></div>
+
+                <p id="label-top-left" class="label">12</p>
+                <div id="suit-img-top-left" class="card-suit-img"></div>
+
+                <p id="label-bottom-right" class="label">12</p>
+                <div id="suit-img-bottom-right" class="card-suit-img"></div>
+            </div>
+
+            <p id="player-name">PLAYER_NAME</p>
+            <p id="player-money"></p>
+            
+            <!--<div id="ability-hotbar">
+                <div class="ability-button">
+                </div>
+                <div class="ability-button">
+                </div>
+                <div class="ability-button">
+                </div>
+            </div>-->
+
+            <!--<div id="player-hand-container">
+                <div id="player-hand-container-inner">
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                    <div class="player-card"></div>
+                </div>
+            </div>-->
+            
+
+            <div id="game-frame" class="centered">
+                <div id="hit-button" class="button">
+                    <p>HIT</p>
+                </div>
+
+                <div id="stand-button" class="button">
+                    <p>STAND</p>
+                </div>
+
+                <div id="ability-button" class="button">
+                    <p>ABILITY</p>
+                </div>
+
+                <p id="score-house" class="score-counter"></p>
+                <p id="score-player" class="score-counter"></p>
+
+                <p id="info-label"></p>
+            </div>
+
+            <div id="bet-frame" class="centered">
+                <p id="bet-label">BET AMOUNT:</p>
+                <input id="bet-textbox" type="text"></input>
+
+                <div id="deal-button" class="button">
+                    <p>DEAL</p>
+                </div>
+
+                
+            </div>
+
+            <div id="player-hand" class="hand"></div>
+            <div id="house-hand" class="hand"></div>
+
+            <div id="ability-label">
+                <p>sample ability description</p>
+            </div>
+        </div>
+    </body>
+</html>
