@@ -95,6 +95,7 @@ export class playerDatabase {
 
     return "Success";
   }
+
   async getUser(username) {
     let queryText =
     `
