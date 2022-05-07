@@ -42,7 +42,7 @@ export class playerDatabase {
     create table if not exists users (
         username varchar(30) primary key,
         password varchar(30),
-        ability varchar(30),
+        numHands varchar(30),
         cash varchar(30)
       );
     
@@ -72,7 +72,7 @@ export class playerDatabase {
 
     const user = await this.getUser(username);
     
-    let ability = "n/a";
+    let numHands = "0";
     let cash = "1000";
     if(user.rows.length > 0){
         return "Username already exists";
@@ -80,9 +80,9 @@ export class playerDatabase {
     else{
         let queryText =
         `
-            INSERT INTO users (username, password, ability, cash) VALUES ($1, $2, $3, $4);
+            INSERT INTO users (username, password, numHands, cash) VALUES ($1, $2, $3, $4);
         `;
-        const res = await this.client.query(queryText, [username, password,ability,cash]);
+        const res = await this.client.query(queryText, [username, password,numHands,cash]);
         return "Success";    
     }
   }
@@ -109,12 +109,12 @@ export class playerDatabase {
     return res.rows;
   }
   
-  async updateAbility(username, ability) {
+  async updateNumHands(username, numHands) {
     const user = await this.getUser(username);
 
     let queryText =
-      'UPDATE users SET ability= $2 WHERE username = $1 RETURNING *';
-    const res = await this.client.query(queryText, [username, ability]);
+      'UPDATE users SET numHands= $2 WHERE username = $1 RETURNING *';
+    const res = await this.client.query(queryText, [username, numHands]);
     return res.rows;
   }
 
