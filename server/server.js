@@ -201,6 +201,16 @@ class PeopleServer {
       response.end();
     });
 
+    this.app.put('/update', async (req, res) => {
+      try {
+        const { username, password } = req.query;
+        const person = await self.db.updatePerson(username, password);
+        res.send(JSON.stringify(person));
+      } catch (err) {
+        res.status(500).send(err);
+      }
+    });
+
 // app.get('/getUser', async (request, response) => {
 //   const queryVar = request.query;
 //   readUsers(response,queryVar.name);

@@ -35,6 +35,17 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById("account_info").innerHTML = "got the following:<br>" + responseText;
 });
 
+
+export async function updatePerson(username, password) {
+    const response = await fetch(
+      `/person/update?username=${username}&password=${password}`,
+      {
+        method: 'PATCH',
+      }
+    );
+    const data = await response.json();
+    return data;
+  }
 document.getElementById("change_pwd_button").addEventListener("click", async () => {
     let localAuthToken = getLocalAuthToken();
     const newPwd = document.getElementById("change_password").value;
