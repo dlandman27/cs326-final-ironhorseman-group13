@@ -89,12 +89,13 @@ export class playerDatabase {
     `;
     const user = await this.client.query(queryText, [username, password]);
 
-    if(user.rows.length === 0){
+    if(user.length === 0){
         return "Incorrect Username or Password";
     }
 
     return "Success";
   }
+
   async getUser(username) {
     let queryText =
     `

@@ -25,15 +25,11 @@ dropdown_images();
 
 
 async function createUser(username,password) {
-    const response = await fetch(`/addUser?username=${username}&password=${password}`, {
+    const response = await fetch(`/addUser?username=${username}&password=${password}`, 
+    {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      }
     });
-
     const data = await response.json();
-
     return data;
 }
   
@@ -42,16 +38,43 @@ document.getElementById("signup_form").addEventListener("submit", async function
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("password_confirm").value;
-
-    if(password !== confirm_password){
-      alert("Passwords do not match");
+    if(username == '' || password == '' || confirm_password == ''){
+      if(username === ""){
+      document.getElementById("username").style.outline = "solid red 2px";
+      document.getElementById("username").placeholder = "No username entered";
+      document.getElementById("username").value = "";
+      }
+      else{
+        document.getElementById("username").style.outline = "";
+        document.getElementById("username").placeholder = "";
+      } 
+      if(password === ""){
+        document.getElementById("password").style.outline = "solid red 2px";
+        document.getElementById("password").placeholder = "No password entered";
+      }
+      else{
+        document.getElementById("password").style.outline = "";
+        document.getElementById("password").placeholder = "";
+      }
+      if(confirm_password !== password){
+        document.getElementById("password_confirm").style.outline = "solid red 2px";
+        // Remove the value of the password field
+        document.getElementById("password_confirm").value = "";
+        document.getElementById("password_confirm").placeholder = "Passwords do not match";
+      }
+      else{
+        document.getElementById("password_confirm").style.outline = "";
+        document.getElementById("password_confirm").placeholder = "";
+      }
     }
     else{
       let obj = await createUser(username,password);
       obj = JSON.parse(JSON.stringify(obj));
       console.log(obj)
       if(obj !== "Success"){
-        alert("Username already exists");
+        document.getElementById("username").style.outline = "solid red 2px";
+        document.getElementById("username").placeholder = "Username already exists";
+        document.getElementById("username").value = "";
       }
     }
 });

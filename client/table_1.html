@@ -6,12 +6,17 @@
 		<title>game</title>
 		<meta charset="utf-8" /> 
 		<link rel="stylesheet" href="./styles/gameBoard.css">
-		<script src="./scripts/gameBoard.js" type="module"></script>
+		<script src="./scripts/gameplay.js" type="module"></script>
     </head>
     <body>
         <div class="board">
-            <p id="player-name">PLAYER_NAME</p>
-            <p id="player-money">100.00</p>
+            <div class="player-info-container">
+                <div class="player-info-wrapper">
+                    <span id="player-name" class="player-name">PLAYER_NAME</span>
+                    <hr>
+                    <span id="player-earnings" class="player-earnings">100.00</span>
+                </div>
+            </div>
             
             <div id="ability-hotbar">
                 <div class="ability-button">
@@ -22,35 +27,28 @@
                 </div>
             </div>
 
-            <!--<div id="player-hand-container">
-                <div id="player-hand-container-inner">
-                    <div class="player-card"></div>
-                    <div class="player-card"></div>
-                    <div class="player-card"></div>
-                    <div class="player-card"></div>
-                    <div class="player-card"></div>
+            <!-- <div class = "deck"><div class="face card_front"></div><div class="face card_back"></div></div>    -->
+
+            <div class="cards-container">
+                <span class="card-text">Dealer's Hand</span>
+                <div class="dealer-cards-container">
+                    <!-- <div class="card-container">
+                        <div class="card card_back"></div>
+                    </div>
+                    <div class="card-container">
+                        <div class="card card_back"></div>
+                    </div> -->
+                </div>    
+                <span class="card-text">Your Hand</span>
+                <div class="player-cards-container">
+                    <div class="card-container">
+                    </div>
                 </div>
-            </div>-->
-
-            <div class = "deck"><div class="face card_front"></div><div class="face card_back"></div></div>   
-
-            
-            <div class="bottom_decks_container">
-                <div class="user-cards-container">
-                    <div id="cardBot3card1" class="card"><div id = "textBot4Name" class="cardText">Username<br>$4</div></div>
-                    <div id="cardBot3card2" class="card"><div id = "textBot4BetName" class="cardText">Current Bet<br>$3</div></div>
+                <div class="choose-move">
+                    <button id="hit-button" class="choose-move-button">HIT</button>
+                    <button id="stand-button" class="choose-move-button">STAND</button>
                 </div>
             </div>
-            <!-- centre cards-->
-
-            <div class="flop-container">
-                <div id="cardFlop1" class="flop-card"></div>
-                <div id="cardFlop2" class="flop-card"></div>
-            </div>
-            
-
-            
-
             <div id="ability-label">
                 <p>sample ability description</p>
             </div>
