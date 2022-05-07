@@ -89,7 +89,7 @@ export class playerDatabase {
     `;
     const user = await this.client.query(queryText, [username, password]);
 
-    if(user.length === 0){
+    if(user.rows.length === 0){
         return "Incorrect Username or Password";
     }
 
