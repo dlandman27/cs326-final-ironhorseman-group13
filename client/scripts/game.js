@@ -295,6 +295,10 @@ async function changeGamePhase() {
         // draw the cards for the player
         dealCardTo(true);
         dealCardTo(true);
+
+        document.getElementById("hit-button").addEventListener("click", onHitClicked);
+        document.getElementById("stand-button").addEventListener("click", onStandClicked);
+        document.getElementById("ability-button").addEventListener("click", onAbilityClicked);
     }
 }
 
@@ -306,6 +310,10 @@ function updatePlayerMoney() {
 
 
 function declareVictoryTo(isPlayerWinner) {
+    document.getElementById("hit-button").removeEventListener("click", onHitClicked);
+    document.getElementById("stand-button").removeEventListener("click" ,onStandClicked);
+    document.getElementById("ability-button").removeEventListener("click", onAbilityClicked);
+
     // perform the reverse ability, if applicable
     if (playerAbility === "reverse") {
         isPlayerWinner = !isPlayerWinner;
@@ -444,22 +452,20 @@ document.getElementById("deal-button").addEventListener("click", () => {
     changeGamePhase();
 });
 
-document.getElementById("hit-button").addEventListener("click", async () => {
+async function onHitClicked() {
     if (isButtonClicked) {
         return;
     }
     resetButtons();
-
-
 
     dealCardTo(true);
 
     if (getHandScore(playerCards) >= 21) {
         checkWinConditions();
     }
-});
+}
 
-document.getElementById("stand-button").addEventListener("click", async () => {
+async function onStandClicked() {
     if (isButtonClicked) {
         return;
     }
@@ -503,32 +509,12 @@ document.getElementById("stand-button").addEventListener("click", async () => {
                 break;
             }
         }
-
-        // then we check for the following conditions:
-        // if the dealer's score is over 21, the dealer loses
-        // else, if the dealer's score is greater than the player's score, the dealer wins
-        /*if (houseScore > 21) {
-            // player wins
-            declareVictoryTo(true);
-        } else if (houseScore > playerScore) {
-            // dealer wins
-            declareVictoryTo(false);
-        } else if (houseScore <= playerScore) {
-            // player wins
-            declareVictoryTo(true);
-        }*/
     }
 
-
     checkWinConditions();
+}
 
-    /*console.log("changing the game phase...");
-    await delay(3000);
-    
-    changeGamePhase();*/
-});
-
-document.getElementById("ability-button").addEventListener("click", async () => {
+async function onAbilityClicked() {
     if (isButtonClicked) {
         return;
     }
@@ -560,13 +546,4 @@ document.getElementById("ability-button").addEventListener("click", async () => 
             checkWinConditions();
         }
     }
-});
-
-// for testing: press the 'p' key to force the game state to change
-/*document.addEventListener("keydown", (key) => {
-    if (key.key != 'p') {
-        return;
-    }
-
-    changeGamePhase();
-});*/
+}
