@@ -100,7 +100,7 @@ export class playerDatabase {
     const user = await this.getUser(username);
 
     let queryText =
-      'UPDATE users SET username = $2 WHERE username = $1 RETURNING *';
+      'UPDATE users SET password= $2 WHERE username = $1 RETURNING *';
     const res = await this.client.query(queryText, [username, password]);
     return res.rows;
   }
