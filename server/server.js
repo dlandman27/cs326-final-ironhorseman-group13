@@ -187,14 +187,14 @@ class PeopleServer {
 
     const self = this;
 
-    app.post('/addUser', async (request, response) => {
+    this.app.post('/addUser', async (request, response) => {
       const {username, password} = request.query;
       const person = await self.db.saveUsername(username, password);
       response.send(person);
       response.end();
     });
 
-    app.get('/signin', async (request, response) => {
+    this.app.get('/signin', async (request, response) => {
       const username = await self.db.signin(request.query.username, request.query.password);
       response.json(username);
       response.end();
@@ -219,7 +219,7 @@ class PeopleServer {
 //TODO ADD PATCH AND DELETE
 
     // This matches all routes that are not defined.
-    app.all('*', async (request, response) => {
+    this.app.all('*', async (request, response) => {
       response.status(404).send(`Not found: ${request.path}`);
     });
   }
