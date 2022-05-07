@@ -229,7 +229,7 @@ class PeopleServer {
         res.status(502).send(err);
       }
     });
-      this.app.put('/getUser', async (req, res) => {
+      this.app.get('/getUser', async (req, res) => {
         try {
           const username = req.query.username;
           const person = self.db.getUser(username);
