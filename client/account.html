@@ -14,6 +14,12 @@
             <div class="rpg-poker-logo"></div>
             <div class="avatar-container">
                 <h3 class="navbar-username"></h3>
+                <script type ="text/javascript">
+                    what();
+                    function what(){
+                        document.getElementById('navbar-username').innerHTML = window.localStorage.getItem("username");
+                    };
+                </script>
                 <h5 class="navbar-level">Level: 00</h5>
             </div>
             <ul class="my-3">

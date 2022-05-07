@@ -34,10 +34,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     //window.alert("got the following: " + responseText);
     document.getElementById("account_info").innerHTML = "got the following:<br>" + responseText;
 });
-
-let f = document.getElementById("navbar-username");
-f.innerHTML = window.localStorage.getItem("username");
-
+console.log(window.localStorage.getItem("username"));
 async function updatePerson(username, password) {
     const response = await fetch(
       `/person/update?username=${username}&password=${password}`,
