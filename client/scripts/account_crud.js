@@ -36,9 +36,10 @@ document.addEventListener("DOMContentLoaded", async function() {
 });
 console.log(window.localStorage.getItem("username"));
 //k.innerHTML = `<H3>${window.localStorage.getItem("username")}</H3>`;
+
 async function updatePerson(username, password) {
     const response = await fetch(
-      `/person/update?username=${username}&password=${password}`,
+      `/update?username=${username}&password=${password}`,
       {
         method: 'PUT',
       }
