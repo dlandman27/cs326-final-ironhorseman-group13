@@ -379,12 +379,13 @@ function declareVictoryTo(isPlayerWinner) {
 
         if (currentWinStreak > highestWinStreak) {
             highestWinStreak = currentWinStreak;
-            onSaveHighestWinstreak();
+            //onSaveHighestWinstreak();
         }
 
         if (totalPlayerMoney > highestMoneyEarned) {
             highestMoneyEarned = totalPlayerMoney;
-            onSavehighestMoneyEarned();
+            updatePlayerMoney();
+            //onSavehighestMoneyEarned();
         }
     } else {
         currentWinStreak = 0;
