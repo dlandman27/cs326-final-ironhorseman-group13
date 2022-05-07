@@ -220,6 +220,15 @@ class PeopleServer {
         res.status(502).send(err);
       }
     });
+      this.app.put('/getUser', async (req, res) => {
+        try {
+          const username = req.query;
+          const person = self.db.getUser(username);
+          res.send(JSON.stringify(person));
+        } catch (err) {
+          res.status(502).send(err);
+        }
+      });
 
 // app.get('/getUser', async (request, response) => {
 //   const queryVar = request.query;
