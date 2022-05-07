@@ -98,14 +98,6 @@ let playerAbility = "sneak";
 //const localUsername = localStorage.getItem("username");
 const localUsername = "cow"; // pass is asdf
 
-/*let responseText = "";
-  const localPlayerInfo = await fetch("/", {
-    method: "GET",
-    //username: localUsername,
-    headers: { "Content-Type": "application/json" },
-  }).then(response => response.text()).then(r => responseText = r);
-
-  console.log("got: " + localUsername);*/
 
 
 async function getUser(username) {
@@ -115,6 +107,15 @@ async function getUser(username) {
   const data = await response.json();
   return data;
 }
+
+async function updateNumHands() {
+    const response = await fetch(`/updateNumHands?username=${localUsername}`, {
+      method: 'PUT',
+    });
+    const data = await response.json();
+    return data;
+}
+
 
 try {
     console.log("got: " + JSON.stringify(await getUser(localUsername)));
@@ -333,6 +334,11 @@ async function changeGamePhase() {
 
 // refresh the player's total money counter
 function updatePlayerMoney() {
+    const response = await fetch(`/updateCash?cash=${totalPlayerMoney.toFixed(2)}`, {
+        method: 'PUT',
+      });
+    //const data = await response.json();
+      
     // the "toFixed" function displays 2 decimals, like money
     document.getElementById("player-money").innerText = totalPlayerMoney.toFixed(2).toString();
 }
@@ -417,7 +423,7 @@ async function onSavehighestMoneyEarned() {
 
 async function onSaveTotalHandsWon() {
     // TODO - perform the saving here...
-
+    updateNumHands();
 }
 
 // abilities:
