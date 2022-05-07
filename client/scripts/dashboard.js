@@ -12,11 +12,17 @@ function signout(){
     window.location.href = "index.html";
 }
 
+
+
+
 document.getElementById("signout-button").addEventListener("click",signout);
 
 document.getElementById("account-button").addEventListener("click",function(){
     window.location.href = "account.html";
 });
+
+let f = document.getElementById("navbar-username");
+f.innerHTML = window.localStorage.getItem(username);
 
 function clickFactionButton(){
     const buttons = document.getElementsByClassName("faction-logo");
