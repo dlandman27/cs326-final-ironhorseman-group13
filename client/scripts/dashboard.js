@@ -22,7 +22,7 @@ document.getElementById("account-button").addEventListener("click",function(){
 });
 
 let f = document.getElementById("navbar-username");
-f.innerHTML = window.localStorage.getItem(username);
+f.innerHTML = window.localStorage.getItem("username");
 
 function clickFactionButton(){
     const buttons = document.getElementsByClassName("faction-logo");
