@@ -21,6 +21,10 @@ document.getElementById("account-button").addEventListener("click",function(){
     window.location.href = "account.html";
 });
 
+document.getElementById("how-to-play").addEventListener("click",function(){
+    window.location.href = "how-to-play.html";
+});
+
 // 
 async function updateAbility(username) {
     const response = await fetch(
