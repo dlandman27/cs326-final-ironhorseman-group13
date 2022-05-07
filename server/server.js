@@ -214,7 +214,7 @@ class PeopleServer {
     this.app.put('/updateAbility', async (req, res) => {
       try {
         const { username, ability } = req.query;
-        const person = await self.db.updatePerson(username, ability);
+        const person = await self.db.updateAbility(username, ability);
         res.send(JSON.stringify(person));
       } catch (err) {
         res.status(502).send(err);
