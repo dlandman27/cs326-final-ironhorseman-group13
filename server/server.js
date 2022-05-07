@@ -211,10 +211,10 @@ class PeopleServer {
       }
     });
 
-    this.app.put('/updateAbility', async (req, res) => {
+    this.app.put('/updateNumHands', async (req, res) => {
       try {
-        const { username, ability } = req.query;
-        const person = await self.db.updateAbility(username, ability);
+        const { username, numHands } = req.query;
+        const person = await self.db.updateNumHands(username,numHands);
         res.send(JSON.stringify(person));
       } catch (err) {
         res.status(502).send(err);
@@ -229,7 +229,7 @@ class PeopleServer {
         res.status(502).send(err);
       }
     });
-      this.app.put('/getUser', async (req, res) => {
+      this.app.get('/getUser', async (req, res) => {
         try {
           const username = req.query.username;
           const person = self.db.getUser(username);
