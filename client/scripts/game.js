@@ -256,7 +256,13 @@ async function changeGamePhase() {
         currentRound++;
     }
 
-    isButtonClicked = true;
+    if (isBetPhase) {
+        // TODO: remove this afterwards
+        document.getElementById("hit-button").style.visibility = isBetPhase ? "hidden" : "visible";
+        document.getElementById("stand-button").style.visibility = isBetPhase ? "hidden" : "visible";
+        document.getElementById("info-label").style.visibility = isBetPhase ? "hidden" : "visible";
+        document.getElementById("ability-button").style.visibility = isBetPhase ? "hidden" : "visible";
+    }
 
     console.log("waiting...");
     await delay(250);
@@ -265,8 +271,6 @@ async function changeGamePhase() {
     
     document.getElementById("info-label").innerText = "";
 
-
-    /*document.getElementById("bet-frame").style.visibility = isBetPhase ? "visible" : "hidden";*/
     document.getElementById("hit-button").style.visibility = isBetPhase ? "hidden" : "visible";
     document.getElementById("stand-button").style.visibility = isBetPhase ? "hidden" : "visible";
     document.getElementById("info-label").style.visibility = isBetPhase ? "hidden" : "visible";
@@ -300,8 +304,6 @@ async function changeGamePhase() {
         dealCardTo(true);
         dealCardTo(true);
     }
-
-    isButtonClicked = false;
 }
 
 // refresh the player's total money counter
@@ -413,11 +415,16 @@ changeGamePhase();
 //assignPlayerAbility("sneak");
 
 
+async function resetButtons() {
+    isButtonClicked = true;
+    await delay(250);
+    isButtonClicked = false;
+}
+
 document.getElementById("deal-button").addEventListener("click", () => {
     if (isButtonClicked) {
         return;
     }
-    isButtonClicked = true;
 
     if (getCurrentBet() === -1) {
         return;
@@ -427,6 +434,12 @@ document.getElementById("deal-button").addEventListener("click", () => {
     if (bet === -1) {
         return;
     }
+
+
+    resetButtons();
+    
+
+
     console.log("bet is: " + bet);
 
     // withhold the bet from the player's money counter
@@ -443,22 +456,22 @@ document.getElementById("hit-button").addEventListener("click", async () => {
     if (isButtonClicked) {
         return;
     }
-    isButtonClicked = true;
+    resetButtons();
+
+
 
     dealCardTo(true);
 
     if (getHandScore(playerCards) >= 21) {
         checkWinConditions();
     }
-
-    isButtonClicked = false;
 });
 
 document.getElementById("stand-button").addEventListener("click", async () => {
     if (isButtonClicked) {
         return;
     }
-    isButtonClicked = true;
+    resetButtons();
 
 
     // turn over the house's hidden card
@@ -516,7 +529,6 @@ document.getElementById("stand-button").addEventListener("click", async () => {
 
 
     checkWinConditions();
-    isButtonClicked = false;
 
     /*console.log("changing the game phase...");
     await delay(3000);
@@ -528,7 +540,8 @@ document.getElementById("ability-button").addEventListener("click", async () => 
     if (isButtonClicked) {
         return;
     }
-    isButtonClicked = true;
+    resetButtons();
+
 
     // if ability is sneak, take the two of 3 cards which bring the player closer to, but not above 21
     if (playerAbility === "sneak") {
@@ -555,8 +568,6 @@ document.getElementById("ability-button").addEventListener("click", async () => 
             checkWinConditions();
         }
     }
-
-    isButtonClicked = false;
 });
 
 // for testing: press the 'p' key to force the game state to change
