@@ -188,13 +188,14 @@ class PeopleServer {
     const self = this;
 
     app.post('/addUser', async (request, response) => {
-      const username = await db.saveUsername(request.query.username, request.query.password);
-      response.json(username);
+      const {username, password} = request.query;
+      const person = await self.db.saveUsername(username, password);
+      response.send(person);
       response.end();
     });
 
     app.get('/signin', async (request, response) => {
-      const username = await db.signin(request.query.username, request.query.password);
+      const username = await self.db.signin(request.query.username, request.query.password);
       response.json(username);
       response.end();
     });
