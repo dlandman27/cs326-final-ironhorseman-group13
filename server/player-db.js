@@ -82,7 +82,7 @@ export class playerDatabase {
         `
             INSERT INTO users (username, password, ability, cash) VALUES ($1, $2, $3, $4);
         `;
-        const res = await this.client.query(queryText, [username, password]);
+        const res = await this.client.query(queryText, [username, password,ability,cash]);
         return "Success";    
     }
   }
