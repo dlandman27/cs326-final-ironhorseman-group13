@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", async function() {
 });
 
 let f = document.getElementById("navbar-username");
-f.innerText = window.localStorage.getItem("username");
+f.innerHTML = window.localStorage.getItem("username");
 
-export async function updatePerson(username, password) {
+async function updatePerson(username, password) {
     const response = await fetch(
       `/person/update?username=${username}&password=${password}`,
       {
