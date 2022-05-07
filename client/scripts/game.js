@@ -106,7 +106,7 @@ async function getUser(username) {
     method: 'GET',
   });
   const data = await response.json();
-  return JSON.parse(data);
+  return JSON.parse(JSON.stringfy(data));
 }
 
 async function updateNumHands() {
