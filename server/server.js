@@ -207,7 +207,7 @@ class PeopleServer {
         const person = await self.db.updatePerson(username, password);
         res.send(JSON.stringify(person));
       } catch (err) {
-        res.status(500).send(err);
+        res.status(502).send(err);
       }
     });
 
