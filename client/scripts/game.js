@@ -118,7 +118,11 @@ async function updateNumHands() {
 
 
 try {
-    console.log("got: " + JSON.stringify(await getUser(localUsername)));
+    let userInfo = await getUser(localUsername);
+    console.log("got: " + JSON.stringify(userInfo));
+
+    // TODO - use userinfo here
+    assignPlayerAbility("sneak");
 } catch (err) {
     console.log(err);
 }
@@ -437,6 +441,7 @@ async function onSaveTotalHandsWon() {
 function assignPlayerAbility(ability) {
     // TODO - call this function when loading the game
     playerAbility = ability;
+    document.getElementsByClassName("abilityDesc")[0].innerHTML = ability;
 }
 
 
