@@ -97,7 +97,9 @@ export class playerDatabase {
   }
 
   async updatePerson(username, password) {
-    const queryText =
+    const user = await this.getUser(username);
+    
+    let queryText =
       'UPDATE people SET username = $2 WHERE username = $1 RETURNING *';
     const res = await this.client.query(queryText, [username, password]);
     return res.rows;
