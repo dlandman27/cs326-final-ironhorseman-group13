@@ -21,9 +21,9 @@ document.getElementById("account-button").addEventListener("click",function(){
     window.location.href = "account.html";
 });
 
-let f = document.getElementById("navbar-username");
+// let f = document.getElementById("navbar-username");
 
-f.innerText = window.localStorage.getItem("username");
+// f.innerText = window.localStorage.getItem("username");
 
 function clickFactionButton(){
     const buttons = document.getElementsByClassName("faction-logo");
