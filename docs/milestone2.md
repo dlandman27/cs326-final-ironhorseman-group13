@@ -37,14 +37,14 @@
 Screenshots are in the docs/screenshots folder, or you can view them here:
 
 signup page, which creates a user account
-![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/board/docs/screenshots/signup_sheet.png)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/old/signup.jpg)
 
 sign in page, which will send a request to login and retrieve the user info if accepted
-![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/board/docs/screenshots/index.png)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/old/index.jpg)
 
 account page, which will allow a user to view their info via the /getUserInfo request
 they can also change their password here
-![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/board/docs/screenshots/account_page.jpg)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/old/account.jpg)
 
 account page after attempting to delete user account
-![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/board/docs/screenshots/account_alert.jpg)
+![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/old/gameBoard1.png)
