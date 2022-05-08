@@ -15,9 +15,9 @@ A unique take on the Blackjack playing cards game.  Users may select an interact
 - jasonmilhaven - Jason Milhaven
 
 ## Division of Labor, and Team Member Responibilities
--Dylan Landman - HTML/CSS frontend
--Jared Starman - Backend and database
--Brandon Halig - helped us on the last day idk what to write here
+-Dylan Landman - HTML/CSS frontend for account, login/signup, and dashboard
+-Jared Starman - designed the Backend and database
+-Brandon Halig - helped us a bit on the last day idk what to write here
 -Jason Milhaven - Player interface, controls, gameplay
 
 ## UI ScreenShots
