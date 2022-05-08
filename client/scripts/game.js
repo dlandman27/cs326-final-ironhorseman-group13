@@ -98,7 +98,7 @@ let playerAbility = "sneak";
 //const localUsername = localStorage.getItem("username");
 const localUsername = localStorage.getItem("username"); // pass is asdf
 
-
+console.log(localUsername);
 
 
 async function getUser(username) {
@@ -120,7 +120,7 @@ async function updateNumHands() {
 
 let userInfo = await getUser(localUsername);
 console.log(userInfo);
-userInfo = JSON.parse(JSON.stringify(userInfo));
+userInfo = JSON.stringify(userInfo);
 console.log(userInfo);
 totalPlayerMoney = userInfo.cash;
 assignPlayerAbility(userInfo.ability);
