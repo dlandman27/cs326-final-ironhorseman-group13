@@ -96,7 +96,7 @@ let playerAbility = "sneak";
 
 
 //const localUsername = localStorage.getItem("username");
-const localUsername = "cow"; // pass is asdf
+const localUsername = localStorage.getItem("username"); // pass is asdf
 
 
 
