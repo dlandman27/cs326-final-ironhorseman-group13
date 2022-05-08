@@ -362,7 +362,7 @@ function declareVictoryTo(isPlayerWinner) {
     document.getElementById("info-label").innerText = isPlayerWinner ? "you win" : "dealer wins";
 
     if (isPlayerWinner) {
-        if (playerAbility != "multipler") {
+        if (playerAbility != "multiplier") {
             totalPlayerMoney += 2 * bet;
         } else {
             totalPlayerMoney += 4 * bet;
