@@ -127,7 +127,12 @@ export class playerDatabase {
     return res.rows;
   }
 
-
+  /*async readPerson(id) {
+    const queryText = 'SELECT * FROM people WHERE id = $1';
+    const res = await this.client.query(queryText, [id]);
+    return res.rows;
+  }
+*/
   async getUser(username) {
     let queryText =
     `
@@ -135,7 +140,7 @@ export class playerDatabase {
     `;
     const res = await this.client.query(queryText, [username]);
 
-    return res;
+    return res.rows;
   }
 
 
