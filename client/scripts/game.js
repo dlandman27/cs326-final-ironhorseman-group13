@@ -123,7 +123,7 @@ console.log(userInfo);
 
 totalPlayerMoney = userInfo[0].cash;
 console.log(totalPlayerMoney);
-assignPlayerAbility(userInfo.ability);
+assignPlayerAbility();
 
 
 
@@ -427,10 +427,16 @@ async function checkWinConditions() {
 
 // each player may only select 1 ability per game
 // each active ability can only be used once every x rounds
-function assignPlayerAbility(ability) {
+function assignPlayerAbility() {
     // TODO - call this function when loading the game
-    playerAbility = ability;
-    document.getElementsByClassName("abilityDesc")[0].innerHTML = ability;
+    let cookie = {};
+    document.cookie.split(';').forEach(function(el) {
+        let [key,value] = el.split('=');
+        cookie[key.trim()] = value;
+    })
+
+    playerAbility = cookie['playerAbility'];
+    document.getElementsByClassName("abilityDesc")[0].innerHTML = cookie['playerAbility'];
 }
 
 
