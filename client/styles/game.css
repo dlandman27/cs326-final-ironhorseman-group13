@@ -40,47 +40,6 @@ body {
     transform: translate(-150%, -145%);
 }
 
-
-#cardBot1card1{
-    top:425px;
-    left:100px;
-}
-
-#ability-hotbar {
-    position: absolute;
-
-    display: inline-flex;
-    justify-content: center;
-    column-gap: 12px;
-
-    bottom: 6px;
-
-    /*margin-left: 50%;
-    margin-right: auto;*/
-    width: 100%;
-
-    z-index: 999;
-}
-
-.ability-button {
-    position: relative;
-    height: 48px;
-    width: 48px;
-
-    background-color: rgb(48, 48, 48);
-
-    border: 4px solid rgb(20, 95, 156);
-    border-radius: 12.5%;
-
-    transition-duration: 0.25s;
-    transition-timing-function: ease-in-out;
-}
-
-.ability-button:hover {
-    transform: translate(0, -20%);
-    border-color: green;
-}
-
 #player-name {
     position: absolute;
     top: 0%;
@@ -103,48 +62,6 @@ body {
     font-size: 2rem;
 }
 
-.card {
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: cover;
-    border-radius: 10px;
-    background-position: center;
-    height: 140px;
-    width: 100px;
-}
-
-.flop-card{
-    background: url("../images/kisspng-playing-card-visual-arts-tarot-studio-5b07327b32c0c3.8514217315271983312079.png");
-    background-size: cover;
-    border-radius: 10px;
-    background-position: center;    
-    height: 140px;
-    width: 100px;
-}
-
-#player-card-1 {
-    top: 700px;
-    left: 850px;
-}
-
-#player-card-2 {
-    top: 700px;
-    left: 975px;
-}
-
-/*.player-card:hover {
-    animation-play-state: running;
-}
-
-.player-card {
-    animation: test 0.8s ease-in-out infinite;
-    animation-play-state: paused;
-}
-
-.player-card:not(:hover) {
-    border-color: rgb(24, 24, 24);
-
-    animation: stop_hover 1s linear infinite;
-}*/
 
 @keyframes stop_hover {
     100% {
@@ -229,50 +146,6 @@ body {
     column-gap: 40px;
 }
 
-.flop-container > .card{
-}
-
-.bot_1_and_bot_4_container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 95%;
-    height: 199px;
-    display: grid;
-    transform: translate(-50%, -50%);
-    justify-content: center;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 40px;
-}
-
-.bot-1-container{
-    display: flex;
-    flex-direction: row;
-    column-gap: 20px;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.bot-1-container > .card{
-    position: static;
-    top: 0;
-    left: 0;
-}
-
-.bot-4-container{
-    display: flex;
-    flex-direction: row;
-    column-gap: 20px;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.bot-4-container > .card{
-    position: static;
-    top: 0;
-    left: 0;
-}
-
 .flipped{
     transform: rotateY(180deg);
     transition: transform 0.5s;
@@ -312,16 +185,6 @@ body {
     bottom: 50px;
 }
 
-.bot-2-container{
-    width: 190px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    column-gap: 20px;
-    align-items: center;
-    justify-content: flex-end;
-}
-
 .user-cards-container{
     width: 190px;
     height: 100%;
@@ -331,20 +194,6 @@ body {
     align-items: center;
     justify-content: flex-end;
 }
-
-.bot-3-container{
-    width: 190px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    column-gap: 20px;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-
-
-
 
 .centered {
     position: absolute;
@@ -356,7 +205,6 @@ body {
     width: 100%;
     height: 100%;
 }
-
 
 #bet-frame {
     position: absolute;
@@ -391,18 +239,6 @@ body {
 }
 
 .button {
-    /*color: rgb(107, 144, 175);
-    background-color: rgb(48, 48, 48);
-
-    width: 92px;
-    height: 32px;
-    
-    font-weight: 700;
-    border: 2px solid rgb(102, 131, 153);
-    border-radius: 8px;
-
-    cursor: pointer;*/
-
     width: 200px;
     height: 100px;
     background-color: #243b52;
@@ -422,12 +258,7 @@ body {
 
 .button > p {
     text-align: center;
-    /*margin: 0 0;
-    height: 100%;
-    width: 100%;*/
-
     margin-top: 32px;
-
     font-family: 'Roboto', sans-serif;
 }
 

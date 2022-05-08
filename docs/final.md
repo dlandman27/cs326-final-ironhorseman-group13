@@ -1,5 +1,5 @@
 # Team Name: Iron Horseman
-### Application Name: Blackjack
+### Application Name: RPG Blackjack
 # Spring 2022
 
 # Overview:
@@ -17,7 +17,7 @@ A unique take on the Blackjack playing cards game.  Users may select an interact
 ## Division of Labor, and Team Member Responibilities
 -Dylan Landman - HTML/CSS frontend
 -Jared Starman - Backend and database
--Brandon Halig - helped us on the last day
+-Brandon Halig - helped us on the last day idk what to write here
 -Jason Milhaven - Player interface, controls, gameplay
 
 ## UI ScreenShots
