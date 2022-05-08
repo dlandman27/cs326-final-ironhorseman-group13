@@ -106,7 +106,7 @@ async function getUser(username) {
     method: 'GET',
   });
   const data = await response.json();
-  return JSON.parse(JSON.stringify(data));
+  return data;
 }
 
 async function updateNumHands() {
@@ -119,6 +119,7 @@ async function updateNumHands() {
 
 
 let userInfo = await getUser(localUsername);
+userInfo = JSON.parse(JSON.stringify(userInfo));
 console.log(userInfo);
 totalPlayerMoney = userInfo.cash;
 assignPlayerAbility(userInfo.ability);
