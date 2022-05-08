@@ -29,12 +29,20 @@ screenshots are in the docs/screenshots folder
 ![Preview](https://github.com/dlandman27/cs326-final-ironhorseman-group13/blob/main/docs/screenshots/sign_in_page.jpg)
 
 ## API and routes:
-getUser - a get request returning the username, password, ability, cash, and num hands of a player given a username
-addUser - creates a new user account in the database
-signin - a get request which is a shorthand for returning info of a user after signing in
-update - updates a username and/or password of a player given their username
-updateNumHands - put request which updates the number of hands of Blackjack that a player has won
-updateCash - put request updating the money of a given user
+- getUser: a get request returning the username, password, ability, cash, and num hands of a player given a username
+- addUser: creates a new user account in the database
+- signin: a get request which is a shorthand for returning info of a user after signing in
+- update: updates a username and/or password of a player given their username
+- updateNumHands: put request which updates the number of hands of Blackjack that a player has won
+- updateCash: put request updating the money of a given user
+
+# interal API/functions
+- saveUsername(): Creates a User
+- getUser(): Read Function, gets the username/password of the given username
+- UpdatePerson(): Updates the password of the given username
+- topTenPlayerScores(): Read Function, Gets the top 10 users in the database
+- UpdateNumHands(): Updates the number of hands in the game
+- updateCash(): Used to add/remove cash/score to the given user
 
 ## Entities:
 The sole "data entity" in our project is the player.  We have a single table for the list of players.
