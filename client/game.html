@@ -34,7 +34,7 @@
                 <div id="suit-img-bottom-right" class="card-suit-img"></div>
             </div>
 
-            <p id="player-name">PLAYER_NAME</p>
+            <p id="player-name">User Cash</p>
             <p id="player-money"></p>
             
             <!--<div id="ability-hotbar">
@@ -102,6 +102,7 @@
             let [key,value] = el.split('=');
             cookie[key.trim()] = value;
         })
+        console.log(cookie['playerAbility']);
         document.getElementsByClassName("abilityDesc")[0].innerText = cookie['playerAbility'];
     </script>
 </html>

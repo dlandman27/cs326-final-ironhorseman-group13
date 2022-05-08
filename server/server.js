@@ -231,7 +231,7 @@ class PeopleServer {
     });
       this.app.get('/getUser', async (req, res) => {
         try {
-          const person = self.db.getUser(req.query.username);
+          const person = await self.db.getUser(req.query.username);
           res.send(JSON.stringify(person));
           res.end();
         } catch (err) {

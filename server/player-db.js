@@ -67,6 +67,15 @@ export class playerDatabase {
     return res.rows;
   }
 
+  async getUser(username) {
+    let queryText =
+    `
+        SELECT * FROM users WHERE username = $1;
+    `;
+    const res = await this.client.query(queryText, [username]);
+
+    return res.rows;
+  }
   // CREATE a user in the database.
   async saveUsername(username, password) {
 
@@ -133,15 +142,7 @@ export class playerDatabase {
     return res.rows;
   }
 */
-  async getUser(username) {
-    let queryText =
-    `
-        SELECT * FROM users WHERE username = $1;
-    `;
-    const res = await this.client.query(queryText, [username]);
 
-    return res.rows;
-  }
 
 
 }
