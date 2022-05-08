@@ -124,21 +124,6 @@ body {
     left: 975px;
 }
 
-/*.player-card:hover {
-    animation-play-state: running;
-}
-
-.player-card {
-    animation: test 0.8s ease-in-out infinite;
-    animation-play-state: paused;
-}
-
-.player-card:not(:hover) {
-    border-color: rgb(24, 24, 24);
-
-    animation: stop_hover 1s linear infinite;
-}*/
-
 @keyframes stop_hover {
     100% {
         border-color: rgb(24, 24, 24);

@@ -379,13 +379,11 @@ function declareVictoryTo(isPlayerWinner) {
 
         if (currentWinStreak > highestWinStreak) {
             highestWinStreak = currentWinStreak;
-            //onSaveHighestWinstreak();
         }
 
         if (totalPlayerMoney > highestMoneyEarned) {
             highestMoneyEarned = totalPlayerMoney;
             updatePlayerMoney();
-            //onSavehighestMoneyEarned();
         }
     } else {
         currentWinStreak = 0;
@@ -445,9 +443,6 @@ resetDeck();
 
 // set the phase to bet phase
 changeGamePhase();
-
-// TODO - call this thing given the ability the player select
-//assignPlayerAbility("sneak");
 
 
 async function resetButtons() {

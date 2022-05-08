@@ -20,5 +20,5 @@ playerScores, stores the scores/money accumulated while playing the game. The ga
 # Division of Labor
 ### Dylan: UI for non-table related pages, Login/Signup CRUD operations, CSS for pages, Database Implementation
 ### Jared: CRUD operations using Node
-### Brandon: Game Implementation
-### Jason: UX Implementation, created functionality between Server and Client for Scores.
+### Brandon: UX Implementation
+### Jason: Game Implementation, created functionality between Server and Client for Scores.
