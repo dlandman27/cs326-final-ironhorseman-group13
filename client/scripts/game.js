@@ -120,7 +120,7 @@ async function updateNumHands() {
 
 let userInfo = await getUser(localUsername);
 console.log(userInfo);
-userInfo = JSON.stringify(userInfo);
+userInfo = JSON.parse(JSON.stringify(userInfo));
 console.log(userInfo);
 totalPlayerMoney = userInfo.cash;
 assignPlayerAbility(userInfo.ability);
