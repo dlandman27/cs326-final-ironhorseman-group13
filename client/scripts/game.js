@@ -120,9 +120,9 @@ async function updateNumHands() {
 
 let userInfo = await getUser(localUsername);
 console.log(userInfo);
-userInfo = JSON.parse(JSON.stringify(userInfo));
-console.log(userInfo);
-totalPlayerMoney = userInfo.cash;
+
+totalPlayerMoney = userInfo[0].cash;
+console.log(totalPlayerMoney);
 assignPlayerAbility(userInfo.ability);
 
 
@@ -337,7 +337,8 @@ async function changeGamePhase() {
 
 // refresh the player's total money counter
 async function updatePlayerMoney() {
-    const prettyMoney = totalPlayerMoney.toFixed(2);
+    console.log(totalPlayerMoney);
+    const prettyMoney = totalPlayerMoney;
     const response = await fetch(`/updateCash?username=${localUsername}&cash=${prettyMoney}`, {
         method: 'PUT',
       });
