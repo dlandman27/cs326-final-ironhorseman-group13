@@ -102,6 +102,7 @@
             let [key,value] = el.split('=');
             cookie[key.trim()] = value;
         })
+        console.log(document.cookie);
         document.getElementsByClassName("abilityDesc")[0].innerText = cookie['playerAbility'];
     </script>
 </html>
