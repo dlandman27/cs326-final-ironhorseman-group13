@@ -83,7 +83,7 @@ export class playerDatabase {
     
     let numHands = "0";
     let cash = "1000";
-    if(user.rows.length > 0){
+    if(user.length > 0){
         return "Username already exists";
     }
     else{
