@@ -119,7 +119,7 @@ async function updateNumHands() {
 
 
 let userInfo = await getUser(localUsername);
-console.log("got: " + userInfo);
+console.log(userInfo);
 totalPlayerMoney = userInfo.cash;
 assignPlayerAbility(userInfo.ability);
 
