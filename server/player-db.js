@@ -74,7 +74,7 @@ export class playerDatabase {
     `;
     const res = await this.client.query(queryText, [username]);
 
-    return res;
+    return res.rows;
   }
   // CREATE a user in the database.
   async saveUsername(username, password) {
