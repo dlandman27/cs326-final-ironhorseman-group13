@@ -2,6 +2,9 @@
 ### Application Name: RPG Blackjack
 # Spring 2022
 
+## HEROKU LINK:
+https://secret-springs-74228.herokuapp.com/
+
 # Overview:
 A unique take on the Blackjack playing cards game.  Users may select an interactive ability to bring into each round of gameplay, including:
 "sneaking" from the deck, taking 2 of the 3 most optimal cards.  "Reverse", where the outcome of a game being won is flipped.  "Multiplier", where the bet is multiplied upon winning.
